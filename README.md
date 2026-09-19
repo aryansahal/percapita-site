@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Percapita Advisors — marketing site
 
-## Getting Started
+Single-page marketing site for Percapita Advisors, an AMFI-registered
+independent financial advisory and mutual fund distributor (ARN 142346).
+Built from the design handoff in `../design_handoff_percapita_site`.
 
-First, run the development server:
+## Running it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npx eslint src   # lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The handoff did not target an existing codebase and suggested "Next.js +
+Tailwind is a reasonable default for a marketing site", so that is what this
+is. Tailwind v4 has no `tailwind.config.js` — the theme lives in CSS.
 
-## Learn More
+## Layout of the code
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/app/globals.css    design tokens (@theme), shell/section utilities,
+                       marquee keyframes, range-slider styling
+src/app/layout.tsx     fonts + metadata
+src/app/page.tsx       section composition, top to bottom
+src/components/        one file per section, plus Photo and icons
+src/lib/content.ts     all copy and content lists
+src/lib/calculators.ts calculator maths, framework-free and unit-testable
+src/lib/enquiry.ts     form shape, validation gate, submit stub
+public/logos/          Percapita wordmark + 16 fund-house logos
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Only `Calculators.tsx` and `ContactForm.tsx` are client components. Everything
+else renders on the server.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design system notes
 
-## Deploy on Vercel
+Colours are defined once as tokens in `globals.css` and referenced by name
+(`bg-plum`, `text-violet`, `border-hair`). **Do not introduce new hues** — the
+palette is derived from the logo's purple gradient. One-off sizes stay as
+Tailwind arbitrary values (`text-[13.5px]`) because the design specifies exact
+pixel values rather than a step scale.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Three conventions carry most of the visual weight:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **`gap: 1px` over a tinted container** draws the hairline dividers between
+  cards. There are no borders on the cards themselves.
+- **No shadows anywhere.** Separation is hairlines and background tints only.
+- **No media queries.** Layout responds through `clamp()` for type and spacing
+  and `repeat(auto-fit, minmax(min(100%, Npx), 1fr))` for grids. Verified at
+  390 / 600 / 768 / 900 / 1280px with zero horizontal page overflow.
+
+## Things that will bite you
+
+Three pieces of CSS here look redundant and are not. All three were real bugs.
+
+1. **The header nav must not use `justify-content: flex-end`.** With
+   `overflow-x: auto`, flex-end pushes the overflow past the *start* edge where
+   scrolling cannot reach it, and the links paint on top of the logo. The
+   flexible spacer before the nav is what right-aligns it.
+
+2. **The marquee band background must stay `#ffffff`.** The logo PNGs have
+   opaque white backgrounds baked in. `mix-blend-mode: multiply` cannot drop
+   them — the animated track and the masked wrapper each create an isolated
+   group, so the blend resolves against transparency and does nothing. If
+   transparent PNGs or SVGs arrive, any band colour becomes possible.
+
+3. **The journey photo in "How We Work" needs `w-full`.** It has
+   `aspect-ratio: 4/3` and `height: 100%` so it matches the panel beside it.
+   Without a definite width, `aspect-ratio` derives the width *from* that
+   stretched height and the photo overflows the page on narrow screens. This
+   one was not in the handoff — the prototype has the same bug.
+
+## Legal copy
+
+The footer disclaimer and the "Regular Plans only" paragraph are
+client-supplied and must be reproduced verbatim. The advisory-only footnotes
+under *What We Do* and *Services*, and the assumption notes under each
+calculator result, are part of the design rather than decoration — keep them
+attached to what they qualify.
+
+Calculator output is illustrative. The 80C figures are an old-regime
+illustration including 4% cess and excluding surcharge.
+
+## Before this goes live
+
+See [OPEN-ITEMS.md](OPEN-ITEMS.md). The form does not submit anywhere yet and
+the photography is not licensed for production.

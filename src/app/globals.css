@@ -1,26 +1,169 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------------------------------------------------------------
+   Percapita design tokens.
+   Source: the Percapita logo's purple gradient. Do not introduce new hues.
+   --------------------------------------------------------------- */
+@theme {
+  /* Dark surfaces */
+  --color-aubergine: #160823;
+  --color-aubergine-dark: #1b0c2c;
+  --color-plum-dark: #1f0e33;
+  --color-plum: #2e1547;
+  --color-plum-mid: #331b50;
+
+  /* Purples */
+  --color-purple: #4b2478;
+  --color-purple-hover: #5e2f94;
+  --color-purple-accent: #7b4cb8;
+  --color-violet: #8b5cc7;
+  --color-lilac: #c3a0e4;
+  --color-lilac-light: #d4b8ee;
+  --color-lilac-tint: #e8d8f5;
+  --color-lilac-mid: #b48bd9;
+
+  /* Light surfaces + hairlines */
+  --color-surface: #f6f1fb;
+  --color-surface-2: #fbf8fe;
+  --color-hair: #ebe4f2;
+  --color-hair-2: #e6dcf0;
+  --color-field: #dcd1e8;
+  --color-outline: #d8cce5;
+
+  /* Ink on light */
+  --color-ink: #1d1b20;
+  --color-ink-2: #463f4e;
+  --color-ink-3: #5c5465;
+  --color-ink-4: #63596f;
+  --color-ink-5: #6a6374;
+  --color-ink-6: #332b3c;
+  --color-muted: #8a8394;
+  --color-muted-2: #9a93a4;
+  --color-muted-3: #a39cad;
+  --color-muted-4: #7a7383;
+
+  /* Ink on dark */
+  --color-on-dark: #dcd2e8;
+  --color-on-dark-2: #bcacce;
+  --color-on-dark-3: #b9a9cb;
+  --color-on-dark-4: #efe7f7;
+  --color-on-dark-5: #f1ebf7;
+  --color-on-dark-link: #d8cfe2;
+  --color-on-dark-muted: #9c8cb2;
+  --color-on-dark-muted-2: #9287a0;
+  --color-on-dark-muted-3: #8e8399;
+  --color-on-dark-muted-4: #7e7389;
+  --color-on-dark-muted-5: #8b7ca0;
+  --color-on-dark-muted-6: #9585ab;
+  --color-on-dark-strong: #c4b8d2;
+
+  /* WhatsApp affordances only */
+  --color-whatsapp: #25d366;
+
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Content shell: max-width 1200 + horizontal padding, per the handoff. */
+@utility shell {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 32px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Standard section rhythm. */
+@utility section-y {
+  padding-block: clamp(56px, 7vw, 96px);
+}
+
+/* Section eyebrow: 11px/700 uppercase .18em. Text only, no decorative rule. */
+@utility eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The header is sticky at 78px; keep anchored headings clear of it. */
+[id] {
+  scroll-margin-top: 92px;
+}
+
+h1,
+h2 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Marquee ------------------------------------------------------- */
+@keyframes pc-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.pc-marquee-track {
+  animation: pc-marquee 48s linear infinite;
+}
+
+.pc-marquee-mask:hover .pc-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Range sliders ------------------------------------------------- */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: var(--color-field);
+  border-radius: 2px;
+  outline: none;
+  margin: 14px 0 8px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-purple);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-purple);
+  cursor: pointer;
+}
+
+input[type="range"]:focus-visible {
+  outline: 2px solid var(--color-purple-accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pc-marquee-track {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
 }
