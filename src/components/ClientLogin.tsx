@@ -106,8 +106,14 @@ function ClientLoginDialog({ ref }: { ref: React.Ref<HTMLDialogElement> }) {
               </p>
             </div>
 
+            {/* Opens in a new tab so percapita.in survives the hand-off —
+                the closest thing to "not leaving" that is available while
+                InvestWell sends X-Frame-Options: SAMEORIGIN and blocks being
+                embedded. Drop target/rel to go back to same-tab. */}
             <a
               href={CLIENT_LOGIN.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-5 block rounded-[2px] bg-purple px-[22px] py-4 text-center text-[13.5px] font-bold text-white transition-colors duration-150 hover:bg-purple-hover"
             >
               Continue to Sign In

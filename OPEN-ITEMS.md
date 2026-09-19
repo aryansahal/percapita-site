@@ -13,6 +13,43 @@ Nothing here is blocked on engineering — each needs a decision or an asset.
 | 4 | **Fund-house logos are third-party trademarks.** 16 AMC marks used to indicate distribution relationships. | `public/logos/` | Trademark clearance. |
 | 5 | **App Store and Google Play links point at `#contact`.** | `SiteFooter.tsx` | Real store URLs, or drop the block. |
 
+### Client Login: embedding is blocked by InvestWell
+
+An in-page embed of the sign-in form is **not possible today**, and not for
+want of trying on our side. InvestWell sends:
+
+```
+x-frame-options: SAMEORIGIN
+```
+
+Framing it from percapita.in fails with `net::ERR_BLOCKED_BY_RESPONSE` and the
+frame never loads — verified directly, not inferred from the header. Every
+browser enforces this; it is InvestWell's decision, not a limitation of the
+site.
+
+Reverse-proxying their login through our own server to strip the header would
+work technically and must not be done: it puts Percapita's infrastructure in
+the path of every client password, breaching InvestWell's terms and creating
+exactly the liability the launcher exists to avoid.
+
+**To enable an embed, InvestWell have to allow it.** The support request is:
+
+> Please allow `percapita.investwell.app` to be embedded from our website by
+> replacing `X-Frame-Options: SAMEORIGIN` with:
+> `Content-Security-Policy: frame-ancestors 'self' https://percapita.in https://www.percapita.in`
+> Please also confirm embedded sign-in is supported — specifically that session
+> cookies are set `SameSite=None; Secure` (and ideally `Partitioned`), so
+> browser third-party-cookie restrictions do not break the session in a frame.
+
+That second paragraph matters: even with framing permitted, an embedded
+cross-site login can fail under Safari ITP, Firefox ETP and Chrome's storage
+partitioning. Get InvestWell to confirm they support it before we build it,
+otherwise clients hit a login that silently will not hold a session.
+
+Until then the launcher opens InvestWell in a **new tab**, so percapita.in
+stays open behind it rather than being replaced. One `target` attribute in
+`ClientLogin.tsx` reverts that to same-tab.
+
 ### Client Login: ask InvestWell for a custom domain
 
 Client accounts live on InvestWell at `percapita.investwell.app`, so Percapita
