@@ -60,12 +60,25 @@ managers (which key on origin), stops clients verifying the TLS certificate,
 and makes Percapita liable for passwords it has no reason to hold. The in-page
 launcher names the destination and hands over instead.
 
-`percapita.investwell.app` is already a per-tenant subdomain, so InvestWell
-clearly supports white-labelling. **Worth asking whether they will also CNAME a
-custom domain** — `invest.percapita.in` — which would put the sign-in on
-Percapita's own domain with a matching certificate, while InvestWell still
-handles every credential. Better asked before launch than after clients have
-bookmarked the current URL.
+**InvestWell advertises "Custom Domain" as a feature.** It appears under the
+Security section of their own pricing comparison matrix at
+investwellonline.com/pricing, alongside "Single Sign On", "Google Sign In" and
+"IP Whitelisting". So `invest.percapita.in` is very likely available on the
+existing plan — ask their helpdesk (help.investwellonline.com) to enable it and
+tell us the CNAME target. No public setup documentation exists, so it is a
+support request rather than a self-serve setting; check the InvestWell admin
+panel first in case it is exposed there.
+
+Worth doing before launch rather than after clients have bookmarked the current
+URL.
+
+**A custom domain does not enable embedding.** `X-Frame-Options: SAMEORIGIN`
+compares the exact origin, and `invest.percapita.in` is still a different origin
+from `percapita.in`, so framing stays blocked. The two are separate asks: the
+custom domain fixes the address bar, the `frame-ancestors` header above is what
+would permit an embed. "Single Sign On" is also listed and may be worth asking
+about, but there is no public detail on what it covers — do not assume it means
+SSO from our own website.
 
 If that happens, it is a one-line change to `CLIENT_LOGIN.url`; the dialog
 reads the host from it and the verification panel updates itself.
