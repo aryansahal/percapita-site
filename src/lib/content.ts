@@ -29,27 +29,44 @@ export const HERO_STATS = [
 ] as const;
 
 /**
- * Fund houses, in the marquee's display order. `file` maps to /public/logos.
+ * The Percapita wordmark's intrinsic pixel size, used to keep next/image's
+ * aspect ratio honest wherever it is rendered at a different width.
+ */
+export const WORDMARK = { src: "/logos/percapita-mark.png", w: 949, h: 285 };
+
+/**
+ * Fund houses, in the marquee's display order. `file` maps to /public/logos;
+ * `w`/`h` are each PNG's intrinsic size. They differ wildly (ratios run from
+ * 1.45 to 6.79), so they cannot be approximated with one shared value —
+ * next/image warns when the rendered ratio disagrees with the declared one.
+ *
  * OPEN ITEM: third-party trademarks — confirm usage rights before launch.
  */
 export const FUND_HOUSES = [
-  { file: "8.png", name: "SBI Mutual Fund" },
-  { file: "9.png", name: "Kotak Mahindra Mutual Fund" },
-  { file: "14.png", name: "Nippon India Mutual Fund" },
-  { file: "15.png", name: "PGIM India Mutual Fund" },
-  { file: "16.png", name: "Bandhan Mutual Fund" },
-  { file: "12.png", name: "Motilal Oswal Mutual Fund" },
-  { file: "13.png", name: "PPFAS Mutual Fund" },
-  { file: "11.png", name: "Aditya Birla Capital Mutual Funds" },
-  { file: "10.png", name: "Mirae Asset Mutual Fund" },
-  { file: "4.png", name: "Canara Robeco Mutual Fund" },
-  { file: "5.png", name: "HDFC Mutual Fund" },
-  { file: "7.png", name: "Invesco Mutual Fund" },
-  { file: "6.png", name: "ICICI Prudential Mutual Fund" },
-  { file: "2.png", name: "Edelweiss Mutual Fund" },
-  { file: "3.png", name: "Baroda BNP Paribas Mutual Fund" },
-  { file: "1.png", name: "DSP Mutual Fund" },
+  { file: "8.png", name: "SBI Mutual Fund", w: 863, h: 167 },
+  { file: "9.png", name: "Kotak Mahindra Mutual Fund", w: 797, h: 224 },
+  { file: "14.png", name: "Nippon India Mutual Fund", w: 700, h: 291 },
+  { file: "15.png", name: "PGIM India Mutual Fund", w: 588, h: 289 },
+  { file: "16.png", name: "Bandhan Mutual Fund", w: 679, h: 253 },
+  { file: "12.png", name: "Motilal Oswal Mutual Fund", w: 505, h: 294 },
+  { file: "13.png", name: "PPFAS Mutual Fund", w: 602, h: 207 },
+  { file: "11.png", name: "Aditya Birla Capital Mutual Funds", w: 621, h: 274 },
+  { file: "10.png", name: "Mirae Asset Mutual Fund", w: 829, h: 260 },
+  { file: "4.png", name: "Canara Robeco Mutual Fund", w: 971, h: 143 },
+  { file: "5.png", name: "HDFC Mutual Fund", w: 512, h: 208 },
+  { file: "7.png", name: "Invesco Mutual Fund", w: 466, h: 321 },
+  { file: "6.png", name: "ICICI Prudential Mutual Fund", w: 494, h: 221 },
+  { file: "2.png", name: "Edelweiss Mutual Fund", w: 752, h: 149 },
+  { file: "3.png", name: "Baroda BNP Paribas Mutual Fund", w: 752, h: 267 },
+  { file: "1.png", name: "DSP Mutual Fund", w: 733, h: 147 },
 ] as const;
+
+/** Rendered height of every logo in the marquee. */
+export const MARQUEE_LOGO_HEIGHT = 38;
+
+/** Horizontal space after each logo. Applied per item, not as a flex gap —
+ *  see the note in LogoMarquee about why that distinction matters. */
+export const MARQUEE_LOGO_SPACING = 64;
 
 export const VALUES = [
   {

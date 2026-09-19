@@ -1,5 +1,10 @@
 import Image from "next/image";
-import { CONTACT, FOOTER_COMPANY, FOOTER_SERVICES } from "@/lib/content";
+import {
+  CONTACT,
+  FOOTER_COMPANY,
+  FOOTER_SERVICES,
+  WORDMARK,
+} from "@/lib/content";
 import { AppleIcon, MailIcon, PlayIcon, UserIcon, WhatsAppIcon } from "./icons";
 
 const LINK_CLASS =
@@ -49,10 +54,11 @@ export function SiteFooter() {
           {/* The wordmark has a baked-in white background, so the plate is
               intentional. A transparent SVG would let it go. */}
           <Image
-            src="/logos/percapita-mark.png"
+            src={WORDMARK.src}
             alt="Percapita"
-            width={186}
-            height={54}
+            width={WORDMARK.w}
+            height={WORDMARK.h}
+            sizes="186px"
             className="h-auto w-[186px] bg-white object-contain px-[18px] py-[14px]"
           />
           <p className="mt-[18px] max-w-[280px] text-[13px] leading-[1.75] text-on-dark-muted-2">

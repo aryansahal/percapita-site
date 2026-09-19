@@ -157,10 +157,18 @@ input[type="range"]:focus-visible {
   outline-offset: 4px;
 }
 
+/* The marquee deliberately runs even under `prefers-reduced-motion: reduce`.
+   Honouring it there was the original behaviour, but it stops the strip dead
+   on any machine with OS animation effects switched off, which reads as a
+   broken component rather than a considered fallback. Hover-pause is the
+   escape hatch. To restore the guard, add back:
+
+     @media (prefers-reduced-motion: reduce) {
+       .pc-marquee-track { animation: none; }
+     }
+
+   See OPEN-ITEMS.md — this is a product decision, not a technical one. */
 @media (prefers-reduced-motion: reduce) {
-  .pc-marquee-track {
-    animation: none;
-  }
   *,
   *::before,
   *::after {

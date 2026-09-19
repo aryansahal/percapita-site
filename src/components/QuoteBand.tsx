@@ -11,7 +11,7 @@ export function QuoteBand() {
           credit={PHOTOS.quote.credit}
           creditHref={PHOTOS.quote.creditHref}
           creditAlign="right"
-          sizes="100vw"
+          sizes="(max-width: 1264px) 100vw, 1200px"
         />
         <div
           aria-hidden="true"

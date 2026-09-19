@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { NAV_LINKS } from "@/lib/content";
+import { NAV_LINKS, WORDMARK } from "@/lib/content";
 
 /**
  * Sticky header. Stays a single row at every width — the nav scrolls
@@ -15,10 +15,11 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-hair bg-white">
       <div className="mx-auto flex h-[78px] max-w-[1200px] flex-nowrap items-center gap-[clamp(20px,3vw,40px)] px-[clamp(16px,3vw,32px)]">
         <Image
-          src="/logos/percapita-mark.png"
+          src={WORDMARK.src}
           alt="Percapita"
-          width={168}
-          height={48}
+          width={WORDMARK.w}
+          height={WORDMARK.h}
+          sizes="168px"
           priority
           className="h-auto w-[clamp(118px,15vw,168px)] flex-none object-contain"
         />

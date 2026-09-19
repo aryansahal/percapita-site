@@ -22,6 +22,17 @@ Nothing here is blocked on engineering — each needs a decision or an asset.
 
 ## Design decisions still open
 
+**0. The marquee ignores `prefers-reduced-motion`.** It was honouring it, but
+that stops the strip dead on any machine with OS animation effects switched
+off — which reads as a broken component, not a considered fallback. It now
+animates unconditionally, with hover-pause as the escape hatch.
+
+This is a real accessibility trade-off, not a settled question: hover-pause
+does nothing for keyboard or touch users, and continuous motion in the
+viewport is exactly what the setting exists to prevent. The better answer is
+probably a visible pause/play control, which would also serve everyone else.
+The guard is a four-line revert — see the comment in `globals.css`.
+
 **8. Mobile nav.** The header stays one row at every width and the nav scrolls
 horizontally. The handoff called this "the minimum correct one" and suggested a
 hamburger or drawer below ~768px would be nicer. Implemented as specified,
