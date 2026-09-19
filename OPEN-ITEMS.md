@@ -12,25 +12,26 @@ Nothing here is blocked on engineering — each needs a decision or an asset.
 | 3 | **Photography is unlicensed.** Three Unsplash placeholders, hotlinked, with credit chips. | `src/lib/content.ts` → `PHOTOS` | Licensed or client photography. Drop them in `public/`, remove the `remotePatterns` block in `next.config.ts`, and pass `credit={null}` — the credit chips disappear with the placeholders. |
 | 4 | **Fund-house logos are third-party trademarks.** 16 AMC marks used to indicate distribution relationships. | `public/logos/` | Trademark clearance. |
 | 5 | **App Store and Google Play links point at `#contact`.** | `SiteFooter.tsx` | Real store URLs, or drop the block. |
-| 5b | **Client Login has no destination.** Until one is set, the launcher shows a "not live yet" panel with contact details rather than a link to nowhere. | `src/lib/clientLogin.ts` | The sign-in URL — ideally a white-label subdomain, see below. |
 
-### Client Login: ask the platform vendor for a white-label subdomain
+### Client Login: ask InvestWell for a custom domain
 
-Client accounts live on a third-party transaction platform, so Percapita must
-never render a password field for it, proxy a sign-in, or iframe the vendor's
+Client accounts live on InvestWell at `percapita.investwell.app`, so Percapita
+must never render a password field for it, proxy a sign-in, or iframe that
 login page. Collecting someone else's credentials is credential interception
 however well intentioned — it breaks the vendor's terms, defeats password
 managers (which key on origin), stops clients verifying the TLS certificate,
-and makes Percapita liable for passwords it has no reason to hold.
+and makes Percapita liable for passwords it has no reason to hold. The in-page
+launcher names the destination and hands over instead.
 
-The way to genuinely keep clients on `percapita.in` is a **white-label
-subdomain**: ask the vendor to serve their login at `invest.percapita.in` via
-CNAME, with a certificate on your domain and your branding. Same look, honest
-URL, and they still handle every credential. Most vendors support this — ask
-before launch, because retrofitting it changes the URL clients have bookmarked.
+`percapita.investwell.app` is already a per-tenant subdomain, so InvestWell
+clearly supports white-labelling. **Worth asking whether they will also CNAME a
+custom domain** — `invest.percapita.in` — which would put the sign-in on
+Percapita's own domain with a matching certificate, while InvestWell still
+handles every credential. Better asked before launch than after clients have
+bookmarked the current URL.
 
-Until then the in-page launcher keeps clients in context and names the
-destination before handing over. Set `CLIENT_LOGIN.url` and it switches on.
+If that happens, it is a one-line change to `CLIENT_LOGIN.url`; the dialog
+reads the host from it and the verification panel updates itself.
 
 **Compliance check before launch.** The principles that clearly bear on this
 are SEBI's cybersecurity and cyber-resilience expectations, AMFI's rules on

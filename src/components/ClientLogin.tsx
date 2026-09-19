@@ -82,12 +82,13 @@ function ClientLoginDialog({ ref }: { ref: React.Ref<HTMLDialogElement> }) {
               id="client-login-title"
               className="mt-[18px] text-[21px] leading-[1.25] font-bold tracking-[-0.025em]"
             >
-              Continue to {CLIENT_LOGIN.platformName}.
+              Continue to your investment account.
             </h2>
             <p className="mt-3 text-[13.5px] leading-[1.7] text-ink-3">
-              Your investment account is held on our transaction platform. You
-              will sign in there with the credentials issued to you — Percapita
-              does not handle your password.
+              Your account is held on {CLIENT_LOGIN.platformName}, the
+              transaction platform Percapita uses. You will sign in there with
+              the credentials issued to you — Percapita does not handle your
+              password.
             </p>
 
             {/* Naming the destination is the point: a client who has seen this

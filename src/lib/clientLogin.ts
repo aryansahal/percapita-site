@@ -16,20 +16,23 @@
  */
 export const CLIENT_LOGIN = {
   /**
-   * OPEN ITEM: set this to the real sign-in URL.
+   * Percapita's tenant on InvestWell. The `#/login` fragment is the platform's
+   * client-side route, so keep the path intact rather than trimming to the
+   * host.
    *
-   * Strongly prefer a white-label subdomain the platform vendor CNAMEs for
-   * you — `https://invest.percapita.in` — over the vendor's own domain. Same
-   * brand, honest URL, TLS on your domain, and they still handle every
-   * credential. Most vendors support this; ask for it before launch.
+   * Worth revisiting: this is already a per-tenant subdomain, so InvestWell
+   * clearly supports white-labelling. Ask whether they will also CNAME a
+   * custom domain — `invest.percapita.in` — which would put the sign-in on
+   * Percapita's own domain with a certificate to match. Better done before
+   * launch than after clients have bookmarked this one. See OPEN-ITEMS.md.
    *
-   * While this is null the launcher degrades to a contact panel rather than
-   * shipping a button that goes somewhere wrong.
+   * If this is ever set back to null the launcher degrades to a contact panel
+   * rather than shipping a button that goes somewhere wrong.
    */
-  url: null as string | null,
+  url: "https://percapita.investwell.app/app/#/login" as string | null,
 
-  /** How the destination is described to clients. */
-  platformName: "the Percapita investment platform",
+  /** How the destination is named to clients, so they can recognise it. */
+  platformName: "InvestWell",
 } as const;
 
 /** The host clients should expect to see in the address bar, for verification. */
