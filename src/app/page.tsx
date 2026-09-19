@@ -1,4 +1,5 @@
 import { Calculators } from "@/components/Calculators";
+import { ClientLoginProvider } from "@/components/ClientLogin";
 import { GetInTouch } from "@/components/GetInTouch";
 import { Hero } from "@/components/Hero";
 import { HowWeWork } from "@/components/HowWeWork";
@@ -12,7 +13,7 @@ import { PositioningBand, WhoWeAre } from "@/components/WhoWeAre";
 
 export default function Home() {
   return (
-    <>
+    <ClientLoginProvider>
       <SiteHeader />
       <main>
         <Hero />
@@ -27,6 +28,6 @@ export default function Home() {
         <GetInTouch />
       </main>
       <SiteFooter />
-    </>
+    </ClientLoginProvider>
   );
 }

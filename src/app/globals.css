@@ -104,6 +104,14 @@ p {
   text-wrap: pretty;
 }
 
+/* Modal dialog -------------------------------------------------- */
+
+/* showModal() makes the rest of the page inert but does not stop the body
+   scrolling behind the backdrop. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 /* Marquee ------------------------------------------------------- */
 @keyframes pc-marquee {
   from {

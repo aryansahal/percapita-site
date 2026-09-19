@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { NAV_LINKS, WORDMARK } from "@/lib/content";
+import { ClientLoginTrigger } from "./ClientLogin";
 
 /**
  * Sticky header. Stays a single row at every width — the nav scrolls
@@ -43,12 +44,9 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <a
-          href="#contact"
-          className="flex-none rounded-[2px] bg-purple px-[22px] py-3 text-[13px] font-semibold whitespace-nowrap text-white transition-colors duration-150 hover:bg-purple-hover"
-        >
+        <ClientLoginTrigger className="flex-none rounded-[2px] bg-purple px-[22px] py-3 text-[13px] font-semibold whitespace-nowrap text-white transition-colors duration-150 hover:bg-purple-hover">
           Client Login
-        </a>
+        </ClientLoginTrigger>
       </div>
     </header>
   );

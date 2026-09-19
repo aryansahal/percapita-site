@@ -6,6 +6,7 @@ import {
   WORDMARK,
 } from "@/lib/content";
 import { AppleIcon, MailIcon, PlayIcon, UserIcon, WhatsAppIcon } from "./icons";
+import { ClientLoginTrigger } from "./ClientLogin";
 
 const LINK_CLASS =
   "text-[13.5px] text-on-dark-link transition-colors duration-150 hover:text-lilac";
@@ -123,13 +124,12 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <a
-                href="#contact"
+              <ClientLoginTrigger
                 className={`flex items-center gap-2.5 ${LINK_CLASS}`}
               >
                 <UserIcon size={15} className="flex-none" />
                 <span>Client Login</span>
-              </a>
+              </ClientLoginTrigger>
             </li>
           </ul>
 

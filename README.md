@@ -76,6 +76,15 @@ Three pieces of CSS here look redundant and are not. All three were real bugs.
    stretched height and the photo overflows the page on narrow screens. This
    one was not in the handoff — the prototype has the same bug.
 
+## Client Login
+
+Client accounts live on a third-party transaction platform, not here. The
+header and footer triggers open an in-page launcher that names the destination
+and hands over; nothing on this site collects, proxies or frames a platform
+credential, and it must stay that way. Destination lives in
+`src/lib/clientLogin.ts`. See OPEN-ITEMS.md for the white-label subdomain
+recommendation.
+
 ## Legal copy
 
 The footer disclaimer and the "Regular Plans only" paragraph are
