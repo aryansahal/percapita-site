@@ -3,7 +3,7 @@ import { ClientLoginProvider } from "@/components/ClientLogin";
 import { GetInTouch } from "@/components/GetInTouch";
 import { Hero } from "@/components/Hero";
 import { HowWeWork } from "@/components/HowWeWork";
-import { LogoMarquee } from "@/components/LogoMarquee";
+import { NavMarquee } from "@/components/NavMarquee";
 import { QuoteBand } from "@/components/QuoteBand";
 import { Services } from "@/components/Services";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -25,7 +25,7 @@ export default function Home() {
         <Calculators />
         <HowWeWork />
         <GetInTouch />
-        <LogoMarquee />
+        <NavMarquee />
       </main>
       <SiteFooter />
     </ClientLoginProvider>

@@ -85,6 +85,29 @@ credential, and it must stay that way. Destination lives in
 `src/lib/clientLogin.ts`. See OPEN-ITEMS.md for the white-label subdomain
 recommendation.
 
+## The NAV band
+
+The scrolling band above the footer shows current NAVs for one flagship scheme
+per fund house, from AMFI's published feed
+(`amfiindia.com/spages/NAVAll.txt`). Fetched server-side and revalidated
+hourly; AMFI publishes once a day.
+
+Two things about it are load-bearing:
+
+- **Regular Plan, Growth only.** Percapita distributes Regular Plans (see the
+  footer disclosure), so showing Direct plan NAVs would misrepresent what a
+  client actually buys. `isRegularGrowth()` in `src/lib/nav.ts` enforces it.
+- **It falls back to the logo marquee** if AMFI is unreachable, so the page
+  never renders an empty or half-broken strip. `LogoMarquee` is still a live
+  component for exactly this reason — do not delete it as unused.
+
+The feed is not internally consistent: Plan and Option are blank on ~5,700 of
+~14,400 rows (those carry both inside the scheme name), and Option appears as
+`Growth`, `Growth Option`, `GROWTH OPTION` and `Regular Growth` depending on
+the house. The parser tolerates all of these. Schemes are keyed by AMFI scheme
+code rather than name, because names keep changing — several "Bluechip" funds
+became "Large Cap" in recent SEBI-driven renames.
+
 ## Legal copy
 
 The footer disclaimer and the "Regular Plans only" paragraph are

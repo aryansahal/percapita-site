@@ -100,6 +100,27 @@ integration pattern, which is the shortest path.
 
 ## Design decisions still open
 
+**10. Which schemes appear in the NAV band.** Currently one flagship
+Regular/Growth scheme per fund house already shown on the site — mostly large
+cap and flexi cap. This was our selection, not the client's. Percapita may
+prefer the schemes they actually recommend most, or a spread across
+categories. Codes live in `TICKER_SCHEMES` in `src/lib/nav.ts`.
+
+**11. No daily change figure.** The band shows NAV and the as-on date but no
+day-on-day movement, because AMFI's feed carries only the current value.
+Showing change would mean storing the previous day's file and diffing it.
+Worth asking whether it is wanted before building that.
+
+**A note on the stock-price API that was considered.** The
+Indian-Stock-Market-API repo was evaluated and rejected: its only hosted
+endpoint is a bare IP over plain HTTP (blocked as mixed content from an HTTPS
+site, and unreachable when tested), its data comes from Yahoo Finance whose
+terms likely prohibit redistribution, GitHub reports no licence despite the
+readme claiming MIT, and the readme itself says "for educational purposes
+only. Not for financial decisions" — which does not belong on an
+AMFI-registered advisory site. AMFI's own feed is free, official and fit for
+this purpose.
+
 **0. The marquee ignores `prefers-reduced-motion`.** It was honouring it, but
 that stops the strip dead on any machine with OS animation effects switched
 off — which reads as a broken component, not a considered fallback. It now
