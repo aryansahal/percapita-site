@@ -87,7 +87,7 @@ recommendation.
 
 ## The NAV band
 
-The scrolling band above the footer shows current NAVs for one flagship scheme
+The scrolling band below the hero shows current NAVs for one flagship scheme
 per fund house, from AMFI's published feed
 (`amfiindia.com/spages/NAVAll.txt`). Fetched server-side and revalidated
 hourly; AMFI publishes once a day.
@@ -97,9 +97,9 @@ Two things about it are load-bearing:
 - **Regular Plan, Growth only.** Percapita distributes Regular Plans (see the
   footer disclosure), so showing Direct plan NAVs would misrepresent what a
   client actually buys. `isRegularGrowth()` in `src/lib/nav.ts` enforces it.
-- **It falls back to the logo marquee** if AMFI is unreachable, so the page
-  never renders an empty or half-broken strip. `LogoMarquee` is still a live
-  component for exactly this reason — do not delete it as unused.
+- **It renders nothing if AMFI is unreachable**, and the page closes up. It
+  must not fall back to `LogoMarquee`: that is a separate band already on the
+  page above the footer, and falling back would render it twice.
 
 The feed is not internally consistent: Plan and Option are blank on ~5,700 of
 ~14,400 rows (those carry both inside the scheme name), and Option appears as

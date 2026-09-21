@@ -1,11 +1,12 @@
 import { fetchSchemeNavs, type SchemeNav } from "@/lib/nav";
-import { LogoMarquee } from "./LogoMarquee";
 
 /**
- * Scrolling band of current scheme NAVs, sourced from AMFI.
+ * Scrolling band of current scheme NAVs, sourced from AMFI. Sits below the
+ * hero; the fund-house logo marquee is a separate band above the footer.
  *
- * If AMFI is unreachable the band falls back to the fund-house logo marquee,
- * so the page never shows an empty or half-broken strip.
+ * If AMFI is unreachable this renders nothing and the page simply closes up.
+ * It must NOT fall back to the logo marquee — that band is already on the page
+ * further down, and a failed fetch would render it twice.
  *
  * Spacing sits on each item rather than in a flex `gap` for the same reason as
  * the logo marquee: a gap only falls *between* items, so half the duplicated
@@ -13,7 +14,7 @@ import { LogoMarquee } from "./LogoMarquee";
  */
 export async function NavMarquee() {
   const navs = await fetchSchemeNavs();
-  if (!navs || navs.length === 0) return <LogoMarquee />;
+  if (!navs || navs.length === 0) return null;
 
   const asOn = navs[0].date;
   const track = [...navs, ...navs];
