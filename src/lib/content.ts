@@ -167,27 +167,24 @@ export const FOOTER_COMPANY = [
 ] as const;
 
 /**
- * Placeholder photography — Unsplash, NOT licensed for production.
- * OPEN ITEM: replace with the client's own or properly licensed images, at
- * which point the credit lines come out too.
+ * Placeholder photography. OPEN ITEM: replace with the client's own or
+ * properly licensed images.
+ *
+ * These are Unsplash images. Attribution is not rendered because the Unsplash
+ * Licence does not require it, but for the record the photographers are:
+ * hero — Ratul Puri; quote — Vitaly Gariev; journey — Sortter.
  */
 export const PHOTOS = {
   hero: {
     src: "https://images.unsplash.com/photo-1742981365880-698cfb84492d?fm=jpg&q=80&w=1200&h=1500&auto=format&fit=crop&crop=faces",
     alt: "An advisor in conversation with a client",
-    credit: "Photo by Ratul Puri on Unsplash",
-    creditHref: "https://unsplash.com/@ratulpuri",
   },
   quote: {
     src: "https://images.unsplash.com/photo-1714974528718-b3b52f91c334?fm=jpg&q=80&w=1800&auto=format&fit=crop",
     alt: "An advisory meeting in progress",
-    credit: "Photo by Vitaly Gariev on Unsplash",
-    creditHref: "https://unsplash.com/@silverkblack",
   },
   journey: {
     src: "https://images.unsplash.com/photo-1647510284152-473953f84acc?fm=jpg&q=80&w=1200&auto=format&fit=crop",
     alt: "A client meeting at Percapita",
-    credit: "Photo by Sortter on Unsplash",
-    creditHref: "https://unsplash.com/@sortter",
   },
 } as const;

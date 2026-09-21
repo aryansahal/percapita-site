@@ -45,8 +45,6 @@ export function HowWeWork() {
             <Photo
               src={PHOTOS.journey.src}
               alt={PHOTOS.journey.alt}
-              credit={PHOTOS.journey.credit}
-              creditHref={PHOTOS.journey.creditHref}
               sizes="(max-width: 700px) 100vw, 50vw"
             />
           </div>

@@ -58,9 +58,6 @@ export function Hero() {
           <Photo
             src={PHOTOS.hero.src}
             alt={PHOTOS.hero.alt}
-            credit={PHOTOS.hero.credit}
-            creditHref={PHOTOS.hero.creditHref}
-            creditAlign="right"
             priority
             sizes="(max-width: 700px) 100vw, 50vw"
           />

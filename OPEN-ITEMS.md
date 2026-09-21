@@ -9,7 +9,7 @@ Nothing here is blocked on engineering — each needs a decision or an asset.
 |---|------|-------|-------|
 | 1 | **Form goes nowhere.** `submitEnquiry()` resolves locally and shows the thank-you panel. | `src/lib/enquiry.ts` | Endpoint or CRM, server-side validation, spam protection. The client-side check is a UX gate, not a security boundary. |
 | 2 | **Error state undesigned.** There is a plain text fallback in existing tokens. | `ContactForm.tsx` | Design sign-off. |
-| 3 | **Photography is unlicensed.** Three Unsplash placeholders, hotlinked, with credit chips. | `src/lib/content.ts` → `PHOTOS` | Licensed or client photography. Drop them in `public/`, remove the `remotePatterns` block in `next.config.ts`, and pass `credit={null}` — the credit chips disappear with the placeholders. |
+| 3 | **Photography is placeholder.** Three Unsplash images, hotlinked. The Unsplash Licence permits commercial use without attribution, so no credit is rendered, but these are still stand-ins. | `src/lib/content.ts` → `PHOTOS` | Client or licensed photography. Drop the files in `public/`, point `PHOTOS` at them, and remove the `remotePatterns` block in `next.config.ts`. |
 | 4 | **Fund-house logos are third-party trademarks.** 16 AMC marks used to indicate distribution relationships. | `public/logos/` | Trademark clearance. |
 | 5 | **App Store and Google Play links point at `#contact`.** | `SiteFooter.tsx` | Real store URLs, or drop the block. |
 

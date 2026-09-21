@@ -8,9 +8,6 @@ export function QuoteBand() {
         <Photo
           src={PHOTOS.quote.src}
           alt={PHOTOS.quote.alt}
-          credit={PHOTOS.quote.credit}
-          creditHref={PHOTOS.quote.creditHref}
-          creditAlign="right"
           sizes="(max-width: 1264px) 100vw, 1200px"
         />
         <div
