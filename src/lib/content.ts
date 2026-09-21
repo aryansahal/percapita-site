@@ -7,7 +7,9 @@
 
 export const CONTACT = {
   whatsappHref: "https://wa.me/919920666628",
-  whatsappLabel: "9920 6666 28",
+  /** Displayed everywhere the number appears. The grouping is the client's,
+   *  from the design handoff; only the country code was added. */
+  whatsappLabel: "+91 9920 6666 28",
   email: "contact@percapita.in",
   emailHref: "mailto:contact@percapita.in",
   arn: "ARN 142346",
