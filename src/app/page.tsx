@@ -17,7 +17,6 @@ export default function Home() {
       <SiteHeader />
       <main>
         <Hero />
-        <LogoMarquee />
         <PositioningBand />
         <WhoWeAre />
         <QuoteBand />
@@ -26,6 +25,7 @@ export default function Home() {
         <Calculators />
         <HowWeWork />
         <GetInTouch />
+        <LogoMarquee />
       </main>
       <SiteFooter />
     </ClientLoginProvider>
