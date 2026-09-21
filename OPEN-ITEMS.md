@@ -132,10 +132,11 @@ viewport is exactly what the setting exists to prevent. The better answer is
 probably a visible pause/play control, which would also serve everyone else.
 The guard is a four-line revert — see the comment in `globals.css`.
 
-**8. Mobile nav.** The header stays one row at every width and the nav scrolls
-horizontally. The handoff called this "the minimum correct one" and suggested a
-hamburger or drawer below ~768px would be nicer. Implemented as specified,
-because the pattern is the client's call, not ours.
+**8. Mobile nav — done.** The scrolling nav collapsed to a ~65px sliver at
+390px, so the links now move into a menu panel below 768px (`MobileNav.tsx`).
+The handoff anticipated this: it called the horizontal scroll "the minimum
+correct one" and a drawer "the nicer answer". Client Login stays in the bar at
+every width — it fits at 390px and is the primary CTA.
 
 **9. Hero stat row: 2 columns or 3?** The handoff prose says "Stat row: 3
 columns", but the prototype's own CSS

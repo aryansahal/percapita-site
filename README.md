@@ -62,7 +62,8 @@ Three pieces of CSS here look redundant and are not. All three were real bugs.
 1. **The header nav must not use `justify-content: flex-end`.** With
    `overflow-x: auto`, flex-end pushes the overflow past the *start* edge where
    scrolling cannot reach it, and the links paint on top of the logo. The
-   flexible spacer before the nav is what right-aligns it.
+   flexible spacer before the nav is what right-aligns it. This applies to the
+   inline nav shown at 768px and up; below that the links live in `MobileNav`.
 
 2. **The marquee band background must stay `#ffffff`.** The logo PNGs have
    opaque white backgrounds baked in. `mix-blend-mode: multiply` cannot drop
