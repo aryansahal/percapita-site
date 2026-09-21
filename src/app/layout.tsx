@@ -10,7 +10,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Percapita Advisors — Tailored Financial Planning & Investment Solutions",
+  title: "Percapita Advisors | Tailored Financial Planning & Investment Solutions",
   description:
     "Independent financial advisory and AMFI-registered mutual fund distribution in Mumbai and Pune. Research driven financial planning, investment advisory, fixed deposits and general insurance. ARN 142346.",
 };

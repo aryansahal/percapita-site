@@ -87,7 +87,7 @@ function ClientLoginDialog({ ref }: { ref: React.Ref<HTMLDialogElement> }) {
             <p className="mt-3 text-[13.5px] leading-[1.7] text-ink-3">
               Your account is held on {CLIENT_LOGIN.platformName}, the
               transaction platform Percapita uses. You will sign in there with
-              the credentials issued to you — Percapita does not handle your
+              the credentials issued to you. Percapita does not handle your
               password.
             </p>
 
@@ -134,7 +134,7 @@ function ClientLoginDialog({ ref }: { ref: React.Ref<HTMLDialogElement> }) {
             </h2>
             <p className="mt-3 text-[13.5px] leading-[1.7] text-ink-3">
               Online account access is being set up. In the meantime your
-              advisor can pull any statement or valuation you need — just ask.
+              advisor can pull any statement or valuation you need. Just ask.
             </p>
           </>
         )}

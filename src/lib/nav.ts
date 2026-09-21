@@ -83,7 +83,7 @@ function tidyName(name: string): string {
 
 function formatNav(value: string): string {
   const n = Number(value);
-  if (!Number.isFinite(n)) return "—";
+  if (!Number.isFinite(n)) return "n/a";
   return "₹" + n.toLocaleString("en-IN", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
