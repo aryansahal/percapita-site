@@ -1,8 +1,4 @@
-import {
-  PERCAPITA_MINDSET,
-  VALUES,
-  WHO_WE_ARE_POINTS,
-} from "@/lib/content";
+import { WHO_WE_ARE_POINTS } from "@/lib/content";
 
 export function PositioningBand() {
   return (
@@ -19,139 +15,48 @@ export function PositioningBand() {
   );
 }
 
+/**
+ * Who We Are: heading and CTA on one row, the four points spread across the
+ * full width beneath.
+ *
+ * Deliberately unboxed columns. The How We Work stages further down the page
+ * are bordered cards on a hairline grid, and repeating that treatment here
+ * made the two sections read as the same component twice.
+ */
 export function WhoWeAre() {
   return (
     <section id="who-we-are" className="bg-white">
-      <div className="shell section-y grid grid-cols-[repeat(auto-fit,minmax(min(100%,330px),1fr))] items-start gap-[clamp(40px,5vw,72px)]">
-        <div className="min-w-0">
-          <p className="eyebrow mb-[22px] text-violet">Who We Are</p>
-          <h2 className="text-[clamp(25px,3.3vw,33px)] leading-[1.24] font-bold tracking-[-0.025em] text-plum">
-            Money moves, made clear.
-          </h2>
-
-          {/* Numbered because the copy numbers them; the ordinals are the
-              client's, not decoration. */}
-          <ol className="mt-8 flex list-none flex-col">
-            {WHO_WE_ARE_POINTS.map((point, i) => (
-              <li
-                key={point.title}
-                className="border-t border-hair py-[22px] first:border-t-0 first:pt-0"
-              >
-                <p className="text-[11px] font-semibold tracking-[0.12em] text-violet">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-2 text-[15px] font-bold text-plum">
-                  {point.title}
-                </h3>
-                <p className="mt-2 text-[14px] leading-[1.8] text-ink-3">
-                  {point.body}
-                </p>
-              </li>
-            ))}
-          </ol>
-
+      <div className="shell section-y">
+        <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
+          <div className="min-w-0">
+            <p className="eyebrow mb-[18px] text-violet">Who We Are</p>
+            <h2 className="text-[clamp(27px,3.8vw,38px)] leading-[1.18] font-bold tracking-[-0.03em] text-plum">
+              Money moves, made clear.
+            </h2>
+          </div>
           <a
             href="#contact"
-            className="mt-8 inline-block rounded-[2px] bg-purple px-6 py-[14px] text-[13px] font-semibold text-white transition-colors duration-150 hover:bg-purple-hover"
+            className="flex-none rounded-[2px] bg-purple px-6 py-[14px] text-[13px] font-semibold text-white transition-colors duration-150 hover:bg-purple-hover"
           >
             Start a Conversation
           </a>
         </div>
 
-        <div className="min-w-0">
-          <div className="bg-surface px-[clamp(22px,3vw,36px)] py-[clamp(26px,3.5vw,34px)]">
-            <p className="eyebrow text-violet">The Spark Behind Percapita</p>
-
-            <p className="mt-[18px] text-[17px] leading-[1.5] font-bold tracking-[-0.015em] text-plum">
-              Every big idea starts with a question.
-            </p>
-            <p className="mt-3 text-[14.5px] leading-[1.8] text-ink-2">
-              Ours was simple:{" "}
-              <em className="font-semibold text-plum not-italic">
-                Why does money feel so complicated when it&rsquo;s such a
-                personal part of our lives?
-              </em>
-            </p>
-            <p className="mt-3 text-[14.5px] leading-[1.8] text-ink-2">
-              Finance has always spoken in numbers: charts, averages, markets,
-              percentages. But numbers don&rsquo;t dream.{" "}
-              <strong className="font-semibold text-plum">People do.</strong>
-            </p>
-
-            <p className="mt-4 text-[14.5px] leading-[1.8] text-ink-2">
-              And behind every number is a person figuring it out. A first
-              salary. A growing business. A big ambition. A family to build. A
-              future to plan. That&rsquo;s where{" "}
-              <strong className="font-semibold text-plum">Percapita</strong>{" "}
-              comes in.
-            </p>
-
-            <p className="mt-4 text-[14.5px] leading-[1.8] text-ink-2">
-              &ldquo;Per capita&rdquo; means <em>per person</em>. A phrase
-              usually used to describe populations and statistics. We saw a
-              different meaning.
-            </p>
-
-            <ul className="mt-4 flex list-none flex-col gap-1 border-l-2 border-violet pl-[18px]">
-              <li className="text-[15.5px] font-bold text-plum">Per person.</li>
-              <li className="text-[15.5px] font-bold text-plum">Per journey.</li>
-              <li className="text-[15.5px] font-bold text-plum">Per dream.</li>
-            </ul>
-
-            <p className="mt-5 text-[14.5px] leading-[1.8] text-ink-2">
-              So we built Percapita to make finance feel less like a spreadsheet
-              and more like something that actually understands you.
-            </p>
-            <p className="mt-3 text-[14.5px] leading-[1.8] text-ink-2">
-              No unnecessary complexity. No cold, one size fits all thinking.
-              Just a clearer way to look at your money, your choices, and what
-              comes next. Because wealth isn&rsquo;t just about the numbers.{" "}
-              <strong className="font-semibold text-plum">
-                It&rsquo;s about what those numbers make possible.
-              </strong>
-            </p>
-
-            <p className="mt-4 text-[14.5px] leading-[1.8] text-ink-2">
-              Your story is personal.{" "}
-              <strong className="font-semibold text-plum">
-                Your finances should be too.
-              </strong>
-            </p>
-
-            <p className="mt-5 border-t border-hair-2 pt-[18px] text-[15.5px] font-bold text-purple italic">
-              Percapita. Finance that feels personal.
-            </p>
-          </div>
-
-          {/* 1px gaps over a tinted container draw the hairline dividers,
-              including the one between the grid and the closing line. */}
-          <div className="mt-7 flex flex-col gap-px bg-hair">
-            <ul className="grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,250px),1fr))] gap-px">
-              {VALUES.map((value) => (
-                <li key={value.title} className="bg-white px-6 py-[26px]">
-                  <h3 className="text-[10px] font-bold tracking-[0.16em] uppercase text-violet">
-                    {value.title}
-                  </h3>
-                  <p className="mt-2.5 text-[14.5px] leading-[1.45] font-bold tracking-[-0.015em] text-plum">
-                    {value.lead}
-                  </p>
-                  <p className="mt-2 text-[13px] leading-[1.7] text-ink-5">
-                    {value.body}
-                  </p>
-                </li>
-              ))}
-            </ul>
-
-            <div className="bg-surface px-6 py-[22px]">
-              <p className="text-[10px] font-bold tracking-[0.16em] uppercase text-violet">
-                {PERCAPITA_MINDSET.label}
+        <ol className="mt-[clamp(36px,5vw,56px)] grid list-none grid-cols-1 gap-x-[clamp(24px,3vw,40px)] gap-y-9 border-t border-hair pt-[clamp(32px,4vw,44px)] sm:grid-cols-2 lg:grid-cols-4">
+          {WHO_WE_ARE_POINTS.map((point, i) => (
+            <li key={point.title} className="min-w-0">
+              <p className="text-[22px] leading-none font-bold tracking-[-0.02em] text-violet">
+                {String(i + 1).padStart(2, "0")}
               </p>
-              <p className="mt-2 text-[15px] leading-[1.5] font-bold tracking-[-0.015em] text-plum">
-                {PERCAPITA_MINDSET.line}
+              <h3 className="mt-[14px] text-[15px] leading-[1.35] font-bold text-plum">
+                {point.title}
+              </h3>
+              <p className="mt-2.5 text-[13.5px] leading-[1.75] text-ink-3">
+                {point.body}
               </p>
-            </div>
-          </div>
-        </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

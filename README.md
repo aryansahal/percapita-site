@@ -86,6 +86,24 @@ credential, and it must stay that way. Destination lives in
 `src/lib/clientLogin.ts`. See OPEN-ITEMS.md for the white-label subdomain
 recommendation.
 
+## Who We Are is three bands, not one section
+
+`WhoWeAre`, `SparkStory` and `Values` are separate full-width sections that
+read as one area of the page. They started as a single two-column section and
+it did not work: the left column ran out after four points while the right
+carried a 250-word story plus a value grid, so the section hit ~1,400px with a
+large void down one side.
+
+Two things keep the current version in proportion, and undoing either brings
+the problem back:
+
+- **`SparkStory` is two columns.** Headline, question and tagline sit left;
+  the narrative runs beside them. Set as a single centred measure the band
+  alone was 1,007px; as two columns it is 673px.
+- **`WhoWeAre` points are unboxed columns.** The How We Work stages further
+  down are bordered cards on a hairline grid. Giving these the same treatment
+  made the two sections read as the same component twice.
+
 ## The NAV band
 
 The scrolling band below the hero shows current NAVs for one flagship scheme

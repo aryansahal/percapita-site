@@ -7,8 +7,10 @@ import { LogoMarquee } from "@/components/LogoMarquee";
 import { NavMarquee } from "@/components/NavMarquee";
 import { QuoteBand } from "@/components/QuoteBand";
 import { Services } from "@/components/Services";
+import { SparkStory } from "@/components/SparkStory";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { Values } from "@/components/Values";
 import { WhatWeDo } from "@/components/WhatWeDo";
 import { PositioningBand, WhoWeAre } from "@/components/WhoWeAre";
 
@@ -21,6 +23,8 @@ export default function Home() {
         <NavMarquee />
         <PositioningBand />
         <WhoWeAre />
+        <SparkStory />
+        <Values />
         <QuoteBand />
         <WhatWeDo />
         <Services />
