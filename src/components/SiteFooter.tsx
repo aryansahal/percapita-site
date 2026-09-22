@@ -62,10 +62,12 @@ export function SiteFooter() {
             sizes="186px"
             className="h-auto w-[186px] bg-white object-contain px-[18px] py-[14px]"
           />
-          <p className="mt-[18px] max-w-[280px] text-[13px] leading-[1.75] text-on-dark-muted-2">
-            Savings. Redefined. Independent financial advisory for individuals
-            and families, focused on long term goals and responsible decision
-            making.
+          <p className="mt-[18px] max-w-[290px] text-[15px] leading-[1.4] font-bold tracking-[-0.015em] text-white">
+            Your money. Your goals. Your next move.
+          </p>
+          <p className="mt-2.5 max-w-[290px] text-[13px] leading-[1.75] text-on-dark-muted-2">
+            Independent financial guidance for today&rsquo;s goals and
+            tomorrow&rsquo;s plans.
           </p>
           <div className="mt-5 text-[12px] leading-[1.7] text-on-dark-muted-2">
             <p className="font-bold text-on-dark-link">{CONTACT.arn}</p>
