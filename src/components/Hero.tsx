@@ -41,16 +41,25 @@ export function Hero() {
           {/* Explicit 1 -> 3 rather than auto-fit: with three stats and a
               ~536px column, an auto-fit floor wide enough to keep the labels
               readable only ever fits two, orphaning the third on its own row. */}
-          <dl className="mt-12 grid grid-cols-1 gap-6 border-t border-hair pt-[34px] sm:grid-cols-3">
+          {/* Hairline dividers, not gaps. The three labels differ a lot in
+              width ("Collective Team Expertise" against "Clients"), so equal
+              columns with only whitespace between them produced visibly uneven
+              gaps and a row that trailed off into space. A rule per column
+              makes the rhythm read off the dividers rather than off where each
+              label happens to end. */}
+          <dl className="mt-12 grid grid-cols-1 divide-y divide-hair border-t border-hair sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {HERO_STATS.map((stat) => (
-              <div key={stat.label}>
-                <dd className="text-[30px] font-bold tracking-[-0.02em] text-plum">
+              <div
+                key={stat.label}
+                className="py-[18px] first:pt-[26px] last:pb-0 sm:py-0 sm:pt-[26px] sm:pr-[clamp(12px,1.6vw,20px)] sm:pl-[clamp(14px,1.8vw,22px)] sm:first:pl-0 sm:last:pr-0"
+              >
+                <dd className="text-[30px] leading-none font-bold tracking-[-0.02em] text-plum">
                   {stat.value}
                   {stat.accent ? (
                     <span className="text-violet">{stat.accent}</span>
                   ) : null}
                 </dd>
-                <dt className="mt-1.5 text-[12px] font-medium text-muted-4">
+                <dt className="mt-2.5 text-[12px] leading-[1.4] font-medium text-muted-4">
                   {stat.label}
                 </dt>
               </div>
