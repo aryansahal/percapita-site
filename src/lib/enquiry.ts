@@ -4,6 +4,8 @@ export interface Enquiry {
   phone: string;
   topic: string;
   message: string;
+  /** Honeypot. Hidden from people; a filled value means a bot. */
+  company: string;
 }
 
 export const TOPICS = [
@@ -20,6 +22,7 @@ export const EMPTY_ENQUIRY: Enquiry = {
   phone: "",
   topic: "Financial Planning",
   message: "",
+  company: "",
 };
 
 /** The gate on the submit button — matches the prototype exactly. */
@@ -28,14 +31,21 @@ export function isValid(enquiry: Enquiry): boolean {
 }
 
 /**
- * OPEN ITEM: not wired up yet.
- *
- * The design prototype had no backend — it flipped local state and showed the
- * thank-you panel. Point this at the real endpoint or CRM and add server-side
- * validation plus spam protection; the client-side check above is a UX gate,
- * not a security boundary. Throwing here surfaces the form's error state.
+ * Posts the enquiry to /api/enquiry, which validates it again server-side and
+ * emails it on. Throwing here is what surfaces the form's error state, so a
+ * failure is visible rather than silent.
  */
 export async function submitEnquiry(enquiry: Enquiry): Promise<void> {
-  void enquiry;
-  return Promise.resolve();
+  const response = await fetch("/api/enquiry", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(enquiry),
+  });
+
+  if (!response.ok) {
+    const body = (await response.json().catch(() => ({}))) as {
+      error?: string;
+    };
+    throw new Error(body.error ?? "Could not send your enquiry.");
+  }
 }

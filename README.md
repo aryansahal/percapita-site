@@ -178,6 +178,30 @@ the house. The parser tolerates all of these. Schemes are keyed by AMFI scheme
 code rather than name, because names keep changing — several "Bluechip" funds
 became "Large Cap" in recent SEBI-driven renames.
 
+## The contact form
+
+`POST /api/enquiry` validates the enquiry again server-side and emails it via
+SMTP. Copy `.env.example` to `.env.local` and set `SMTP_HOST`, `SMTP_USER`,
+`SMTP_PASS` and `ENQUIRY_TO`.
+
+Four things are deliberate:
+
+- **Without SMTP configured the route returns 503** and the form shows its
+  error state. It never pretends to have sent. An enquiry that silently
+  disappears is worse than one that visibly fails and can be retried.
+- **Validation is repeated on the server.** The check in the form is a UX gate;
+  anyone can POST to the route directly.
+- **The visitor's address goes in `Reply-To`, not `From`.** Putting it in
+  `From` gets the mail rejected by SPF and DMARC, because the SMTP account is
+  not authorised to send as them.
+- **A honeypot field** sits off-screen rather than hidden, so a bot parsing the
+  DOM still fills it. When it is filled the route returns 200 and sends
+  nothing, so the bot sees success and does not retry.
+
+The per-IP throttle (5 per 10 minutes) is in-memory, so it resets on deploy and
+is per-instance. Enough to blunt a script; replace it if the form is ever
+seriously targeted.
+
 ## Insights (the blog)
 
 Posts are Markdown in `content/insights/*.md`, read at build by

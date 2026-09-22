@@ -7,7 +7,7 @@ Nothing here is blocked on engineering — each needs a decision or an asset.
 
 | # | Item | Where | Needs |
 |---|------|-------|-------|
-| 1 | **Form goes nowhere.** `submitEnquiry()` resolves locally and shows the thank-you panel. | `src/lib/enquiry.ts` | Endpoint or CRM, server-side validation, spam protection. The client-side check is a UX gate, not a security boundary. |
+| 1 | **Form needs SMTP credentials.** The endpoint, validation, honeypot and throttle are built; without credentials it returns 503 and the form shows its error state. | `.env.example` → `SMTP_*`, `ENQUIRY_TO` | The mailbox password for contact@percapita.in, set in the host's environment. Send one test enquiry after deploying. |
 | 2 | **Error state undesigned.** There is a plain text fallback in existing tokens. | `ContactForm.tsx` | Design sign-off. |
 | 3 | **Two of three photos are still placeholder.** `quote` is now the client's own image. `hero` and `journey` remain Unsplash, hotlinked. | `src/lib/content.ts` → `PHOTOS` | Client or licensed images for hero (1400x1750, 4:5) and journey (1600x1200, 4:3). Drop them in `public/photos/`, point `PHOTOS` at them, then remove the `remotePatterns` block in `next.config.ts`. |
 | 3b | **The commitment photo has no retina headroom.** Supplied at 1136x426, which is exactly the desktop box, so it renders 1:1 and looks soft on any high-DPI screen. | `public/photos/commitment.jpg` | The same frame at 2400x900 if the original exists. |

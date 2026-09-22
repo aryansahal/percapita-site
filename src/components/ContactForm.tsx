@@ -23,6 +23,7 @@ export function ContactForm() {
   const [enquiry, setEnquiry] = useState<Enquiry>(EMPTY_ENQUIRY);
   const [sentName, setSentName] = useState<string | null>(null);
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const valid = isValid(enquiry);
   const set = <K extends keyof Enquiry>(key: K, value: Enquiry[K]) =>
@@ -32,11 +33,17 @@ export function ContactForm() {
     event.preventDefault();
     if (!valid || status === "submitting") return;
     setStatus("submitting");
+    setErrorMessage("");
     try {
       await submitEnquiry(enquiry);
       setSentName(enquiry.name.trim().split(" ")[0]);
       setStatus("idle");
-    } catch {
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error && error.message
+          ? error.message
+          : "Could not send your enquiry.",
+      );
       setStatus("error");
     }
   }
@@ -45,6 +52,7 @@ export function ContactForm() {
     setEnquiry(EMPTY_ENQUIRY);
     setSentName(null);
     setStatus("idle");
+    setErrorMessage("");
   }
 
   if (sentName) {
@@ -81,7 +89,11 @@ export function ContactForm() {
         obligation.
       </p>
 
-      <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-[18px]">
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        className="relative flex flex-col gap-[18px]"
+      >
         <div>
           <label htmlFor="enquiry-name" className={LABEL_CLASS}>
             Full Name
@@ -173,6 +185,25 @@ export function ContactForm() {
           />
         </div>
 
+        {/* Honeypot. Positioned off-screen rather than hidden: a bot that
+            parses the DOM fills it, a person never sees it. Anything in here
+            makes the server accept and discard the request. */}
+        <div
+          aria-hidden="true"
+          className="absolute left-[-9999px] h-0 w-0 overflow-hidden"
+        >
+          <label htmlFor="enquiry-company">Company</label>
+          <input
+            id="enquiry-company"
+            name="company"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={enquiry.company}
+            onChange={(e) => set("company", e.target.value)}
+          />
+        </div>
+
         <button
           type="submit"
           disabled={!valid || status === "submitting"}
@@ -192,9 +223,20 @@ export function ContactForm() {
         {/* OPEN ITEM: the error state was never designed. This is a plain
             fallback in existing tokens — replace once the client signs off. */}
         {status === "error" ? (
-          <p role="alert" className="text-[12px] leading-[1.7] text-purple">
-            Something went wrong sending your enquiry. Please try again, or
-            WhatsApp us on {CONTACT.whatsappLabel}.
+          <p
+            role="alert"
+            className="border-l-2 border-purple bg-surface px-4 py-3 text-[12.5px] leading-[1.7] text-ink-2"
+          >
+            {errorMessage} You can also WhatsApp us on{" "}
+            <a
+              href={CONTACT.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-purple hover:text-purple-accent"
+            >
+              {CONTACT.whatsappLabel}
+            </a>
+            .
           </p>
         ) : null}
 
