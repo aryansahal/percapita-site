@@ -125,42 +125,35 @@ the problem back:
   down are bordered cards on a hairline grid. Giving these the same treatment
   made the two sections read as the same component twice.
 
-## Services is a rail, not a grid
+## Services is an infinite rail
 
-Six equal cards in a 3x2 grid read as a spreadsheet and ran past 1,100px. As a
-horizontal rail the section is ~770px, each card holds a fixed 340px measure,
-and the rail spans the viewport rather than the 1200px shell (1,585px at a
-1600px window against 1,200px before).
+The set is rendered twice and the scroll position wraps at the halfway mark,
+so the rail has no start or end and needs no arrows. It advances on its own at
+34px/s, about 62 seconds per loop.
 
-`rail-pad` in `globals.css` is what makes that work: the scroller is full
-width, but its inline padding still lines the first card up with `shell`
-content, so the heading and the first card share a left edge at every width.
-It is written in percentages rather than `vw` on purpose - `100vw` includes the
-scrollbar and overflows the page.
+Motion and readability pull against each other here. The logo marquee gets
+away with it because a logo is recognised at a glance; each service card
+carries around forty-five words. Three things resolve that and removing any of
+them breaks the section:
 
-Horizontal rails fail on discoverability, so this one carries four signals and
-needs all of them:
+- **it pauses on hover and on focus**, so a card holds still exactly when
+  someone is reading it;
+- **it pauses while being dragged or scrolled**, then resumes;
+- **there is an explicit pause button.** Auto-moving content lasting over five
+  seconds needs a mechanism to stop it (WCAG 2.2.2), and hover serves neither
+  keyboard nor touch.
 
-- **The next card peeks.** Card width and rail width must never divide evenly,
-  or the rail looks like a finished row and nobody scrolls.
-- **A filled "Next" button** while there is more to see. Two outline arrows
-  read as decoration; the forward move is the one worth pointing at, so it
-  drops to a plain disabled square only at the end.
-- **A progress bar** under the rail, sized to the fraction visible. It shares
-  a row with the buttons and uses `rail-pad`, so it spans from the first card's
-  left edge across to them. The controls were in the header first, which put
-  them at the 1200px column's right edge while cards ran to the screen edge,
-  leaving the buttons floating over a dead band.
-- **A fade over the right edge** that clears at the end, so it never implies
-  content that is not there.
+Two implementation details are load-bearing:
 
-The rail is also a focusable labelled region (`tabIndex={0}`, `role="region"`).
-A scrollable region a keyboard user cannot focus is a WCAG failure, and it is
-the part carousels usually skip.
+- **The position is accumulated in a local, not read back from `scrollLeft`.**
+  `scrollLeft` rounds to whole pixels, so `scrollLeft += 0.57` discards the
+  fraction every frame and the rail creeps at 1px/frame - 60px/s regardless of
+  the speed asked for, and faster still on a 120Hz screen.
+- **Every card carries `border-r`, including the last.** The track has to be
+  exactly periodic or the wrap jumps by the width of one border.
 
-Scrolling is native `overflow-x`, so the rail works with JavaScript off; the
-buttons and progress bar are enhancement. `prefers-reduced-motion` drops the
-smooth scroll.
+Scrolling stays native `overflow-x`, so the rail is usable with JavaScript
+off; it just does not advance by itself.
 
 ## The NAV band
 

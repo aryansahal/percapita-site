@@ -1,88 +1,125 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SERVICES } from "@/lib/content";
 import { Diamond } from "./icons";
 
+/** Pixels per second. Slow enough to read a card without stopping it. */
+const SPEED = 34;
+
 /**
- * Services as a full-bleed horizontal rail.
+ * Services as an infinitely looping rail.
  *
- * Six equal cards in a 3x2 grid read as a spreadsheet and ran past 1,100px.
- * The rail spans the viewport rather than the 1200px shell, so more of the set
- * is visible at once and the cut-off card sits at the screen edge where it
- * plainly continues.
+ * The set is rendered twice and the scroll position wraps at the halfway mark,
+ * so there is no start or end and no arrows are needed.
  *
- * Discoverability is how this pattern normally fails, so it carries four
- * signals: the next card peeks, a fade covers the right edge until the end is
- * reached, a progress bar shows how much is left, and the forward button is a
- * filled primary while there is more to see. The rail is also a focusable
- * labelled region, which is what lets a keyboard user scroll it at all.
+ * Motion and readability pull against each other here: unlike the logo
+ * marquee, each card carries about forty-five words, and moving text is hard
+ * to read. Three things resolve that, and removing any of them breaks it:
  *
- * Scrolling is native overflow-x, so it works with JavaScript off. The buttons
- * and progress bar are enhancement.
+ * - it **pauses on hover and on focus**, so a card holds still exactly when
+ *   someone is reading it;
+ * - it **pauses while you drag or scroll it**, and resumes after;
+ * - there is an **explicit pause control**, which is what makes the section
+ *   pass WCAG 2.2.2 - auto-moving content lasting over five seconds needs a
+ *   mechanism to stop it, and hover alone does not serve keyboard or touch.
+ *
+ * Scrolling stays native, so the rail is still usable with JavaScript off; it
+ * simply does not advance on its own.
+ *
+ * Every card carries `border-r`, including the last. The track has to be
+ * exactly periodic or the wrap point jumps by the width of one border.
  */
 export function Services() {
   const railRef = useRef<HTMLUListElement>(null);
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
-  const [progress, setProgress] = useState({ width: 100, left: 0 });
-
-  const sync = useCallback(() => {
-    const el = railRef.current;
-    if (!el) return;
-    const scrollable = el.scrollWidth - el.clientWidth;
-    setAtStart(el.scrollLeft <= 2);
-    setAtEnd(scrollable <= 2 || el.scrollLeft >= scrollable - 2);
-
-    const width = Math.min(100, (el.clientWidth / el.scrollWidth) * 100);
-    const ratio = scrollable > 0 ? el.scrollLeft / scrollable : 0;
-    setProgress({ width, left: ratio * (100 - width) });
-  }, []);
+  const pausedRef = useRef(false);
+  const [playing, setPlaying] = useState(true);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    sync();
-    const el = railRef.current;
-    if (!el) return;
-    const observer = new ResizeObserver(sync);
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [sync]);
+    pausedRef.current = !playing || hovered;
+  }, [playing, hovered]);
 
-  const page = (direction: 1 | -1) => {
+  useEffect(() => {
     const el = railRef.current;
     if (!el) return;
-    const card = el.querySelector("li");
-    const step = card ? card.getBoundingClientRect().width : el.clientWidth * 0.8;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    el.scrollBy({
-      left: direction * step,
-      behavior: reduced ? "auto" : "smooth",
-    });
-  };
+
+    let frame = 0;
+    let last = performance.now();
+    // The position is accumulated here rather than read back from scrollLeft.
+    // scrollLeft rounds to whole pixels, so `scrollLeft += 0.57` loses the
+    // fraction every frame and the rail creeps at 1px/frame - 60px/s instead
+    // of the 34 asked for, and at whatever the refresh rate happens to be.
+    let position = el.scrollLeft;
+    let applied = el.scrollLeft;
+
+    const tick = (now: number) => {
+      const delta = now - last;
+      last = now;
+      const half = el.scrollWidth / 2;
+
+      if (half > 0) {
+        // Something other than us moved it - a drag, a wheel, a keypress.
+        if (Math.abs(el.scrollLeft - applied) > 1.5) position = el.scrollLeft;
+
+        if (!pausedRef.current) position += (SPEED * delta) / 1000;
+
+        // Wrap both ways so manual scrolling loops as well.
+        if (position >= half) position -= half;
+        else if (position < 0) position += half;
+
+        el.scrollLeft = position;
+        applied = el.scrollLeft;
+      }
+
+      frame = requestAnimationFrame(tick);
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  const track = [...SERVICES, ...SERVICES];
 
   return (
     <section id="services" className="bg-surface section-pt section-pb">
       <div className="shell">
         <p className="eyebrow eyebrow-gap text-violet">Services</p>
-        <h2 className="h2-display text-plum">
-          Investments, protection, and borrowing.
-        </h2>
+        <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-4">
+          <h2 className="h2-display min-w-0 text-plum">
+            Investments, protection, and borrowing.
+          </h2>
+          <button
+            type="button"
+            onClick={() => setPlaying((v) => !v)}
+            aria-pressed={!playing}
+            className="flex h-10 flex-none cursor-pointer items-center gap-2.5 rounded-[2px] border border-field px-4 text-[12px] font-semibold text-ink-3 transition-colors duration-150 hover:border-purple hover:text-purple"
+          >
+            {playing ? <PauseIcon /> : <PlayIcon />}
+            <span>{playing ? "Pause" : "Play"}</span>
+          </button>
+        </div>
       </div>
 
-      {/* Full width, but the first card still lines up with shell content. */}
-      <div className="relative mt-[clamp(28px,3.5vw,40px)]">
+      <div
+        className="mt-[clamp(28px,3.5vw,40px)]"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onFocusCapture={() => setHovered(true)}
+        onBlurCapture={() => setHovered(false)}
+      >
         <ul
           ref={railRef}
-          onScroll={sync}
           tabIndex={0}
           role="region"
           aria-label="Services, scrollable"
-          className="rail-pad flex snap-x snap-mandatory list-none overflow-x-auto [scrollbar-width:none] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-accent [&::-webkit-scrollbar]:hidden"
+          className="rail-pad flex list-none overflow-x-auto [scrollbar-width:none] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-accent [&::-webkit-scrollbar]:hidden"
         >
-          {SERVICES.map((service) => (
+          {track.map((service, i) => (
             <li
-              key={service.name}
-              className="flex w-[min(78vw,340px)] flex-none snap-start flex-col border-l border-hair-2 bg-white px-[clamp(22px,2.6vw,28px)] py-[clamp(26px,3vw,32px)] first:border-l-0"
+              key={`${service.name}-${i}`}
+              aria-hidden={i >= SERVICES.length}
+              className="flex w-[min(78vw,340px)] flex-none flex-col border-r border-hair-2 bg-white px-[clamp(22px,2.6vw,28px)] py-[clamp(26px,3vw,32px)]"
             >
               <h3 className="text-[clamp(18px,2.2vw,21px)] leading-[1.2] font-bold tracking-[-0.025em] text-plum">
                 {service.name}
@@ -112,55 +149,6 @@ export function Services() {
             </li>
           ))}
         </ul>
-
-        {/* Fades the cut-off card into the band, and clears once you reach
-            the end so it never implies content that is not there. */}
-        <div
-          aria-hidden="true"
-          className={`pointer-events-none absolute inset-y-0 right-0 w-[clamp(40px,7vw,110px)] bg-gradient-to-l from-surface to-transparent transition-opacity duration-300 ${
-            atEnd ? "opacity-0" : "opacity-100"
-          }`}
-        />
-      </div>
-
-      {/* Controls sit on the rail's own bounds, not the text column's. Held in
-          the shell they ended at the 1200px edge while cards ran to the screen
-          edge, leaving the buttons floating over a dead band. The bar spans the
-          rail, which also makes it read as that rail's scrollbar. */}
-      <div className="rail-pad mt-[clamp(18px,2.5vw,26px)] flex items-center gap-[clamp(16px,3vw,32px)]">
-        <div aria-hidden="true" className="h-[3px] min-w-0 flex-1 bg-hair-2">
-          <div
-            className="h-full bg-purple transition-[margin-left] duration-150"
-            style={{
-              width: `${progress.width}%`,
-              marginLeft: `${progress.left}%`,
-            }}
-          />
-        </div>
-
-        <div className="flex flex-none items-center gap-2.5">
-          <button
-            type="button"
-            aria-label="Previous services"
-            disabled={atStart}
-            onClick={() => page(-1)}
-            className="flex h-11 w-11 items-center justify-center rounded-[2px] border border-field text-plum transition-colors duration-150 not-disabled:cursor-pointer not-disabled:hover:border-purple not-disabled:hover:text-purple disabled:border-hair-2 disabled:text-muted-3"
-          >
-            <Chevron className="rotate-180" />
-          </button>
-          {/* Filled while there is more to see: the forward move is the one
-              worth pointing at, and an outline pair reads as decoration. */}
-          <button
-            type="button"
-            aria-label="Next services"
-            disabled={atEnd}
-            onClick={() => page(1)}
-            className="flex h-11 items-center gap-2 rounded-[2px] bg-purple px-[18px] text-[12.5px] font-semibold text-white transition-colors duration-150 not-disabled:cursor-pointer not-disabled:hover:bg-purple-hover disabled:w-11 disabled:justify-center disabled:border disabled:border-hair-2 disabled:bg-transparent disabled:px-0 disabled:text-muted-3"
-          >
-            <span className={atEnd ? "hidden" : undefined}>Next</span>
-            <Chevron />
-          </button>
-        </div>
       </div>
 
       <div className="shell">
@@ -174,21 +162,19 @@ export function Services() {
   );
 }
 
-function Chevron({ className }: { className?: string }) {
+function PauseIcon() {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className={className}
-    >
-      <path d="M6 3l5 5-5 5" />
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+      <rect x="2" y="1.5" width="3" height="9" rx="0.5" />
+      <rect x="7" y="1.5" width="3" height="9" rx="0.5" />
+    </svg>
+  );
+}
+
+function PlayIcon() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+      <path d="M3 1.8v8.4a.5.5 0 0 0 .77.42l6.3-4.2a.5.5 0 0 0 0-.84l-6.3-4.2A.5.5 0 0 0 3 1.8Z" />
     </svg>
   );
 }
