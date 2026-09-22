@@ -28,7 +28,7 @@ export function Hero() {
               href="#contact"
               className="rounded-[2px] bg-purple px-[26px] py-[15px] text-[13.5px] font-semibold text-white transition-colors duration-150 hover:bg-purple-hover"
             >
-              Get in Touch
+              Talk to an Advisor
             </a>
             <a
               href="#what-we-do"
@@ -38,7 +38,10 @@ export function Hero() {
             </a>
           </div>
 
-          <dl className="mt-12 grid grid-cols-[repeat(auto-fit,minmax(min(100%,250px),1fr))] gap-6 border-t border-hair pt-[34px]">
+          {/* Explicit 1 -> 3 rather than auto-fit: with three stats and a
+              ~536px column, an auto-fit floor wide enough to keep the labels
+              readable only ever fits two, orphaning the third on its own row. */}
+          <dl className="mt-12 grid grid-cols-1 gap-6 border-t border-hair pt-[34px] sm:grid-cols-3">
             {HERO_STATS.map((stat) => (
               <div key={stat.label}>
                 <dd className="text-[30px] font-bold tracking-[-0.02em] text-plum">
@@ -62,15 +65,6 @@ export function Hero() {
             priority
             sizes="(max-width: 700px) 100vw, 50vw"
           />
-          <div className="pointer-events-none absolute bottom-[26px] left-6 z-10 max-w-[290px] bg-surface px-5 py-[18px]">
-            <p className="text-[10px] font-bold tracking-[0.16em] uppercase text-violet">
-              AMFI Registered Mutual Fund Distributor
-            </p>
-            <p className="mt-2 text-[13px] leading-[1.55] text-ink-6">
-              ARN 142346. Independent guidance with transparency, security, and
-              personalised support.
-            </p>
-          </div>
         </div>
       </div>
     </section>

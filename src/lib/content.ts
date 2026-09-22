@@ -23,11 +23,11 @@ export const NAV_LINKS = [
   { label: "Contact Us", href: "#contact" },
 ] as const;
 
-/** OPEN ITEM: invented during design. Confirm with the client before shipping. */
+/** Client-supplied, Sept 2026 copy. `accent` renders in violet beside the value. */
 export const HERO_STATS = [
   { value: "2015", accent: null, label: "Independent Since" },
-  { value: "16", accent: "+", label: "Fund Houses Accessed" },
-  { value: "One", accent: " fee", label: "Transparent Advisory Fee" },
+  { value: "40", accent: "+ Years", label: "Collective Team Expertise" },
+  { value: "450", accent: "+", label: "Clients" },
 ] as const;
 
 /**

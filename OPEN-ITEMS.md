@@ -95,7 +95,7 @@ integration pattern, which is the shortest path.
 
 | # | Item | Where | Note |
 |---|------|-------|------|
-| 6 | **Hero stat values** — 2015 / 16+ Fund Houses / One fee | `content.ts` → `HERO_STATS` | Invented during design. Nobody has confirmed these. |
+| 6 | **Hero stat values** — 2015 / 40+ Years / 450+ Clients | `content.ts` → `HERO_STATS` | Client-supplied Sept 2026. The alternative offered was 100+ Crs AUM instead of 450+ Clients; Clients was chosen. |
 | 7 | **Retirement assumptions** — 6% inflation, 8% post-retirement, 12% pre-retirement, 20-year retirement | `calculators.ts` → `RETIREMENT_ASSUMPTIONS` | Chosen during design. They drive a number people may act on. |
 
 ## Design decisions still open
@@ -138,20 +138,11 @@ The handoff anticipated this: it called the horizontal scroll "the minimum
 correct one" and a drawer "the nicer answer". Client Login stays in the bar at
 every width — it fits at 390px and is the primary CTA.
 
-**9. Hero stat row: 2 columns or 3?** The handoff prose says "Stat row: 3
-columns", but the prototype's own CSS
-(`minmax(min(100%, 250px), 1fr)` inside a ~536px column) can only ever produce
-two, leaving "One fee" orphaned on a second row. This build matches the
-prototype, since that is the artifact the pixels come from. If three across was
-the intent, lower the floor in `Hero.tsx`:
-
-```diff
-- grid-cols-[repeat(auto-fit,minmax(min(100%,250px),1fr))]
-+ grid-cols-[repeat(auto-fit,minmax(min(100%,150px),1fr))]
-```
-
-Note the trade-off: that also puts two stats per row at 390px instead of
-stacking them cleanly. Worth one look from the designer.
+**9. Hero stat row — resolved.** It now runs three across from 640px and
+stacks below that (`grid-cols-1 sm:grid-cols-3`). The handoff prose said "3
+columns" while its own `auto-fit` floor could only ever fit two in a ~536px
+column, orphaning the third. The Sept 2026 copy presents the stats as a
+three-column table, which settled it.
 
 ## Handoff drift
 
