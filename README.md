@@ -207,6 +207,18 @@ stated anywhere on the site and inventing them is worse than leaving them out.
 `opengraph-image.tsx` - typographic rather than a photo crop, because it is
 rendered at thumbnail size in feeds where a group photo turns to mush.
 
+**Title and description are written to the limits, not to taste.** Google
+truncates titles near 60 characters and descriptions near 158. `SITE_TITLE` is
+56 and `SITE_DESCRIPTION` is 143, so neither is cut - an earlier 205-character
+description lost "ARN 142346", which is the one credential a prospect looks
+for. `SITE_DESCRIPTION_LONG` carries the fuller sentence for social cards,
+where there is more room. Check the counts if you edit them.
+
+Deliberately absent: `keywords` (search engines ignore it) and geo meta tags
+like `geo.region` (superseded by the address in the structured data). Adding
+either would be noise. `verification` is empty because there are no Search
+Console or Bing codes yet - add them there when the properties are claimed.
+
 ## Legal copy
 
 The footer disclaimer and the "Regular Plans only" paragraph are

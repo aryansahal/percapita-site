@@ -14,8 +14,27 @@ export const SITE_URL = (
 
 export const SITE_NAME = "Percapita Advisors";
 
+/** Page title. Kept under ~60 characters so search results do not truncate
+ *  it; the city stays in because it carries the local intent. */
+export const SITE_TITLE =
+  "Percapita Advisors | Financial Advisory in Mumbai & Pune";
+
+/**
+ * The meta description, written to ~155 characters. Google truncates around
+ * 158, and the previous 205-character version cut off "ARN 142346" - the one
+ * credential a prospect looks for.
+ */
 export const SITE_DESCRIPTION =
+  "Independent, AMFI-registered financial advisory in Mumbai and Pune. Mutual funds, SIFs, PMS, AIFs, insurance and loans. ARN 142346, since 2015.";
+
+/** Social cards allow more room than a search result, so they get the fuller
+ *  sentence rather than the trimmed one. */
+export const SITE_DESCRIPTION_LONG =
   "Independent, AMFI-registered financial advisory in Mumbai and Pune. Financial planning and investment guidance across mutual funds, SIFs, PMS, AIFs, insurance and loans. ARN 142346, independent since 2015.";
+
+/** Mobile browser chrome. White to match the sticky header, so the address bar
+ *  meets the page without a seam. */
+export const THEME_COLOR = "#ffffff";
 
 /** Digits only, E.164. The display label carries the spacing. */
 const PHONE_E164 = "+919920666628";
