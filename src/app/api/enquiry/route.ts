@@ -45,7 +45,6 @@ function rateLimited(ip: string): boolean {
  */
 function clean(value: unknown, max: number): string {
   if (typeof value !== "string") return "";
-  // eslint-disable-next-line no-control-regex
   return value.replace(/[\u0000-\u001F\u007F]/g, " ").trim().slice(0, max);
 }
 
