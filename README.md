@@ -178,6 +178,35 @@ the house. The parser tolerates all of these. Schemes are keyed by AMFI scheme
 code rather than name, because names keep changing — several "Bluechip" funds
 became "Large Cap" in recent SEBI-driven renames.
 
+## SEO and local search
+
+Everything derives from `SITE_URL` in `src/lib/seo.ts`, so a domain change is
+one edit (or `NEXT_PUBLIC_SITE_URL` at build time). **Confirm that domain
+before launch** - a wrong canonical is worse than none, because it tells search
+engines the real pages are elsewhere.
+
+`structuredData()` emits one `@graph` covering:
+
+- a parent `FinancialService` carrying the ARN as a `PropertyValue`
+  identifier, an offer catalogue built from `SERVICES`, and `knowsAbout`;
+- **one node per office**, each with a full postal address, linked from the
+  parent as a department. This is the local-search half: it is what lets the
+  site rank for "financial advisor in Malad" rather than only for its own name;
+- a `FAQPage` built from `FAQS`. Worth keeping accurate - it is what both rich
+  results and generative answer engines quote from, and the fee and commission
+  answers are the ones people actually search.
+
+The graph is generated from the same constants the page renders, so the markup
+cannot drift from what a visitor reads. Add a service or an FAQ and the
+structured data follows automatically.
+
+Deliberately omitted: geo coordinates, opening hours, price range. None are
+stated anywhere on the site and inventing them is worse than leaving them out.
+
+`lang` is `en-IN`, not `en`. The share card is generated at build by
+`opengraph-image.tsx` - typographic rather than a photo crop, because it is
+rendered at thumbnail size in feeds where a group photo turns to mush.
+
 ## Legal copy
 
 The footer disclaimer and the "Regular Plans only" paragraph are
