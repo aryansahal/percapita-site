@@ -11,15 +11,16 @@ export function Hero() {
           </p>
 
           <h1 className="text-[clamp(32px,5.2vw,52px)] leading-[1.1] font-bold tracking-[-0.032em] text-plum">
-            Tailored Financial Planning &amp;{" "}
-            <span className="text-purple-accent">Investment</span> Solutions.
+            Don&rsquo;t just invest.{" "}
+            <span className="text-purple-accent">Understand.</span>
           </h1>
 
           <p className="mt-[26px] max-w-[470px] text-[15.5px] leading-[1.75] text-ink-3">
-            We provide clear, research driven financial planning and advisory
-            services, designed to help clients make informed decisions about
-            their financial future. Our approach is collaborative, professional,
-            and focused on long term value.
+            At Percapita, we deliver research driven financial planning that
+            helps you make smarter money moves. Our independent guidance is
+            transparent, secure, and designed for long term value. With clear
+            insights and safe communication, we help you navigate your financial
+            journey confidently.
           </p>
 
           <div className="mt-[34px] flex flex-wrap gap-[14px]">
