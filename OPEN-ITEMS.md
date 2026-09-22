@@ -9,7 +9,8 @@ Nothing here is blocked on engineering — each needs a decision or an asset.
 |---|------|-------|-------|
 | 1 | **Form goes nowhere.** `submitEnquiry()` resolves locally and shows the thank-you panel. | `src/lib/enquiry.ts` | Endpoint or CRM, server-side validation, spam protection. The client-side check is a UX gate, not a security boundary. |
 | 2 | **Error state undesigned.** There is a plain text fallback in existing tokens. | `ContactForm.tsx` | Design sign-off. |
-| 3 | **Photography is placeholder.** Three Unsplash images, hotlinked. The Unsplash Licence permits commercial use without attribution, so no credit is rendered, but these are still stand-ins. | `src/lib/content.ts` → `PHOTOS` | Client or licensed photography. Drop the files in `public/`, point `PHOTOS` at them, and remove the `remotePatterns` block in `next.config.ts`. |
+| 3 | **Two of three photos are still placeholder.** `quote` is now the client's own image. `hero` and `journey` remain Unsplash, hotlinked. | `src/lib/content.ts` → `PHOTOS` | Client or licensed images for hero (1400x1750, 4:5) and journey (1600x1200, 4:3). Drop them in `public/photos/`, point `PHOTOS` at them, then remove the `remotePatterns` block in `next.config.ts`. |
+| 3b | **The commitment photo has no retina headroom.** Supplied at 1136x426, which is exactly the desktop box, so it renders 1:1 and looks soft on any high-DPI screen. | `public/photos/commitment.jpg` | The same frame at 2400x900 if the original exists. |
 | 4 | **Fund-house logos are third-party trademarks.** 16 AMC marks used to indicate distribution relationships. | `public/logos/` | Trademark clearance. |
 | 5 | **App Store and Google Play links point at `#contact`.** | `SiteFooter.tsx` | Real store URLs, or drop the block. |
 

@@ -368,9 +368,10 @@ export const FOOTER_COMPANY = [
  * Placeholder photography. OPEN ITEM: replace with the client's own or
  * properly licensed images.
  *
- * These are Unsplash images. Attribution is not rendered because the Unsplash
- * Licence does not require it, but for the record the photographers are:
- * hero — Ratul Puri; quote — Vitaly Gariev; journey — Sortter.
+ * `quote` is the client's own photograph. `hero` and `journey` are still
+ * Unsplash placeholders; attribution is not rendered because the Unsplash
+ * Licence does not require it, but for the record the photographers are
+ * Ratul Puri (hero) and Sortter (journey).
  */
 export const PHOTOS = {
   hero: {
@@ -378,8 +379,10 @@ export const PHOTOS = {
     alt: "An advisor in conversation with a client",
   },
   quote: {
-    src: "https://images.unsplash.com/photo-1714974528718-b3b52f91c334?fm=jpg&q=80&w=1800&auto=format&fit=crop",
-    alt: "An advisory meeting in progress",
+    // Client-supplied, Sept 2026. 1136x426 - exactly the desktop box, so it
+    // has no headroom for high-DPI screens. See OPEN-ITEMS.md.
+    src: "/photos/commitment.jpg",
+    alt: "Four Percapita colleagues around a meeting table reviewing a performance chart on a laptop, with a city skyline behind them",
   },
   journey: {
     src: "https://images.unsplash.com/photo-1647510284152-473953f84acc?fm=jpg&q=80&w=1200&auto=format&fit=crop",
