@@ -62,37 +62,11 @@ export function Services() {
 
   return (
     <section id="services" className="bg-surface section-pt section-pb">
-      <div className="shell flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
-        <div className="min-w-0">
-          <p className="eyebrow eyebrow-gap text-violet">Services</p>
-          <h2 className="h2-display text-plum">
-            Investments, protection, and borrowing.
-          </h2>
-        </div>
-
-        <div className="flex flex-none items-center gap-2.5">
-          <button
-            type="button"
-            aria-label="Previous services"
-            disabled={atStart}
-            onClick={() => page(-1)}
-            className="flex h-11 w-11 items-center justify-center rounded-[2px] border border-field text-plum transition-colors duration-150 not-disabled:cursor-pointer not-disabled:hover:border-purple not-disabled:hover:text-purple disabled:border-hair-2 disabled:text-muted-3"
-          >
-            <Chevron className="rotate-180" />
-          </button>
-          {/* Filled while there is more to see: the forward move is the one
-              worth pointing at, and an outline pair reads as decoration. */}
-          <button
-            type="button"
-            aria-label="Next services"
-            disabled={atEnd}
-            onClick={() => page(1)}
-            className="flex h-11 items-center gap-2 rounded-[2px] bg-purple px-[18px] text-[12.5px] font-semibold text-white transition-colors duration-150 not-disabled:cursor-pointer not-disabled:hover:bg-purple-hover disabled:bg-transparent disabled:px-0 disabled:text-muted-3 disabled:w-11 disabled:justify-center disabled:border disabled:border-hair-2"
-          >
-            <span className={atEnd ? "hidden" : undefined}>Next</span>
-            <Chevron />
-          </button>
-        </div>
+      <div className="shell">
+        <p className="eyebrow eyebrow-gap text-violet">Services</p>
+        <h2 className="h2-display text-plum">
+          Investments, protection, and borrowing.
+        </h2>
       </div>
 
       {/* Full width, but the first card still lines up with shell content. */}
@@ -149,11 +123,12 @@ export function Services() {
         />
       </div>
 
-      <div className="shell mt-[clamp(20px,2.5vw,28px)]">
-        <div
-          aria-hidden="true"
-          className="h-[3px] w-full max-w-[380px] bg-hair-2"
-        >
+      {/* Controls sit on the rail's own bounds, not the text column's. Held in
+          the shell they ended at the 1200px edge while cards ran to the screen
+          edge, leaving the buttons floating over a dead band. The bar spans the
+          rail, which also makes it read as that rail's scrollbar. */}
+      <div className="rail-pad mt-[clamp(18px,2.5vw,26px)] flex items-center gap-[clamp(16px,3vw,32px)]">
+        <div aria-hidden="true" className="h-[3px] min-w-0 flex-1 bg-hair-2">
           <div
             className="h-full bg-purple transition-[margin-left] duration-150"
             style={{
@@ -163,7 +138,33 @@ export function Services() {
           />
         </div>
 
-        <p className="mt-[clamp(22px,3vw,30px)] max-w-[1000px] text-[11px] leading-[1.8] text-muted">
+        <div className="flex flex-none items-center gap-2.5">
+          <button
+            type="button"
+            aria-label="Previous services"
+            disabled={atStart}
+            onClick={() => page(-1)}
+            className="flex h-11 w-11 items-center justify-center rounded-[2px] border border-field text-plum transition-colors duration-150 not-disabled:cursor-pointer not-disabled:hover:border-purple not-disabled:hover:text-purple disabled:border-hair-2 disabled:text-muted-3"
+          >
+            <Chevron className="rotate-180" />
+          </button>
+          {/* Filled while there is more to see: the forward move is the one
+              worth pointing at, and an outline pair reads as decoration. */}
+          <button
+            type="button"
+            aria-label="Next services"
+            disabled={atEnd}
+            onClick={() => page(1)}
+            className="flex h-11 items-center gap-2 rounded-[2px] bg-purple px-[18px] text-[12.5px] font-semibold text-white transition-colors duration-150 not-disabled:cursor-pointer not-disabled:hover:bg-purple-hover disabled:w-11 disabled:justify-center disabled:border disabled:border-hair-2 disabled:bg-transparent disabled:px-0 disabled:text-muted-3"
+          >
+            <span className={atEnd ? "hidden" : undefined}>Next</span>
+            <Chevron />
+          </button>
+        </div>
+      </div>
+
+      <div className="shell">
+        <p className="mt-[clamp(26px,3.5vw,38px)] max-w-[1000px] text-[11px] leading-[1.8] text-muted">
           Disclaimer : Investments are subject to market risks. Products and
           services are subject to applicable eligibility, regulatory, risk,
           liquidity, and other conditions. No investment outcome is guaranteed.

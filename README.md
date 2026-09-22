@@ -146,7 +146,11 @@ needs all of them:
 - **A filled "Next" button** while there is more to see. Two outline arrows
   read as decoration; the forward move is the one worth pointing at, so it
   drops to a plain disabled square only at the end.
-- **A progress bar** under the rail, sized to the fraction visible.
+- **A progress bar** under the rail, sized to the fraction visible. It shares
+  a row with the buttons and uses `rail-pad`, so it spans from the first card's
+  left edge across to them. The controls were in the header first, which put
+  them at the 1200px column's right edge while cards ran to the screen edge,
+  leaving the buttons floating over a dead band.
 - **A fade over the right edge** that clears at the end, so it never implies
   content that is not there.
 
