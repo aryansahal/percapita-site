@@ -100,6 +100,17 @@ integration pattern, which is the shortest path.
 
 ## Design decisions still open
 
+**12. What We Do lost its fourteen capability bullets.** The Sept 2026 copy
+replaced two columns of specifics (cash flow and liquidity planning, capital
+gains guidance, succession planning, ESG considerations, and so on) with a
+narrative. The narrative condenses them into one clause: "from your cash flow
+and investments to tax, risk, retirement, diversification, and succession".
+
+That reads better, but the specifics were useful for search and for a visitor
+scanning to see whether their situation is covered. The lists are retained as
+`WHAT_WE_DO` in `content.ts`, unused, so they can be restored below the
+narrative if wanted. Delete that export once the client has decided.
+
 **10. Which schemes appear in the NAV band.** Currently one flagship
 Regular/Growth scheme per fund house already shown on the site — mostly large
 cap and flexi cap. This was our selection, not the client's. Percapita may

@@ -70,12 +70,7 @@ export const MARQUEE_LOGO_HEIGHT = 38;
  *  see the note in LogoMarquee about why that distinction matters. */
 export const MARQUEE_LOGO_SPACING = 64;
 
-/**
- * The numbered points in the Who We Are column (Sept 2026 copy).
- *
- * NOTE: three of these overlap heavily with `VALUES` below, which still feeds
- * the 2x2 grid on the right of the same section. See OPEN-ITEMS.md.
- */
+/** The four numbered points in the Who We Are band (Sept 2026 copy). */
 export const WHO_WE_ARE_POINTS = [
   {
     title: "Integrity and Transparency",
@@ -127,6 +122,12 @@ export const PERCAPITA_MINDSET = {
   line: "Human at heart. Clear by design. Personal by default.",
 } as const;
 
+/**
+ * RETAINED, CURRENTLY UNUSED. The Sept 2026 copy replaced these two capability
+ * lists with a narrative in `WhatWeDo.tsx`. Kept so the fourteen specific
+ * capabilities are recoverable if the client wants them back; delete once that
+ * is settled. See OPEN-ITEMS.md.
+ */
 export const WHAT_WE_DO = [
   {
     heading: "Financial Planning Expertise",
