@@ -38,8 +38,15 @@ function rateLimited(ip: string): boolean {
   return recent.length > MAX_PER_WINDOW;
 }
 
+/**
+ * Trim, cap the length, and drop control characters. The control characters
+ * matter because these values end up in mail headers, where a stray CR or LF
+ * is how header injection starts.
+ */
 function clean(value: unknown, max: number): string {
-  return typeof value === "string" ? value.trim().slice(0, max) : "";
+  if (typeof value !== "string") return "";
+  // eslint-disable-next-line no-control-regex
+  return value.replace(/[\u0000-\u001F\u007F]/g, " ").trim().slice(0, max);
 }
 
 export async function POST(request: Request) {
@@ -77,7 +84,10 @@ export async function POST(request: Request) {
   if (name.length < 2) {
     return NextResponse.json({ error: "Please add your name." }, { status: 400 });
   }
-  if (!/^\S+@\S+\.\S+$/.test(email)) {
+  // Deliberately stricter than "has an @": the separators an address header
+  // uses - comma, semicolon, angle brackets, quotes - must not appear, or one
+  // address turns into two. See the mailbox objects passed to sendMail below.
+  if (!/^[^\s,;<>"]+@[^\s,;<>"]+\.[^\s,;<>"]+$/.test(email)) {
     return NextResponse.json(
       { error: "Please add a valid email address." },
       { status: 400 },
@@ -121,9 +131,13 @@ export async function POST(request: Request) {
       // From must be a mailbox the SMTP account may send as, so the visitor's
       // address goes in Reply-To instead - putting it in From gets the mail
       // rejected by SPF/DMARC.
-      from: `"Percapita website" <${SMTP_USER}>`,
+      from: { name: "Percapita website", address: SMTP_USER },
       to: ENQUIRY_TO || CONTACT.email,
-      replyTo: `"${name}" <${email}>`,
+      // A mailbox object, never an interpolated string. Given a string,
+      // nodemailer parses it, so a quote and a comma inside the visitor's
+      // name would split it into two addresses and add a recipient of their
+      // choosing. The object form escapes the display name instead.
+      replyTo: { name, address: email },
       subject: `New enquiry: ${name}${topic ? ` (${topic})` : ""}`,
       text: lines.join("\n"),
     });
@@ -145,8 +159,8 @@ export async function POST(request: Request) {
   try {
     const firstName = name.split(" ")[0];
     await transport.sendMail({
-      from: `"Percapita Advisors" <${SMTP_USER}>`,
-      to: `"${name}" <${email}>`,
+      from: { name: "Percapita Advisors", address: SMTP_USER },
+      to: { name, address: email },
       replyTo: ENQUIRY_TO || CONTACT.email,
       subject: `Thanks for getting in touch, ${firstName}`,
       text: confirmationText(firstName, topic, phone, message),
