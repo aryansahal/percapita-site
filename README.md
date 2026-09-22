@@ -202,6 +202,19 @@ The per-IP throttle (5 per 10 minutes) is in-memory, so it resets on deploy and
 is per-instance. Enough to blunt a script; replace it if the form is ever
 seriously targeted.
 
+Two emails go out per enquiry: the notification to Percapita, then a
+confirmation to whoever filled in the form. The confirmation is sent **after**
+the notification and in its own try/catch - by then the enquiry has already
+arrived, so a bounced confirmation must not fail the request and push someone
+into submitting twice. It also goes to an address nobody has verified, which is
+a small spam vector; the per-IP throttle is what bounds it.
+
+Its copy lives in `src/lib/confirmationEmail.ts`. Transactional, not marketing,
+and it carries the advisory-only line because it is outbound mail from an
+AMFI-registered distributor. The HTML version uses inline styles and no images:
+most clients strip `<style>` blocks, and a blocked remote image is the usual
+reason a branded email arrives looking broken.
+
 On success the form routes to **`/thank-you`** rather than swapping to an
 inline panel, so analytics and ad platforms have a destination URL to count a
 conversion on. That page is `noindex` and kept out of the sitemap - it is a

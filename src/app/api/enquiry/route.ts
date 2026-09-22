@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { confirmationHtml, confirmationText } from "@/lib/confirmationEmail";
 import { CONTACT } from "@/lib/content";
 import { TOPICS } from "@/lib/enquiry";
 
@@ -132,6 +133,27 @@ export async function POST(request: Request) {
       { error: "We could not send that. Please try again or WhatsApp us." },
       { status: 502 },
     );
+  }
+
+  // Confirmation to the enquirer. Deliberately after the notification and in
+  // its own try/catch: the enquiry has already reached Percapita by this
+  // point, so a bounced confirmation must not fail the request and push
+  // someone into submitting again.
+  //
+  // It sends to an address nobody has verified, which is a small spam vector.
+  // The per-IP throttle above is what keeps that bounded.
+  try {
+    const firstName = name.split(" ")[0];
+    await transport.sendMail({
+      from: `"Percapita Advisors" <${SMTP_USER}>`,
+      to: `"${name}" <${email}>`,
+      replyTo: ENQUIRY_TO || CONTACT.email,
+      subject: `Thanks for getting in touch, ${firstName}`,
+      text: confirmationText(firstName, topic, phone, message),
+      html: confirmationHtml(firstName, topic, phone, message),
+    });
+  } catch (error) {
+    console.error("[enquiry] confirmation to sender failed:", error);
   }
 
   return NextResponse.json({ ok: true });
