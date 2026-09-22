@@ -125,6 +125,25 @@ the problem back:
   down are bordered cards on a hairline grid. Giving these the same treatment
   made the two sections read as the same component twice.
 
+## Services is a rail, not a grid
+
+Six equal cards in a 3x2 grid read as a spreadsheet and ran past 1,100px. As a
+horizontal rail the section is 767px and each card gets a fixed 330px measure.
+
+Horizontal rails usually fail on discoverability, so this one carries three
+affordances and needs all of them:
+
+- **The next card peeks.** 3.64 cards fit the viewport at 1280, so the fourth
+  is visibly cut off. Card width and container width must never divide evenly.
+- **Arrow buttons that disable at the ends**, so the rail's extent is obvious
+  without scrolling it.
+- **The rail is focusable** (`tabIndex={0}` with `role="region"` and a label),
+  which is what lets a keyboard user reach it and scroll with the arrow keys.
+  A scrollable region with no way to focus it is a WCAG failure.
+
+Scrolling is native `overflow-x`, so the rail still works with JavaScript off;
+the buttons are enhancement. `prefers-reduced-motion` drops the smooth scroll.
+
 ## The NAV band
 
 The scrolling band below the hero shows current NAVs for one flagship scheme
