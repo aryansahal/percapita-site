@@ -1,23 +1,45 @@
-import { PHOTOS, PROCESS_STAGES } from "@/lib/content";
+import { PHOTOS, PROCESS_FLOW, PROCESS_STAGES } from "@/lib/content";
 import { Photo } from "./Photo";
 
+/**
+ * How We Work, Sept 2026 copy.
+ *
+ * The header sits beside the photograph so the image still has a job now that
+ * the "Your Initial Consultation" panel it used to pair with is gone. Stages
+ * stay as bordered cards on a hairline grid: the Who We Are points above are
+ * unboxed columns, so the two sections no longer read as the same component.
+ */
 export function HowWeWork() {
   return (
     <section id="process" className="bg-white">
       <div className="shell pb-[clamp(56px,7vw,96px)]">
-        <div className="text-center">
-          <p className="eyebrow mb-[18px] text-violet">How We Work</p>
-          <h2 className="text-[clamp(26px,3.6vw,36px)] leading-[1.2] font-bold tracking-[-0.03em] text-plum">
-            Our financial planning process.
-          </h2>
-          <p className="mx-auto mt-[18px] max-w-[640px] text-[14.5px] leading-[1.8] text-ink-3">
-            Everything begins with understanding you. We take the time to
-            explore your financial world, where you are today, what matters
-            most, and where you want to go.
-          </p>
+        <div className="grid grid-cols-1 items-center gap-x-[clamp(32px,5vw,64px)] gap-y-[clamp(28px,4vw,40px)] lg:grid-cols-[1fr_0.9fr]">
+          <div className="min-w-0">
+            <p className="eyebrow mb-[18px] text-violet">How We Work</p>
+            <h2 className="text-[clamp(26px,3.6vw,36px)] leading-[1.18] font-bold tracking-[-0.03em] text-plum">
+              Your Money. Your Context. Your Plan.
+            </h2>
+            <p className="mt-4 text-[clamp(16px,2vw,19px)] leading-[1.5] font-semibold text-purple-accent">
+              No two financial journeys look the same. So why should the
+              process?
+            </p>
+            <p className="mt-[18px] max-w-[540px] text-[15px] leading-[1.8] text-ink-3">
+              We start with a conversation, not a checklist. We get to know
+              where you are, what you care about, what you&rsquo;re planning
+              for, and what your financial picture looks like today.
+            </p>
+          </div>
+
+          <div className="relative aspect-[4/3] h-full w-full min-h-[280px] min-w-0">
+            <Photo
+              src={PHOTOS.journey.src}
+              alt={PHOTOS.journey.alt}
+              sizes="(max-width: 1024px) 100vw, 45vw"
+            />
+          </div>
         </div>
 
-        <ol className="mt-14 grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,215px),1fr))] gap-px bg-hair">
+        <ol className="mt-[clamp(40px,5vw,64px)] grid list-none grid-cols-1 gap-px bg-hair sm:grid-cols-2 lg:grid-cols-4">
           {PROCESS_STAGES.map((stage) => (
             <li
               key={stage.stage}
@@ -26,7 +48,7 @@ export function HowWeWork() {
               <p className="border-b border-violet pb-[14px] text-[11px] font-semibold tracking-[0.12em] text-violet">
                 {stage.stage}
               </p>
-              <h3 className="mt-5 text-[16px] font-bold text-plum">
+              <h3 className="mt-5 text-[16px] leading-[1.3] font-bold text-plum">
                 {stage.title}
               </h3>
               <p className="mt-2.5 text-[13.5px] leading-[1.72] text-ink-4">
@@ -36,36 +58,27 @@ export function HowWeWork() {
           ))}
         </ol>
 
-        <div className="mt-[72px] grid grid-cols-[repeat(auto-fit,minmax(min(100%,330px),1fr))]">
-          {/* h-full so the photo matches the panel beside it rather than
-              leaving a gap underneath. w-full is load-bearing: without a
-              definite width, aspect-ratio derives width from the stretched
-              height and the photo overflows the page on narrow screens. */}
-          <div className="relative aspect-[4/3] h-full w-full min-h-[320px] min-w-0">
-            <Photo
-              src={PHOTOS.journey.src}
-              alt={PHOTOS.journey.alt}
-              sizes="(max-width: 700px) 100vw, 50vw"
-            />
-          </div>
-          <div className="flex min-w-0 flex-col justify-center bg-surface px-[clamp(26px,4vw,52px)] py-[clamp(34px,4.5vw,56px)]">
-            <p className="eyebrow mb-[22px] text-violet">
-              Your Initial Consultation
-            </p>
-            <p className="text-[15px] leading-[1.85] text-ink-2">
-              At Percapita, relationships begin with alignment and trust. We
-              offer a no obligation initial consultation, an opportunity to
-              understand your needs and determine whether our approach is the
-              right fit for you.
-            </p>
-            <p className="mt-[18px] text-[15px] leading-[1.85] text-ink-2">
-              We operate on a single, transparent advisory fee that covers our
-              integrated financial planning and investment guidance. Our pricing
-              is designed to be fair, straightforward, and focused on long term
-              value.
-            </p>
-          </div>
-        </div>
+        <ol className="mt-[clamp(32px,4vw,44px)] flex list-none flex-wrap items-center justify-center gap-x-3 gap-y-2 border-y border-hair py-[clamp(18px,2.5vw,24px)]">
+          {PROCESS_FLOW.map((step, i) => (
+            <li key={step} className="flex items-center gap-3">
+              <span className="text-[clamp(15px,2vw,19px)] font-bold tracking-[-0.015em] text-plum">
+                {step}
+              </span>
+              {i < PROCESS_FLOW.length - 1 ? (
+                <span aria-hidden="true" className="text-[16px] text-violet">
+                  &rarr;
+                </span>
+              ) : null}
+            </li>
+          ))}
+        </ol>
+
+        <p className="mt-[clamp(24px,3vw,32px)] max-w-[1000px] text-[11px] leading-[1.85] text-muted">
+          Disclaimer : Financial planning and investment recommendations are
+          based on individual circumstances, risk profiling, suitability, and
+          applicable regulations. Investments are subject to market risks; no
+          investment outcome is guaranteed.
+        </p>
       </div>
     </section>
   );

@@ -235,28 +235,102 @@ export const SERVICES = [
   },
 ] as const;
 
+/** How We Work stages (Sept 2026 copy). */
 export const PROCESS_STAGES = [
   {
-    stage: "Stage 01",
-    title: "Discovery Meeting",
-    body: "An introduction to the planning process and its long term value.",
+    stage: "01",
+    title: "Let’s Talk",
+    body: "First, we get on the same page. A no pressure conversation to understand your financial world, priorities, and what you’re looking for.",
   },
   {
-    stage: "Stage 02",
-    title: "Understanding Your Goals",
-    body: "We take time to understand your personal and financial goals.",
+    stage: "02",
+    title: "Get Real About Goals",
+    body: "What actually matters to you? We dig into your goals, timelines, priorities, risk profile, and the financial decisions around them.",
   },
   {
-    stage: "Stage 03",
-    title: "Initial Discussion",
-    body: "How Percapita can support your journey, and whether we are the right fit.",
+    stage: "03",
+    title: "See If We Fit",
+    body: "No hard sell. Just clarity. We explain where Percapita can add value, what the engagement involves, and whether our approach makes sense for your needs.",
   },
   {
-    stage: "Stage 04",
-    title: "Strategy and Review",
-    body: "Strategy development and ongoing review as circumstances and markets evolve.",
+    stage: "04",
+    title: "Build & Revisit",
+    body: "Because life doesn’t stay on read. Where you choose to work with us, we develop the relevant financial and investment strategy and review it periodically as your circumstances and priorities change.",
   },
 ] as const;
+
+/** The one-line summary of the process, rendered with arrows between steps. */
+export const PROCESS_FLOW = ["Talk", "Understand", "Plan", "Review"] as const;
+
+/** FAQs (Sept 2026 copy). Answers are paragraph arrays; several run to more
+ *  than one. The fee and commission wording is regulatory disclosure and must
+ *  be reproduced verbatim. */
+export const FAQS = [
+  {
+    q: "What does Percapita do?",
+    a: ["We help you navigate investments and financial decisions across Mutual Funds, SIFs, PMS, AIFs, Insurance, and Loans, depending on your needs and eligibility."],
+  },
+  {
+    q: "Do I need to be a finance expert?",
+    a: ["Not at all. You bring the goals and questions. We help simplify the options and explain the important stuff."],
+  },
+  {
+    q: "How do you choose investments?",
+    a: ["We consider your goals, financial situation, risk profile, time horizon, and priorities when discussing relevant investment options."],
+  },
+  {
+    q: "What can I invest in through Percapita?",
+    a: ["Our offerings include Mutual Funds, SIFs, PMS, and AIFs, subject to product eligibility and applicable regulations."],
+  },
+  {
+    q: "Do you guarantee returns?",
+    a: ["No. Investments are subject to market risks, and returns are never guaranteed."],
+  },
+  {
+    q: "What happens if Percapita shuts down?",
+    a: [
+      "Your investments don’t belong to Percapita.",
+      "For mutual funds, your investments are held through the relevant mutual fund and registrar infrastructure. If Percapita stops operating, your underlying investments remain subject to the terms and processes of the respective fund and applicable regulations.",
+    ],
+  },
+  {
+    q: "What are your fees?",
+    a: [
+      "For Regular Plan mutual funds, we do not charge you a separate platform or advisory fee. As an MFD, we receive distribution commission from the mutual fund scheme as permitted under the applicable regulations.",
+      "There are no additional charges from us specifically for our guidance, portfolio reviews, or ongoing support under this arrangement.",
+      "For other products, applicable fees and charges may vary and are communicated separately.",
+    ],
+  },
+  {
+    q: "How does Percapita earn?",
+    a: ["For Regular Plan mutual funds, we receive distribution commission from the respective mutual fund schemes. We believe you should know how we’re compensated."],
+  },
+  {
+    q: "What happens in the first meeting?",
+    a: [
+      "We talk. No complicated homework.",
+      "We understand where you are financially, what you’re working towards, and what you’re looking for.",
+    ],
+  },
+  {
+    q: "Is Percapita only about investments?",
+    a: ["Nope. We also help clients think through areas such as insurance, borrowing, retirement, tax considerations, and broader financial planning."],
+  },
+  {
+    q: "Can I ask questions before investing?",
+    a: ["Absolutely. Understanding the product, risks, costs, and how we’re compensated should come before any investment decision."],
+  },
+  {
+    q: "What’s the Percapita approach?",
+    a: [
+      "Less noise. More context.",
+      "We keep things simple, explain the relevant options, and help you make informed financial decisions.",
+    ],
+  },
+] as const;
+
+export const FAQ_DISCLAIMER =
+  "Mutual fund investments are subject to market risks. Read all scheme-related documents carefully before investing. Product availability, eligibility, fees, commissions, and terms are subject to applicable regulations and product-specific conditions.";
 
 export const OFFICES = [
   {
@@ -285,6 +359,7 @@ export const FOOTER_COMPANY = [
   { label: "Who We Are", href: "#who-we-are" },
   { label: "What We Do", href: "#what-we-do" },
   { label: "Calculator", href: "#calculators" },
+  { label: "FAQs", href: "#faqs" },
   { label: "Policy", href: "#contact" },
   { label: "Contact Us", href: "#contact" },
 ] as const;

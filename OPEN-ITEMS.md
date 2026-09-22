@@ -100,6 +100,22 @@ integration pattern, which is the shortest path.
 
 ## Design decisions still open
 
+**15. FAQ headline is ours.** The copy supplies only the label "FAQs", so
+"Questions worth asking before you invest." stands in, as with Services.
+
+**16. FAQs are not in the top nav.** The section has an anchor (`#faqs`) and a
+footer link. Adding it to the header would make six nav items, which is tight
+at the widths where the inline nav appears. Say if it should go in.
+
+**A fee contradiction was resolved, not introduced.** The old "Your Initial
+Consultation" panel stated "We operate on a single, transparent advisory fee
+that covers our integrated financial planning and investment guidance." The
+Sept 2026 FAQ says the opposite for the main business: "For Regular Plan mutual
+funds, we do not charge you a separate platform or advisory fee... we receive
+distribution commission." The How We Work rewrite removed that panel, and the
+old "Clear Fee Structure" value and "One fee" hero stat went earlier, so the
+page no longer contradicts itself. Verified: the phrase no longer renders.
+
 **13. Services headline is ours, not the client's.** The Sept 2026 copy gives
 no headline for this section, only the label "Services". Every other section
 has one, so "Investments, protection, and borrowing." stands in - descriptive

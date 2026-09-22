@@ -1,5 +1,6 @@
 import { Calculators } from "@/components/Calculators";
 import { ClientLoginProvider } from "@/components/ClientLogin";
+import { Faqs } from "@/components/Faqs";
 import { GetInTouch } from "@/components/GetInTouch";
 import { Hero } from "@/components/Hero";
 import { HowWeWork } from "@/components/HowWeWork";
@@ -31,6 +32,7 @@ export default function Home() {
         <Calculators />
         <HowWeWork />
         <GetInTouch />
+        <Faqs />
         <LogoMarquee />
       </main>
       <SiteFooter />
