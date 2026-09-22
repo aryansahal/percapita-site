@@ -56,20 +56,66 @@ export function WhoWeAre() {
 
         <div className="min-w-0">
           <div className="bg-surface px-[clamp(22px,3vw,36px)] py-[clamp(26px,3.5vw,34px)]">
-            <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-violet">
-              Our Background
+            <p className="eyebrow text-violet">The Spark Behind Percapita</p>
+
+            <p className="mt-[18px] text-[17px] leading-[1.5] font-bold tracking-[-0.015em] text-plum">
+              Every big idea starts with a question.
             </p>
-            <p className="mt-[14px] text-[14.5px] leading-[1.8] text-ink-2">
-              Since 2015, Percapita has provided independent financial advisory
-              services for individuals and families. We design strategies that
-              integrate financial planning and investment guidance, helping
-              clients prepare for the future responsibly.
+            <p className="mt-3 text-[14.5px] leading-[1.8] text-ink-2">
+              Ours was simple:{" "}
+              <em className="font-semibold text-plum not-italic">
+                Why does money feel so complicated when it&rsquo;s such a
+                personal part of our lives?
+              </em>
             </p>
-            <p className="mt-[14px] text-[14.5px] leading-[1.8] text-ink-2">
-              Our name, drawn from the Latin &ldquo;per capita&rdquo;, meaning
-              for each person, reflects our belief that effective advice begins
-              with understanding what matters most to you. Every plan we build
-              is personalized to reflect your ambitions and priorities.
+            <p className="mt-3 text-[14.5px] leading-[1.8] text-ink-2">
+              Finance has always spoken in numbers: charts, averages, markets,
+              percentages. But numbers don&rsquo;t dream.{" "}
+              <strong className="font-semibold text-plum">People do.</strong>
+            </p>
+
+            <p className="mt-4 text-[14.5px] leading-[1.8] text-ink-2">
+              And behind every number is a person figuring it out. A first
+              salary. A growing business. A big ambition. A family to build. A
+              future to plan. That&rsquo;s where{" "}
+              <strong className="font-semibold text-plum">Percapita</strong>{" "}
+              comes in.
+            </p>
+
+            <p className="mt-4 text-[14.5px] leading-[1.8] text-ink-2">
+              &ldquo;Per capita&rdquo; means <em>per person</em>. A phrase
+              usually used to describe populations and statistics. We saw a
+              different meaning.
+            </p>
+
+            <ul className="mt-4 flex list-none flex-col gap-1 border-l-2 border-violet pl-[18px]">
+              <li className="text-[15.5px] font-bold text-plum">Per person.</li>
+              <li className="text-[15.5px] font-bold text-plum">Per journey.</li>
+              <li className="text-[15.5px] font-bold text-plum">Per dream.</li>
+            </ul>
+
+            <p className="mt-5 text-[14.5px] leading-[1.8] text-ink-2">
+              So we built Percapita to make finance feel less like a spreadsheet
+              and more like something that actually understands you.
+            </p>
+            <p className="mt-3 text-[14.5px] leading-[1.8] text-ink-2">
+              No unnecessary complexity. No cold, one size fits all thinking.
+              Just a clearer way to look at your money, your choices, and what
+              comes next. Because wealth isn&rsquo;t just about the numbers.{" "}
+              <strong className="font-semibold text-plum">
+                It&rsquo;s about what those numbers make possible.
+              </strong>
+            </p>
+
+            <p className="mt-4 text-[14.5px] leading-[1.8] text-ink-2">
+              Your story is personal.{" "}
+              <strong className="font-semibold text-plum">
+                Your finances should be too.
+              </strong>
+            </p>
+
+            <p className="mt-5 border-t border-hair-2 pt-[18px] text-[15.5px] font-bold text-purple italic">
+              Percapita. Finance that feels personal.
             </p>
           </div>
 
