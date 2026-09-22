@@ -95,24 +95,37 @@ export const WHO_WE_ARE_POINTS = [
   },
 ] as const;
 
+/**
+ * Values (Sept 2026 copy). `lead` is the memorable line and carries the
+ * visual weight; `title` labels it and `body` explains it.
+ */
 export const VALUES = [
   {
-    title: "Integrity and Transparency",
-    body: "We build genuine relationships based on trust and clear communication.",
+    title: "People First",
+    lead: "Numbers matter. You matter more.",
+    body: "Finance starts with understanding the person behind the numbers.",
   },
   {
-    title: "Professional Excellence",
-    body: "Our approach is methodical and focused, ensuring every detail is managed with care.",
+    title: "Keep It Clear",
+    lead: "No jargon. No noise. Just clarity.",
+    body: "We make finance easier to understand and easier to act on.",
   },
   {
-    title: "Solution Oriented",
-    body: "We approach challenges with determination, offering guidance that supports better outcomes.",
+    title: "Own Your Journey",
+    lead: "Your money. Your goals. Your way.",
+    body: "Because financial success looks different for everyone.",
   },
   {
-    title: "Clear Fee Structure",
-    body: "One transparent advisory fee, with no initial setup fees and no hidden costs.",
+    title: "Build For Tomorrow",
+    lead: "Think ahead. Move smarter.",
+    body: "We help turn today’s financial choices into tomorrow’s possibilities.",
   },
 ] as const;
+
+export const PERCAPITA_MINDSET = {
+  label: "The Percapita mindset",
+  line: "Human at heart. Clear by design. Personal by default.",
+} as const;
 
 export const WHAT_WE_DO = [
   {

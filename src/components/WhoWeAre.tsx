@@ -1,4 +1,8 @@
-import { VALUES, WHO_WE_ARE_POINTS } from "@/lib/content";
+import {
+  PERCAPITA_MINDSET,
+  VALUES,
+  WHO_WE_ARE_POINTS,
+} from "@/lib/content";
 
 export function PositioningBand() {
   return (
@@ -119,19 +123,34 @@ export function WhoWeAre() {
             </p>
           </div>
 
-          {/* 1px gap over a tinted container draws the hairline dividers. */}
-          <ul className="mt-7 grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,250px),1fr))] gap-px bg-hair">
-            {VALUES.map((value) => (
-              <li key={value.title} className="bg-white px-6 py-[26px]">
-                <h3 className="text-[12.5px] font-bold text-plum">
-                  {value.title}
-                </h3>
-                <p className="mt-[9px] text-[13px] leading-[1.7] text-ink-5">
-                  {value.body}
-                </p>
-              </li>
-            ))}
-          </ul>
+          {/* 1px gaps over a tinted container draw the hairline dividers,
+              including the one between the grid and the closing line. */}
+          <div className="mt-7 flex flex-col gap-px bg-hair">
+            <ul className="grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,250px),1fr))] gap-px">
+              {VALUES.map((value) => (
+                <li key={value.title} className="bg-white px-6 py-[26px]">
+                  <h3 className="text-[10px] font-bold tracking-[0.16em] uppercase text-violet">
+                    {value.title}
+                  </h3>
+                  <p className="mt-2.5 text-[14.5px] leading-[1.45] font-bold tracking-[-0.015em] text-plum">
+                    {value.lead}
+                  </p>
+                  <p className="mt-2 text-[13px] leading-[1.7] text-ink-5">
+                    {value.body}
+                  </p>
+                </li>
+              ))}
+            </ul>
+
+            <div className="bg-surface px-6 py-[22px]">
+              <p className="text-[10px] font-bold tracking-[0.16em] uppercase text-violet">
+                {PERCAPITA_MINDSET.label}
+              </p>
+              <p className="mt-2 text-[15px] leading-[1.5] font-bold tracking-[-0.015em] text-plum">
+                {PERCAPITA_MINDSET.line}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
