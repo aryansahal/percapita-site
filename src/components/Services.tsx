@@ -1,66 +1,61 @@
 import { SERVICES } from "@/lib/content";
-import { Diamond } from "./icons";
 
 /**
- * Services, Sept 2026 copy: six offerings on a hairline grid.
+ * Services as an editorial directory rather than a card grid.
  *
- * Cards stretch to equal height per row so the hairlines stay continuous;
- * the points list is pushed to the bottom with mt-auto, which keeps the
- * bullet blocks aligned across a row when the descriptions differ in length.
+ * Six boxes on a hairline grid read as a spreadsheet, and the page already
+ * uses boxed cards for the How We Work stages and the Values grid. Here each
+ * service is a full-width row split three ways: name, description, detail.
+ * Hairlines between rows and a rule before the detail column carry the
+ * structure, so nothing needs a border of its own.
  */
 export function Services() {
   return (
     <section id="services" className="bg-surface">
       <div className="shell section-y">
         <p className="eyebrow eyebrow-gap text-violet">Services</p>
-        <h2 className="max-w-[820px] h2-display text-plum">
+        <h2 className="h2-display text-plum">
           Investments, protection, and borrowing.
         </h2>
 
-        <ul className="mt-11 grid list-none grid-cols-1 gap-px bg-hair-2 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-[clamp(30px,4vw,46px)] list-none border-t border-hair-2">
           {SERVICES.map((service) => (
             <li
               key={service.name}
-              className="flex flex-col bg-white px-[clamp(22px,2.6vw,30px)] py-[clamp(26px,3vw,34px)]"
+              className="grid grid-cols-1 gap-x-[clamp(24px,3vw,48px)] gap-y-[18px] border-b border-hair-2 py-[clamp(24px,3vw,34px)] lg:grid-cols-[0.72fr_1.3fr_1fr]"
             >
-              {/* The name carries the weight: people scan this grid for "PMS"
-                  or "Insurance", not for the tagline. */}
-              <h3 className="text-[clamp(18px,2.2vw,21px)] leading-[1.2] font-bold tracking-[-0.025em] text-plum">
-                {service.name}
-              </h3>
-              <p className="mt-[7px] min-h-[13px] text-[10px] font-bold tracking-[0.14em] uppercase text-muted-2">
-                {service.expansion ?? ""}
-              </p>
-
-              <p className="mt-[14px] text-[14px] leading-[1.45] font-semibold text-purple-accent">
-                {service.tagline}
-              </p>
-
-              <p className="mt-2.5 text-[13.5px] leading-[1.75] text-ink-3">
-                {service.body}
-              </p>
-
-              {/* mt-auto pins the list to the bottom so the bullet blocks line
-                  up across a row; the wrapper's padding guarantees space above
-                  the rule even when the description already fills the card. */}
-              {/* Supporting detail, so set quieter than the description above
-                  it: twenty-four bullets across six cards competing at body
-                  weight is what made this grid read as a spreadsheet. */}
-              <div className="mt-auto pt-[22px]">
-                <ul className="flex list-none flex-col gap-[9px] border-t border-hair pt-[16px] text-[12.5px] leading-[1.5] text-ink-5">
-                  {service.points.map((point) => (
-                    <li key={point} className="flex items-baseline gap-2.5">
-                      <Diamond className="flex-none text-[7px] text-lilac" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="min-w-0">
+                <h3 className="text-[clamp(18px,2.2vw,22px)] leading-[1.2] font-bold tracking-[-0.025em] text-plum">
+                  {service.name}
+                </h3>
+                {service.expansion ? (
+                  <p className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-muted-2">
+                    {service.expansion}
+                  </p>
+                ) : null}
               </div>
+
+              <div className="min-w-0">
+                <p className="text-[14.5px] leading-[1.45] font-semibold text-purple-accent">
+                  {service.tagline}
+                </p>
+                <p className="mt-2.5 text-[13.5px] leading-[1.75] text-ink-3">
+                  {service.body}
+                </p>
+              </div>
+
+              {/* The rule replaces the card border: it separates detail from
+                  description without drawing a box around either. */}
+              <ul className="flex min-w-0 list-none flex-col gap-[9px] border-t border-hair-2 pt-[14px] text-[12.5px] leading-[1.5] text-ink-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-[clamp(20px,2.5vw,32px)]">
+                {service.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
             </li>
           ))}
         </ul>
 
-        <p className="mt-[26px] max-w-[1000px] text-[11px] leading-[1.8] text-muted">
+        <p className="mt-[clamp(24px,3vw,32px)] max-w-[1000px] text-[11px] leading-[1.8] text-muted">
           Disclaimer : Investments are subject to market risks. Products and
           services are subject to applicable eligibility, regulatory, risk,
           liquidity, and other conditions. No investment outcome is guaranteed.
