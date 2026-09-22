@@ -75,6 +75,28 @@
   padding-block: clamp(56px, 7vw, 96px);
 }
 
+/* Halves of the same rhythm, for sections that put a full-bleed element
+   between their header and footer and so cannot use a single padded box. */
+@utility section-pt {
+  padding-top: clamp(56px, 7vw, 96px);
+}
+@utility section-pb {
+  padding-bottom: clamp(56px, 7vw, 96px);
+}
+
+/* A full-width scroller whose first item still lines up with `shell` content.
+   Percentages, not vw: 100vw includes the scrollbar and would overflow. */
+@utility rail-pad {
+  padding-inline: max(
+    clamp(20px, 4vw, 32px),
+    calc((100% - 1200px) / 2 + clamp(20px, 4vw, 32px))
+  );
+  scroll-padding-inline: max(
+    clamp(20px, 4vw, 32px),
+    calc((100% - 1200px) / 2 + clamp(20px, 4vw, 32px))
+  );
+}
+
 /* Section eyebrow: 11px/700 uppercase .18em. Text only, no decorative rule. */
 @utility eyebrow {
   font-size: 11px;

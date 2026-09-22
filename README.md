@@ -128,21 +128,35 @@ the problem back:
 ## Services is a rail, not a grid
 
 Six equal cards in a 3x2 grid read as a spreadsheet and ran past 1,100px. As a
-horizontal rail the section is 767px and each card gets a fixed 330px measure.
+horizontal rail the section is ~770px, each card holds a fixed 340px measure,
+and the rail spans the viewport rather than the 1200px shell (1,585px at a
+1600px window against 1,200px before).
 
-Horizontal rails usually fail on discoverability, so this one carries three
-affordances and needs all of them:
+`rail-pad` in `globals.css` is what makes that work: the scroller is full
+width, but its inline padding still lines the first card up with `shell`
+content, so the heading and the first card share a left edge at every width.
+It is written in percentages rather than `vw` on purpose - `100vw` includes the
+scrollbar and overflows the page.
 
-- **The next card peeks.** 3.64 cards fit the viewport at 1280, so the fourth
-  is visibly cut off. Card width and container width must never divide evenly.
-- **Arrow buttons that disable at the ends**, so the rail's extent is obvious
-  without scrolling it.
-- **The rail is focusable** (`tabIndex={0}` with `role="region"` and a label),
-  which is what lets a keyboard user reach it and scroll with the arrow keys.
-  A scrollable region with no way to focus it is a WCAG failure.
+Horizontal rails fail on discoverability, so this one carries four signals and
+needs all of them:
 
-Scrolling is native `overflow-x`, so the rail still works with JavaScript off;
-the buttons are enhancement. `prefers-reduced-motion` drops the smooth scroll.
+- **The next card peeks.** Card width and rail width must never divide evenly,
+  or the rail looks like a finished row and nobody scrolls.
+- **A filled "Next" button** while there is more to see. Two outline arrows
+  read as decoration; the forward move is the one worth pointing at, so it
+  drops to a plain disabled square only at the end.
+- **A progress bar** under the rail, sized to the fraction visible.
+- **A fade over the right edge** that clears at the end, so it never implies
+  content that is not there.
+
+The rail is also a focusable labelled region (`tabIndex={0}`, `role="region"`).
+A scrollable region a keyboard user cannot focus is a WCAG failure, and it is
+the part carousels usually skip.
+
+Scrolling is native `overflow-x`, so the rail works with JavaScript off; the
+buttons and progress bar are enhancement. `prefers-reduced-motion` drops the
+smooth scroll.
 
 ## The NAV band
 
