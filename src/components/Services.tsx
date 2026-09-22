@@ -23,32 +23,34 @@ export function Services() {
               key={service.name}
               className="flex flex-col bg-white px-[clamp(22px,2.6vw,30px)] py-[clamp(26px,3vw,34px)]"
             >
-              <h3 className="text-[11px] font-bold tracking-[0.16em] uppercase text-violet">
+              {/* The name carries the weight: people scan this grid for "PMS"
+                  or "Insurance", not for the tagline. */}
+              <h3 className="text-[clamp(18px,2.2vw,21px)] leading-[1.2] font-bold tracking-[-0.025em] text-plum">
                 {service.name}
-                {service.expansion ? (
-                  <>
-                    {" · "}
-                    <span className="text-muted-2">{service.expansion}</span>
-                  </>
-                ) : null}
               </h3>
+              <p className="mt-[7px] min-h-[13px] text-[10px] font-bold tracking-[0.14em] uppercase text-muted-2">
+                {service.expansion ?? ""}
+              </p>
 
-              <p className="mt-3 text-[16px] leading-[1.35] font-bold tracking-[-0.02em] text-plum">
+              <p className="mt-[14px] text-[14px] leading-[1.45] font-semibold text-purple-accent">
                 {service.tagline}
               </p>
 
-              <p className="mt-3 text-[13.5px] leading-[1.75] text-ink-3">
+              <p className="mt-2.5 text-[13.5px] leading-[1.75] text-ink-3">
                 {service.body}
               </p>
 
               {/* mt-auto pins the list to the bottom so the bullet blocks line
                   up across a row; the wrapper's padding guarantees space above
                   the rule even when the description already fills the card. */}
+              {/* Supporting detail, so set quieter than the description above
+                  it: twenty-four bullets across six cards competing at body
+                  weight is what made this grid read as a spreadsheet. */}
               <div className="mt-auto pt-[22px]">
-                <ul className="flex list-none flex-col gap-2.5 border-t border-hair pt-[18px] text-[13px] leading-[1.6] text-ink-2">
+                <ul className="flex list-none flex-col gap-[9px] border-t border-hair pt-[16px] text-[12.5px] leading-[1.5] text-ink-5">
                   {service.points.map((point) => (
                     <li key={point} className="flex items-baseline gap-2.5">
-                      <Diamond className="flex-none text-[8px] text-violet" />
+                      <Diamond className="flex-none text-[7px] text-lilac" />
                       <span>{point}</span>
                     </li>
                   ))}
