@@ -1,4 +1,4 @@
-import { VALUES } from "@/lib/content";
+import { VALUES, WHO_WE_ARE_POINTS } from "@/lib/content";
 
 export function PositioningBand() {
   return (
@@ -22,22 +22,30 @@ export function WhoWeAre() {
         <div className="min-w-0">
           <p className="eyebrow mb-[22px] text-violet">Who We Are</p>
           <h2 className="text-[clamp(25px,3.3vw,33px)] leading-[1.24] font-bold tracking-[-0.025em] text-plum">
-            Helping clients plan, manage, and protect their finances with
-            clarity and confidence.
+            Money moves, made clear.
           </h2>
-          <p className="mt-[22px] text-[14.5px] leading-[1.85] text-ink-3">
-            At Percapita, we aim to provide financial advisory services with a
-            personal approach. Unlike large institutions where clients may feel
-            overlooked, we focus on building lasting relationships grounded in
-            transparency and tailored financial planning.
-          </p>
-          <p className="mt-4 text-[14.5px] leading-[1.85] text-ink-3">
-            Our team consists of qualified professionals with decades of
-            combined experience in financial planning and investment advisory.
-            When you work with us, you benefit from collective expertise aligned
-            with your goals. We are here to support informed financial decisions
-            with integrity and care.
-          </p>
+
+          {/* Numbered because the copy numbers them; the ordinals are the
+              client's, not decoration. */}
+          <ol className="mt-8 flex list-none flex-col">
+            {WHO_WE_ARE_POINTS.map((point, i) => (
+              <li
+                key={point.title}
+                className="border-t border-hair py-[22px] first:border-t-0 first:pt-0"
+              >
+                <p className="text-[11px] font-semibold tracking-[0.12em] text-violet">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mt-2 text-[15px] font-bold text-plum">
+                  {point.title}
+                </h3>
+                <p className="mt-2 text-[14px] leading-[1.8] text-ink-3">
+                  {point.body}
+                </p>
+              </li>
+            ))}
+          </ol>
+
           <a
             href="#contact"
             className="mt-8 inline-block rounded-[2px] bg-purple px-6 py-[14px] text-[13px] font-semibold text-white transition-colors duration-150 hover:bg-purple-hover"

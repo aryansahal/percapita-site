@@ -70,6 +70,31 @@ export const MARQUEE_LOGO_HEIGHT = 38;
  *  see the note in LogoMarquee about why that distinction matters. */
 export const MARQUEE_LOGO_SPACING = 64;
 
+/**
+ * The numbered points in the Who We Are column (Sept 2026 copy).
+ *
+ * NOTE: three of these overlap heavily with `VALUES` below, which still feeds
+ * the 2x2 grid on the right of the same section. See OPEN-ITEMS.md.
+ */
+export const WHO_WE_ARE_POINTS = [
+  {
+    title: "Integrity and Transparency",
+    body: "We keep it real, building genuine relationships through trust, clear communication, and honest guidance.",
+  },
+  {
+    title: "Professional Excellence",
+    body: "Every detail matters. Our team brings decades of expertise, delivering smart, research driven solutions with care and precision.",
+  },
+  {
+    title: "Solution Oriented Mindset",
+    body: "Challenges don’t scare us. We focus on practical, outcome driven strategies that help you make smarter money moves.",
+  },
+  {
+    title: "Future Ready Finance",
+    body: "We don’t just plan for today, we help you stay ahead. With clarity, confidence, and modern tools, Percapita empowers you to build lasting value for tomorrow.",
+  },
+] as const;
+
 export const VALUES = [
   {
     title: "Integrity and Transparency",
