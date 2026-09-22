@@ -86,6 +86,27 @@ credential, and it must stay that way. Destination lives in
 `src/lib/clientLogin.ts`. See OPEN-ITEMS.md for the white-label subdomain
 recommendation.
 
+## One heading scale, one section rhythm
+
+Adding the Sept 2026 copy drifted the type: three near-identical H2 clamps
+across nine sections, five different eyebrow gaps, three section paddings, and
+a section whose headline was a `<p>` so it had no heading at all.
+
+Two utilities in `globals.css` now hold it: **`h2-display`** is the only
+section-heading scale, and **`eyebrow-gap`** the only gap between an eyebrow
+and its heading. Every full-width section uses **`section-y`**. Use them rather
+than writing a new clamp; a one-off "just slightly bigger" heading is what
+caused the drift.
+
+Backgrounds alternate deliberately and no two adjacent sections share one:
+
+```
+white -> tint -> white -> photo -> dark -> tint -> white -> tint -> dark -> tint
+```
+
+How We Work is tinted for this reason alone. On white it sat directly against
+the white Calculators band above it and the two read as one block.
+
 ## Who We Are is three bands, not one section
 
 `WhoWeAre`, `SparkStory` and `Values` are separate full-width sections that

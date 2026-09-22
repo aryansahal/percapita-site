@@ -11,12 +11,12 @@ import { Photo } from "./Photo";
  */
 export function HowWeWork() {
   return (
-    <section id="process" className="bg-white">
-      <div className="shell pb-[clamp(56px,7vw,96px)]">
+    <section id="process" className="bg-surface">
+      <div className="shell section-y">
         <div className="grid grid-cols-1 items-center gap-x-[clamp(32px,5vw,64px)] gap-y-[clamp(28px,4vw,40px)] lg:grid-cols-[1fr_0.9fr]">
           <div className="min-w-0">
-            <p className="eyebrow mb-[18px] text-violet">How We Work</p>
-            <h2 className="text-[clamp(26px,3.6vw,36px)] leading-[1.18] font-bold tracking-[-0.03em] text-plum">
+            <p className="eyebrow eyebrow-gap text-violet">How We Work</p>
+            <h2 className="h2-display text-plum">
               Your Money. Your Context. Your Plan.
             </h2>
             <p className="mt-4 text-[clamp(16px,2vw,19px)] leading-[1.5] font-semibold text-purple-accent">
@@ -39,7 +39,7 @@ export function HowWeWork() {
           </div>
         </div>
 
-        <ol className="mt-[clamp(40px,5vw,64px)] grid list-none grid-cols-1 gap-px bg-hair sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-[clamp(40px,5vw,64px)] grid list-none grid-cols-1 gap-px bg-hair-2 sm:grid-cols-2 lg:grid-cols-4">
           {PROCESS_STAGES.map((stage) => (
             <li
               key={stage.stage}
@@ -58,7 +58,7 @@ export function HowWeWork() {
           ))}
         </ol>
 
-        <ol className="mt-[clamp(32px,4vw,44px)] flex list-none flex-wrap items-center justify-center gap-x-3 gap-y-2 border-y border-hair py-[clamp(18px,2.5vw,24px)]">
+        <ol className="mt-[clamp(32px,4vw,44px)] flex list-none flex-wrap items-center justify-center gap-x-3 gap-y-2 border-y border-hair-2 py-[clamp(18px,2.5vw,24px)]">
           {PROCESS_FLOW.map((step, i) => (
             <li key={step} className="flex items-center gap-3">
               <span className="text-[clamp(15px,2vw,19px)] font-bold tracking-[-0.015em] text-plum">

@@ -12,8 +12,10 @@ export function Values() {
     <section className="bg-white">
       <div className="shell section-y">
         <header className="max-w-[760px]">
-          <p className="eyebrow text-violet">{PERCAPITA_MINDSET.label}</p>
-          <h2 className="mt-[18px] text-[clamp(25px,3.3vw,33px)] leading-[1.24] font-bold tracking-[-0.025em] text-plum">
+          <p className="eyebrow eyebrow-gap text-violet">
+            {PERCAPITA_MINDSET.label}
+          </p>
+          <h2 className="h2-display text-plum">
             {PERCAPITA_MINDSET.line}
           </h2>
         </header>

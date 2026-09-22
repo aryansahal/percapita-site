@@ -11,9 +11,9 @@ import { Diamond } from "./icons";
 export function Services() {
   return (
     <section id="services" className="bg-surface">
-      <div className="shell py-[clamp(52px,6.5vw,88px)]">
-        <p className="eyebrow mb-5 text-violet">Services</p>
-        <h2 className="max-w-[820px] text-[clamp(26px,3.6vw,36px)] leading-[1.2] font-bold tracking-[-0.03em] text-plum">
+      <div className="shell section-y">
+        <p className="eyebrow eyebrow-gap text-violet">Services</p>
+        <h2 className="max-w-[820px] h2-display text-plum">
           Investments, protection, and borrowing.
         </h2>
 

@@ -29,8 +29,8 @@ export function WhoWeAre() {
       <div className="shell section-y">
         <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
           <div className="min-w-0">
-            <p className="eyebrow mb-[18px] text-violet">Who We Are</p>
-            <h2 className="text-[clamp(27px,3.8vw,38px)] leading-[1.18] font-bold tracking-[-0.03em] text-plum">
+            <p className="eyebrow eyebrow-gap text-violet">Who We Are</p>
+            <h2 className="h2-display text-plum">
               Money moves, made clear.
             </h2>
           </div>

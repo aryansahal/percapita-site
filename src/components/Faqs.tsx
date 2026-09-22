@@ -14,8 +14,8 @@ export function Faqs() {
     <section id="faqs" className="bg-surface">
       <div className="shell section-y">
         <div className="max-w-[820px]">
-          <p className="eyebrow mb-[18px] text-violet">FAQs</p>
-          <h2 className="text-[clamp(26px,3.6vw,36px)] leading-[1.2] font-bold tracking-[-0.03em] text-plum">
+          <p className="eyebrow eyebrow-gap text-violet">FAQs</p>
+          <h2 className="h2-display text-plum">
             Questions worth asking before you invest.
           </h2>
         </div>

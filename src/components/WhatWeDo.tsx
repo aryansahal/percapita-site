@@ -10,8 +10,8 @@ export function WhatWeDo() {
   return (
     <section id="what-we-do" className="bg-plum-dark text-white">
       <div className="shell section-y">
-        <p className="eyebrow mb-[22px] text-lilac">What We Do</p>
-        <h2 className="max-w-[920px] text-[clamp(27px,3.8vw,38px)] leading-[1.2] font-bold tracking-[-0.03em]">
+        <p className="eyebrow eyebrow-gap text-lilac">What We Do</p>
+        <h2 className="max-w-[920px] h2-display">
           Your money has a story. It just doesn&rsquo;t come with a table of
           contents.
         </h2>

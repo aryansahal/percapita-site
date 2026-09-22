@@ -16,11 +16,11 @@ export function GetInTouch() {
             "radial-gradient(1100px 460px at 80% 6%, rgba(139,92,199,0.45), transparent 70%), linear-gradient(180deg, #331B50 0%, #1B0C2C 100%)",
         }}
       />
-      <div className="shell relative py-[clamp(56px,7vw,92px)]">
+      <div className="shell relative section-y">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] items-start gap-[clamp(40px,5vw,64px)]">
           <div className="min-w-0">
-            <p className="eyebrow mb-[22px] text-lilac">Get in Touch</p>
-            <h2 className="text-[clamp(27px,3.8vw,38px)] leading-[1.18] font-bold tracking-[-0.03em]">
+            <p className="eyebrow eyebrow-gap text-lilac">Get in Touch</p>
+            <h2 className="h2-display">
               Start with a no obligation conversation.
             </h2>
             <p className="mt-5 max-w-[480px] text-[14.5px] leading-[1.8] text-on-dark-2">

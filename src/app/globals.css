@@ -83,6 +83,21 @@
   text-transform: uppercase;
 }
 
+/* The one section-heading scale. Every top-level section uses this; sizes had
+   drifted to three near-identical clamps across the page. Colour is set at the
+   call site because the dark bands inherit white. */
+@utility h2-display {
+  font-size: clamp(27px, 3.8vw, 38px);
+  line-height: 1.19;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* Standard gap between a section eyebrow and its heading. */
+@utility eyebrow-gap {
+  margin-bottom: 18px;
+}
+
 body {
   background: #ffffff;
   color: var(--color-ink);

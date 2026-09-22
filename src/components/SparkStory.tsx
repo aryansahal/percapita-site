@@ -11,11 +11,13 @@ export function SparkStory() {
     <section className="bg-surface">
       <div className="shell section-y grid gap-x-[clamp(32px,5vw,72px)] gap-y-[clamp(28px,4vw,40px)] lg:grid-cols-[0.85fr_1.15fr]">
         <header className="min-w-0">
-          <p className="eyebrow text-violet">The Spark Behind Percapita</p>
-          <p className="mt-5 text-[clamp(25px,3.4vw,34px)] leading-[1.2] font-bold tracking-[-0.03em] text-plum">
-            Every big idea starts with a question.
+          <p className="eyebrow eyebrow-gap text-violet">
+            The Spark Behind Percapita
           </p>
-          <p className="mt-[18px] max-w-[420px] text-[clamp(16px,1.9vw,18px)] leading-[1.55] font-semibold text-purple-accent">
+          <h2 className="h2-display text-plum">
+            Every big idea starts with a question.
+          </h2>
+          <p className="mt-[18px] max-w-[420px] text-[clamp(16px,2vw,19px)] leading-[1.5] font-semibold text-purple-accent">
             Why does money feel so complicated when it&rsquo;s such a personal
             part of our lives?
           </p>

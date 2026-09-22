@@ -50,9 +50,9 @@ export function Calculators() {
 
   return (
     <section id="calculators" className="bg-white">
-      <div className="shell py-[clamp(52px,6.5vw,88px)]">
-        <p className="eyebrow mb-5 text-violet">Calculators</p>
-        <h2 className="text-[clamp(27px,3.8vw,38px)] leading-[1.2] font-bold tracking-[-0.03em] text-plum">
+      <div className="shell section-y">
+        <p className="eyebrow eyebrow-gap text-violet">Calculators</p>
+        <h2 className="h2-display text-plum">
           Run the numbers on your future.
         </h2>
 
