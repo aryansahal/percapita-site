@@ -155,6 +155,86 @@ export const WHAT_WE_DO = [
   },
 ] as const;
 
+/**
+ * Services (Sept 2026 copy). `name` is the label; `expansion` spells out the
+ * abbreviation where there is one and is joined to the name with a middle dot,
+ * matching the eyebrow style used elsewhere.
+ */
+export const SERVICES = [
+  {
+    name: "Mutual Funds",
+    expansion: null,
+    tagline: "Investing, minus the noise.",
+    body: "Access a wide range of professionally managed funds across asset classes and strategies. We help you explore options based on your goals, risk profile, and investment horizon.",
+    points: [
+      "Goal based fund selection",
+      "Diversified investment options",
+      "Risk & portfolio assessment",
+      "Ongoing portfolio review",
+    ],
+  },
+  {
+    name: "SIFs",
+    expansion: "Specialized Investment Funds",
+    tagline: "More strategy. More possibilities.",
+    body: "SIFs offer access to specialised investment strategies within a regulated framework. We help you understand the strategy, risks, liquidity, and suitability before you invest.",
+    points: [
+      "Specialised investment strategies",
+      "Strategy & risk assessment",
+      "Portfolio diversification",
+      "Suitability led selection",
+    ],
+  },
+  {
+    name: "PMS",
+    expansion: "Portfolio Management Services",
+    tagline: "A portfolio built around you.",
+    body: "A more customised approach to portfolio management, aligned with your objectives, risk profile, and investment horizon.",
+    points: [
+      "Customised portfolio strategies",
+      "Direct portfolio exposure",
+      "Ongoing monitoring",
+      "Periodic portfolio review",
+    ],
+  },
+  {
+    name: "AIF",
+    expansion: "Alternative Investment Funds",
+    tagline: "Beyond the usual.",
+    body: "Explore alternative investment strategies that can sit alongside traditional investments, with a focus on understanding the fund, structure, risks, and liquidity.",
+    points: [
+      "Alternative investment strategies",
+      "Fund & strategy evaluation",
+      "Portfolio diversification",
+      "Risk & liquidity assessment",
+    ],
+  },
+  {
+    name: "Insurance Advisory",
+    expansion: null,
+    tagline: "Protect the plan, not just the premium.",
+    body: "We look at your existing coverage, responsibilities, and financial priorities to assess where insurance fits into your overall financial picture.",
+    points: [
+      "Coverage assessment",
+      "Protection needs analysis",
+      "Policy review",
+      "Gap & overlap identification",
+    ],
+  },
+  {
+    name: "Loan Advisory",
+    expansion: null,
+    tagline: "Borrow smart. Think beyond the EMI.",
+    body: "We help evaluate borrowing options beyond just the EMI: considering affordability, repayment structure, existing commitments, and overall financial impact.",
+    points: [
+      "Loan requirement assessment",
+      "Affordability analysis",
+      "Cost & structure review",
+      "Repayment planning",
+    ],
+  },
+] as const;
+
 export const PROCESS_STAGES = [
   {
     stage: "Stage 01",
@@ -191,12 +271,14 @@ export const OFFICES = [
   },
 ] as const;
 
+/** Mirrors the six services actually on the page. */
 export const FOOTER_SERVICES = [
   { label: "Mutual Funds", href: "#services" },
-  { label: "Fixed Deposits", href: "#services" },
-  { label: "General Insurance", href: "#services" },
-  { label: "Financial Planning", href: "#what-we-do" },
-  { label: "Investment Advisory", href: "#what-we-do" },
+  { label: "SIFs", href: "#services" },
+  { label: "PMS", href: "#services" },
+  { label: "AIF", href: "#services" },
+  { label: "Insurance Advisory", href: "#services" },
+  { label: "Loan Advisory", href: "#services" },
 ] as const;
 
 export const FOOTER_COMPANY = [

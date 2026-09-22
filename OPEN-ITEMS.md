@@ -100,6 +100,24 @@ integration pattern, which is the shortest path.
 
 ## Design decisions still open
 
+**13. Services headline is ours, not the client's.** The Sept 2026 copy gives
+no headline for this section, only the label "Services". Every other section
+has one, so "Investments, protection, and borrowing." stands in - descriptive
+of the six offerings and echoing the original design's "Investments, deposits,
+and protection." Replace it with the client's own line when there is one.
+
+**14. PMS, AIF and SIF are new product categories.** The site previously
+offered mutual funds, fixed deposits and general insurance, and identifies
+Percapita only as an AMFI-registered mutual fund distributor (ARN 142346).
+Portfolio Management Services, Alternative Investment Funds and Specialized
+Investment Funds sit under different SEBI registrations, and loan advisory is
+different again. **Compliance must confirm the registrations and any required
+disclosures before this page goes live.** Raised when the copy first arrived
+and repeated here now that it is on the page.
+
+Fixed Deposits has also disappeared as an offering. The footer Services column
+was updated to match the six live services.
+
 **12. What We Do lost its fourteen capability bullets.** The Sept 2026 copy
 replaced two columns of specifics (cash flow and liquidity planning, capital
 gains guidance, succession planning, ESG considerations, and so on) with a
