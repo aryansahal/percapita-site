@@ -141,13 +141,13 @@ export function SiteFooter() {
             </h3>
             <div className="flex flex-col gap-[9px]">
               <StoreButton
-                href="#contact"
+                href="/#contact"
                 icon={<AppleIcon className="flex-none" />}
                 kicker="Download on the"
                 name="App Store"
               />
               <StoreButton
-                href="#contact"
+                href="/#contact"
                 icon={<PlayIcon className="flex-none" />}
                 kicker="Get it on"
                 name="Google Play"

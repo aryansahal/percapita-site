@@ -178,6 +178,48 @@ the house. The parser tolerates all of these. Schemes are keyed by AMFI scheme
 code rather than name, because names keep changing — several "Bluechip" funds
 became "Large Cap" in recent SEBI-driven renames.
 
+## Insights (the blog)
+
+Posts are Markdown in `content/insights/*.md`, read at build by
+`src/lib/insights.ts`. Filesystem-backed on purpose: every post arrives through
+a pull request, which is also the compliance read. Percapita is an
+AMFI-registered distributor, not an adviser, so published commentary needs a
+check before it goes live rather than a publish button.
+
+To add one, drop a file in with frontmatter:
+
+```yaml
+---
+title: "..."
+summary: "..."        # the index card and the meta description
+date: "2026-09-23"
+author: "Percapita Advisors"
+topic: "Fees"         # optional, shown as the card eyebrow
+draft: false          # true keeps it out of listings, the sitemap and routing
+---
+```
+
+Everything else follows: the route, the sitemap entry, `BlogPosting` schema,
+the canonical, the Open Graph tags and the reading time. `dynamicParams` is
+false, so a draft or an unknown slug 404s rather than rendering.
+
+Markdown is rendered through `MdxContent`, which maps every element to the
+site's own scale rather than a generic prose class. A post cannot introduce a
+heading size or link colour that exists nowhere else. If a post needs a new
+element, add it there.
+
+**The advisory-only disclaimer is in the post template, not in the Markdown.**
+It must appear on every post, so it cannot be something an author remembers.
+
+Two things that made this work and would break if undone:
+
+- **Section links are root-relative** (`/#contact`, not `#contact`). A bare
+  hash on a post page appends to the current URL and goes nowhere. Twenty-four
+  links were converted when this landed.
+- **The index rules each card with a top border** rather than the `gap-px` over
+  a tinted container used elsewhere. That trick needs cells to fill the grid;
+  with one post the exposed background reads as a large empty block.
+
 ## SEO and local search
 
 Everything derives from `SITE_URL` in `src/lib/seo.ts`, so a domain change is

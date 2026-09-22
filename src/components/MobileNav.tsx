@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { NAV_LINKS } from "@/lib/content";
 
@@ -88,14 +89,14 @@ export function MobileNav() {
       >
         <nav aria-label="Primary" className="shell flex flex-col py-2">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
               className="border-b border-hair py-[14px] text-[15px] font-medium text-ink-2 transition-colors duration-150 last:border-b-0 hover:text-purple-accent"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { WHO_WE_ARE_POINTS } from "@/lib/content";
 
 export function PositioningBand() {
@@ -34,12 +35,12 @@ export function WhoWeAre() {
               Money moves, made clear.
             </h2>
           </div>
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className="flex-none rounded-[2px] bg-purple px-6 py-[14px] text-[13px] font-semibold text-white transition-colors duration-150 hover:bg-purple-hover"
           >
             Start a Conversation
-          </a>
+          </Link>
         </div>
 
         <ol className="mt-[clamp(36px,5vw,56px)] grid list-none grid-cols-1 gap-x-[clamp(24px,3vw,40px)] gap-y-9 border-t border-hair pt-[clamp(32px,4vw,44px)] sm:grid-cols-2 lg:grid-cols-4">

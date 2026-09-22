@@ -16,11 +16,11 @@ export const CONTACT = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Who We Are", href: "#who-we-are" },
-  { label: "What We Do", href: "#what-we-do" },
-  { label: "Services", href: "#services" },
-  { label: "Calculators", href: "#calculators" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Who We Are", href: "/#who-we-are" },
+  { label: "What We Do", href: "/#what-we-do" },
+  { label: "Services", href: "/#services" },
+  { label: "Insights", href: "/insights" },
+  { label: "Contact Us", href: "/#contact" },
 ] as const;
 
 /** Client-supplied, Sept 2026 copy. `accent` renders in violet beside the value. */
@@ -347,21 +347,22 @@ export const OFFICES = [
 
 /** Mirrors the six services actually on the page. */
 export const FOOTER_SERVICES = [
-  { label: "Mutual Funds", href: "#services" },
-  { label: "SIFs", href: "#services" },
-  { label: "PMS", href: "#services" },
-  { label: "AIF", href: "#services" },
-  { label: "Insurance Advisory", href: "#services" },
-  { label: "Loan Advisory", href: "#services" },
+  { label: "Mutual Funds", href: "/#services" },
+  { label: "SIFs", href: "/#services" },
+  { label: "PMS", href: "/#services" },
+  { label: "AIF", href: "/#services" },
+  { label: "Insurance Advisory", href: "/#services" },
+  { label: "Loan Advisory", href: "/#services" },
 ] as const;
 
 export const FOOTER_COMPANY = [
-  { label: "Who We Are", href: "#who-we-are" },
-  { label: "What We Do", href: "#what-we-do" },
-  { label: "Calculator", href: "#calculators" },
-  { label: "FAQs", href: "#faqs" },
-  { label: "Policy", href: "#contact" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Who We Are", href: "/#who-we-are" },
+  { label: "What We Do", href: "/#what-we-do" },
+  { label: "Calculators", href: "/#calculators" },
+  { label: "Insights", href: "/insights" },
+  { label: "FAQs", href: "/#faqs" },
+  { label: "Policy", href: "/#contact" },
+  { label: "Contact Us", href: "/#contact" },
 ] as const;
 
 /**

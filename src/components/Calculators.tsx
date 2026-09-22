@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import {
   CALCULATOR_TABS,
@@ -147,12 +148,12 @@ export function Calculators() {
               {result.note}
             </p>
 
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="mt-6 block bg-lilac px-5 py-[15px] text-center text-[13px] font-bold text-plum transition-colors duration-150 hover:bg-lilac-light"
             >
               {result.cta}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

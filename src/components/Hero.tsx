@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { HERO_STATS, PHOTOS } from "@/lib/content";
 import { Photo } from "./Photo";
 
@@ -24,18 +25,18 @@ export function Hero() {
           </p>
 
           <div className="mt-[34px] flex flex-wrap gap-[14px]">
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="rounded-[2px] bg-purple px-[26px] py-[15px] text-[13.5px] font-semibold text-white transition-colors duration-150 hover:bg-purple-hover"
             >
               Talk to an Advisor
-            </a>
-            <a
-              href="#what-we-do"
+            </Link>
+            <Link
+              href="/#what-we-do"
               className="rounded-[2px] border border-outline px-[26px] py-[15px] text-[13.5px] font-semibold text-purple transition-colors duration-150 hover:border-purple"
             >
               What We Do
-            </a>
+            </Link>
           </div>
 
           {/* Explicit 1 -> 3 rather than auto-fit: with three stats and a

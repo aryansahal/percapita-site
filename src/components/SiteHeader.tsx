@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { NAV_LINKS, WORDMARK } from "@/lib/content";
 import { ClientLoginTrigger } from "./ClientLogin";
@@ -19,7 +20,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-hair bg-white">
       <div className="mx-auto flex h-[78px] max-w-[1200px] flex-nowrap items-center gap-[clamp(14px,3vw,40px)] px-[clamp(16px,3vw,32px)]">
-        <a href="#" className="flex-none" aria-label="Percapita, home">
+        <Link href="/" className="flex-none" aria-label="Percapita, home">
           <Image
             src={WORDMARK.src}
             alt="Percapita"
@@ -29,7 +30,7 @@ export function SiteHeader() {
             priority
             className="h-auto w-[clamp(112px,15vw,168px)] object-contain"
           />
-        </a>
+        </Link>
 
         {/* Flexible spacer — right-aligns what follows without flex-end. */}
         <div className="min-w-0 flex-auto" />
@@ -40,13 +41,13 @@ export function SiteHeader() {
           style={{ flex: "0 1 auto" }}
         >
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="flex-none whitespace-nowrap text-[13.5px] font-medium text-ink-2 transition-colors duration-150 hover:text-purple-accent"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 

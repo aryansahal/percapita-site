@@ -47,7 +47,7 @@ export function ClientLoginTrigger({
   const open = useContext(ClientLoginContext);
   return (
     <a
-      href={CLIENT_LOGIN.url ?? "#contact"}
+      href={CLIENT_LOGIN.url ?? "/#contact"}
       className={className}
       onClick={(e) => {
         e.preventDefault();

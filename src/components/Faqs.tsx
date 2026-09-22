@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CONTACT, FAQ_DISCLAIMER, FAQS } from "@/lib/content";
 import { MailIcon, WhatsAppIcon } from "./icons";
 
@@ -26,12 +27,12 @@ export function Faqs() {
             <h2 className="h2-display text-plum">
               Questions worth asking before you invest.
             </h2>
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="mt-[clamp(22px,3vw,30px)] inline-block rounded-[2px] bg-purple px-6 py-[14px] text-[13px] font-semibold text-white transition-colors duration-150 hover:bg-purple-hover"
             >
               Talk to an Advisor
-            </a>
+            </Link>
 
             {/* An FAQ that answers everything is rare; give the exits a home
                 rather than leaving this column empty beside a long list. */}
