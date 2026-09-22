@@ -13,6 +13,7 @@ Nothing here is blocked on engineering — each needs a decision or an asset.
 | 3b | **The commitment photo has no retina headroom.** Supplied at 1136x426, which is exactly the desktop box, so it renders 1:1 and looks soft on any high-DPI screen. | `public/photos/commitment.jpg` | The same frame at 2400x900 if the original exists. |
 | 4 | **Fund-house logos are third-party trademarks.** 16 AMC marks used to indicate distribution relationships. | `public/logos/` | Trademark clearance. |
 | 5 | **App Store and Google Play links point at `#contact`.** | `SiteFooter.tsx` | Real store URLs, or drop the block. |
+| 1b | **percapita.in publishes no SPF and no DMARC record.** Verified against Google's resolver: zero TXT records on the domain, and `_dmarc.percapita.in` does not exist. Mail sent from the domain is far more likely to be filtered as spam, and there is nothing stopping anyone spoofing it. | DNS at the registrar (ns1.mysecurecloudhost.com) | Add Zoho's SPF record, enable DKIM in Zoho, then add a DMARC record. Zoho's admin console generates all three. |
 | 5b | **The canonical domain is assumed to be `percapita.in`.** Everything in metadata, robots.txt, the sitemap and the structured data derives from it. | `src/lib/seo.ts` → `SITE_URL` | Confirm the live domain, or set `NEXT_PUBLIC_SITE_URL` at build. A wrong canonical actively harms ranking. |
 
 ### Client Login: embedding is blocked by InvestWell
