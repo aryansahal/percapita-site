@@ -35,6 +35,25 @@ export const CLIENT_LOGIN = {
   platformName: "InvestWell",
 } as const;
 
+/**
+ * The mobile app, which is the same InvestWell platform as the Client Login.
+ *
+ * Both listings are published by Excel Net Solutions Private Limited and
+ * titled "Mint by Investwell" - not Percapita. So the footer names the app
+ * before sending anyone to a store page, for the same reason the login
+ * launcher names its destination: a tap that lands on an unfamiliar brand
+ * reads as a broken link or a hijack, and the fix is to say where it goes,
+ * not to hide it.
+ *
+ * If the client ever commissions their own white-label build, these two URLs
+ * and the label are all that change.
+ */
+export const MOBILE_APP = {
+  name: "Mint by InvestWell",
+  appStore: "https://apps.apple.com/in/app/mint-by-investwell/id1479042500",
+  playStore: "https://play.google.com/store/apps/details?id=com.iw.mint.app",
+} as const;
+
 /** The host clients should expect to see in the address bar, for verification. */
 export function loginHost(): string | null {
   if (!CLIENT_LOGIN.url) return null;

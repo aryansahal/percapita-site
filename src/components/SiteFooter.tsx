@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { MOBILE_APP } from "@/lib/clientLogin";
 import {
   CONTACT,
   FOOTER_COMPANY,
@@ -34,6 +35,8 @@ function StoreButton({
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="flex items-center gap-2.5 rounded-md border border-white/[0.22] px-[14px] py-2 text-white transition-colors duration-150 hover:border-lilac"
     >
       {icon}
@@ -136,18 +139,27 @@ export function SiteFooter() {
           </ul>
 
           <div className="mt-[26px]">
-            <h3 className="mb-3 text-[10px] font-bold tracking-[0.18em] uppercase text-on-dark-muted-2">
+            <h3 className="mb-2 text-[10px] font-bold tracking-[0.18em] uppercase text-on-dark-muted-2">
               Mobile App
             </h3>
+            {/* The store pages are branded {MOBILE_APP.name}, not Percapita,
+                so say so here rather than letting the tap be a surprise. */}
+            <p className="mb-3 text-[11.5px] leading-[1.6] text-on-dark-muted-3">
+              Track your portfolio on{" "}
+              <span className="font-semibold text-on-dark-strong">
+                {MOBILE_APP.name}
+              </span>
+              , the app behind your client login.
+            </p>
             <div className="flex flex-col gap-[9px]">
               <StoreButton
-                href="/#contact"
+                href={MOBILE_APP.appStore}
                 icon={<AppleIcon className="flex-none" />}
                 kicker="Download on the"
                 name="App Store"
               />
               <StoreButton
-                href="/#contact"
+                href={MOBILE_APP.playStore}
                 icon={<PlayIcon className="flex-none" />}
                 kicker="Get it on"
                 name="Google Play"
