@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
   EMPTY_ENQUIRY,
@@ -9,7 +10,6 @@ import {
   type Enquiry,
 } from "@/lib/enquiry";
 import { CONTACT } from "@/lib/content";
-import { CheckCircleIcon } from "./icons";
 
 const INPUT_CLASS =
   "w-full rounded-[2px] border border-field bg-white px-[14px] py-[13px] font-[inherit] text-[14px] text-plum outline-none transition-colors duration-150 focus:border-purple-accent";
@@ -20,8 +20,8 @@ const LABEL_CLASS =
 type Status = "idle" | "submitting" | "error";
 
 export function ContactForm() {
+  const router = useRouter();
   const [enquiry, setEnquiry] = useState<Enquiry>(EMPTY_ENQUIRY);
-  const [sentName, setSentName] = useState<string | null>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -36,8 +36,10 @@ export function ContactForm() {
     setErrorMessage("");
     try {
       await submitEnquiry(enquiry);
-      setSentName(enquiry.name.trim().split(" ")[0]);
-      setStatus("idle");
+      // A destination URL, so analytics and ad platforms have something to
+      // count. Stay in "submitting" through the navigation, or the button
+      // flicks back to enabled while the next page loads.
+      router.push("/thank-you");
     } catch (error) {
       setErrorMessage(
         error instanceof Error && error.message
@@ -46,37 +48,6 @@ export function ContactForm() {
       );
       setStatus("error");
     }
-  }
-
-  function reset() {
-    setEnquiry(EMPTY_ENQUIRY);
-    setSentName(null);
-    setStatus("idle");
-    setErrorMessage("");
-  }
-
-  if (sentName) {
-    return (
-      <div className="min-w-0 bg-white px-[clamp(22px,3vw,36px)] py-[clamp(26px,3.5vw,38px)] text-plum">
-        <div className="flex flex-col items-start gap-[14px] py-10">
-          <CheckCircleIcon className="text-purple-accent" />
-          <p className="text-[20px] font-bold tracking-[-0.02em]">
-            Thank you, {sentName}.
-          </p>
-          <p className="text-[14px] leading-[1.75] text-ink-3">
-            Your enquiry has reached us. An advisor will be in touch within one
-            working day. For anything urgent, WhatsApp {CONTACT.whatsappLabel}.
-          </p>
-          <button
-            type="button"
-            onClick={reset}
-            className="mt-1.5 cursor-pointer rounded-[2px] border border-field bg-transparent px-[18px] py-[11px] font-[inherit] text-[12.5px] font-semibold text-purple transition-colors duration-150 hover:border-purple"
-          >
-            Send another enquiry
-          </button>
-        </div>
-      </div>
-    );
   }
 
   return (

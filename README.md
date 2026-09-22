@@ -202,6 +202,14 @@ The per-IP throttle (5 per 10 minutes) is in-memory, so it resets on deploy and
 is per-instance. Enough to blunt a script; replace it if the form is ever
 seriously targeted.
 
+On success the form routes to **`/thank-you`** rather than swapping to an
+inline panel, so analytics and ad platforms have a destination URL to count a
+conversion on. That page is `noindex` and kept out of the sitemap - it is a
+step in a funnel, not something anyone should reach from search.
+
+The submit button stays in its submitting state through the navigation. Letting
+it return to idle makes it flick back to enabled while the next page loads.
+
 ## Insights (the blog)
 
 Posts are Markdown in `content/insights/*.md`, read at build by
