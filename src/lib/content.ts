@@ -361,7 +361,7 @@ export const FOOTER_COMPANY = [
   { label: "Calculators", href: "/#calculators" },
   { label: "Insights", href: "/insights" },
   { label: "FAQs", href: "/#faqs" },
-  { label: "Policy", href: "/#contact" },
+  { label: "Policy", href: "/policy" },
   { label: "Contact Us", href: "/#contact" },
 ] as const;
 
