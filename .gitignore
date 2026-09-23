@@ -32,6 +32,9 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# ...but the template carries no secrets and is what the setup runbook
+# tells people to copy, so it has to be in the repo.
+!.env.example
 
 # vercel
 .vercel
