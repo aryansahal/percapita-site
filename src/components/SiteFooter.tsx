@@ -142,14 +142,11 @@ export function SiteFooter() {
             <h3 className="mb-2 text-[10px] font-bold tracking-[0.18em] uppercase text-on-dark-muted-2">
               Mobile App
             </h3>
-            {/* The store pages are branded {MOBILE_APP.name}, not Percapita,
-                so say so here rather than letting the tap be a surprise. */}
+            {/* Client-specified wording. Note the store listings are branded
+                "Mint by Investwell", not Percapita, so this line no longer
+                warns anyone where the tap lands. See OPEN-ITEMS.md. */}
             <p className="mb-3 text-[11.5px] leading-[1.6] text-on-dark-muted-3">
-              Track your portfolio on{" "}
-              <span className="font-semibold text-on-dark-strong">
-                {MOBILE_APP.name}
-              </span>
-              , the app behind your client login.
+              Download our app to track your portfolio on the go
             </p>
             <div className="flex flex-col gap-[9px]">
               <StoreButton
