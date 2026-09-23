@@ -143,10 +143,20 @@ gains guidance, succession planning, ESG considerations, and so on) with a
 narrative. The narrative condenses them into one clause: "from your cash flow
 and investments to tax, risk, retirement, diversification, and succession".
 
-That reads better, but the specifics were useful for search and for a visitor
-scanning to see whether their situation is covered. The lists are retained as
-`WHAT_WE_DO` in `content.ts`, unused, so they can be restored below the
-narrative if wanted. Delete that export once the client has decided.
+**Updated 23 Sep 2026: the narrative has now gone too.** The section was
+restructured into three short beats, which dropped the one clause that still
+carried the specifics - "from your cash flow and investments to tax, risk,
+retirement, diversification, and succession". Counted against the rendered
+page: "cash flow" and "succession" now appear zero times anywhere on the site;
+"diversification" survives four times in the FAQs and services copy.
+
+This is a real search cost, not a stylistic one: the terms people type are the
+terms that are now absent, and What We Do is the page's main descriptive block.
+The beats read far better and should stay. The fix is a supporting line beneath
+them, which needs one sentence of client copy.
+
+The lists are still retained as `WHAT_WE_DO` in `content.ts`, unused. Delete
+that export once the client has decided.
 
 **10. Which schemes appear in the NAV band.** Currently one flagship
 Regular/Growth scheme per fund house already shown on the site — mostly large
