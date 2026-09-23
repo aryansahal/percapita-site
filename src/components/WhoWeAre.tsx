@@ -14,6 +14,18 @@ export function PositioningBand() {
           prioritize transparency, security, and personalized support to help
           you navigate your financial journey responsibly.
         </p>
+        <p className="mt-[18px] max-w-[900px] text-[clamp(16px,1.9vw,19px)] leading-[1.65] font-medium text-on-dark-4">
+          We bring financial planning and investment advisory together to help
+          you make smarter, more intentional money moves. From figuring out your
+          next big goal to making your investments work harder, we connect the
+          dots so your money keeps up with your life, not the other way around.
+        </p>
+        {/* The section-heading scale rather than a new size, and white rather
+            than the muted body colour, so it lands as the band's payoff line
+            instead of a third paragraph. */}
+        <p className="mt-[clamp(26px,3.2vw,36px)] text-balance h2-display text-white">
+          Your money deserves a game plan.
+        </p>
       </div>
     </section>
   );
