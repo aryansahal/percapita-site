@@ -369,21 +369,16 @@ export const FOOTER_COMPANY = [
  * Placeholder photography. OPEN ITEM: replace with the client's own or
  * properly licensed images.
  *
- * `quote` is the client's own photograph. `hero` and `journey` are still
- * Unsplash placeholders; attribution is not rendered because the Unsplash
- * Licence does not require it, but for the record the photographers are
- * Ratul Puri (hero) and Sortter (journey).
+ * Both remaining images are Unsplash placeholders; attribution is not
+ * rendered because the Unsplash Licence does not require it, but for the
+ * record the photographers are Ratul Puri (hero) and Sortter (journey).
+ *
+ * `quote` is gone: Our Commitment no longer sets its copy over a photograph.
  */
 export const PHOTOS = {
   hero: {
     src: "https://images.unsplash.com/photo-1742981365880-698cfb84492d?fm=jpg&q=80&w=1200&h=1500&auto=format&fit=crop&crop=faces",
     alt: "An advisor in conversation with a client",
-  },
-  quote: {
-    // Client-supplied, Sept 2026. 1136x426 - exactly the desktop box, so it
-    // has no headroom for high-DPI screens. See OPEN-ITEMS.md.
-    src: "/photos/commitment.jpg",
-    alt: "Four Percapita colleagues around a meeting table reviewing a performance chart on a laptop, with a city skyline behind them",
   },
   journey: {
     src: "https://images.unsplash.com/photo-1647510284152-473953f84acc?fm=jpg&q=80&w=1200&auto=format&fit=crop",
