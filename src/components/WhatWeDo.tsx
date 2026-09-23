@@ -36,10 +36,13 @@ export function WhatWeDo() {
             </p>
             <p>
               We bring financial planning and investment advisory together to
-              connect the dots: from your cash flow and investments to tax,
-              risk, retirement, diversification, and succession. We first
-              understand the picture. Then we map the pieces, build an approach
-              around your circumstances, and revisit it as things evolve.
+              help you make smarter, more intentional money moves. From
+              figuring out your next big goal to making your investments work
+              harder, we connect the dots so your money keeps up with your
+              life, not the other way around.
+            </p>
+            <p className="text-[clamp(17px,2.1vw,20px)] leading-[1.4] font-bold tracking-[-0.02em] text-white">
+              Your money deserves a game plan.
             </p>
             <p>
               Because money isn&rsquo;t a collection of isolated decisions.{" "}
