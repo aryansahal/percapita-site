@@ -72,7 +72,9 @@ try {
 } catch (error) {
   console.error("AUTH FAILED:", error.message);
   const hint =
-    /invalid|535|authenticate/i.test(error.message)
+    /554|access restricted/i.test(error.message)
+      ? "Right password, wrong host for this plan. smtppro.zoho.com is the paid-plan server; use smtp.zoho.com."
+      : /535|authentication failed/i.test(error.message)
       ? "Wrong password. If two-factor is on, a normal password will not work - generate an app password at accounts.zoho.com > Security > App Passwords."
       : /ETIMEDOUT|ECONNREFUSED|ENOTFOUND/i.test(error.message)
         ? "Could not reach the server. Check the host spelling, and whether your network blocks outbound 587."

@@ -25,6 +25,12 @@ the form work; step 3 is what keeps the mail out of spam folders.
 
 ---
 
+**Verified end to end on 23 September 2026.** `smtp.zoho.com:587` authenticates
+as `lead@percapita.in`, a test message was accepted, and a POST to
+`/api/enquiry` returned `{"ok":true}` with no send errors in the log - meaning
+both the notification and the visitor confirmation went out. What remains is
+step 3, the DNS.
+
 ## 1. Get an app password from Zoho
 
 The form signs in to the mailbox to send. If two-factor authentication is on —
@@ -49,17 +55,19 @@ Copy `.env.example` to `.env.local` for local work, and set the same values in
 the host's environment for production. Never commit either.
 
 ```
-SMTP_HOST=smtppro.zoho.com
+SMTP_HOST=smtp.zoho.com
 SMTP_PORT=587
-SMTP_USER=contact@percapita.in
+SMTP_USER=lead@percapita.in
 SMTP_PASS=<the app password from step 1>
-ENQUIRY_TO=contact@percapita.in
+ENQUIRY_TO=lead@percapita.in
 ```
 
-`smtppro.zoho.com` is the paid-plan host and matches the `.com` data centre
-the MX records point at. If it is refused, try `smtp.zoho.com` (free plans).
-The exact server for the account is printed in Zoho Mail under
-**Settings → Mail Accounts → IMAP/SMTP**.
+**Use `smtp.zoho.com`, not `smtppro`.** Tested against the live server on
+23 September 2026: `smtp.zoho.com` authenticates on both 587 and 465;
+`smtppro.zoho.com` refuses with `554 5.7.8 Access Restricted` on both.
+`smtppro` is the paid-plan host and this account's plan does not permit it.
+The `.in` hosts fail too, which confirms the account is in the `.com` data
+centre.
 
 Then check it:
 
@@ -154,6 +162,7 @@ Worth confirming even if no local mailbox exists, because the default is
 
 | Symptom | Cause |
 |---|---|
+| `554 5.7.8 Access Restricted` | Right password, wrong host. Use `smtp.zoho.com`, not `smtppro.zoho.com` |
 | `535 Authentication Failed` | Mailbox password used instead of an app password, or the app password was revoked |
 | `ETIMEDOUT` / `ECONNREFUSED` | Outbound 587 blocked, or the host name is wrong |
 | Form shows its error state, logs say "SMTP is not configured" | `SMTP_PASS` is not set in the deployed environment. Setting it in `.env.local` does not affect production |
