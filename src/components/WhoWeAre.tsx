@@ -5,6 +5,9 @@ export function PositioningBand() {
   return (
     <section className="bg-plum text-white">
       <div className="shell py-[clamp(40px,5vw,60px)]">
+        {/* Lilac, not the violet used on light sections: violet is only 3.4:1
+            on plum, which fails at this size. */}
+        <p className="eyebrow eyebrow-gap text-lilac">Who We Are</p>
         <p className="max-w-[900px] text-[clamp(16px,1.9vw,19px)] leading-[1.65] font-medium text-on-dark-4">
           Percapita offers independent financial guidance with the
           professionalism and standards you expect from experienced advisors. We
