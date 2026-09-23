@@ -45,7 +45,6 @@ export function WhoWeAre() {
       <div className="shell section-y">
         <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
           <div className="min-w-0">
-            <p className="eyebrow eyebrow-gap text-violet">Who We Are</p>
             <h2 className="h2-display text-plum">
               Money moves, made clear.
             </h2>
@@ -58,13 +57,13 @@ export function WhoWeAre() {
           </Link>
         </div>
 
-        <ol className="mt-[clamp(36px,5vw,56px)] grid list-none grid-cols-1 gap-x-[clamp(24px,3vw,40px)] gap-y-9 border-t border-hair pt-[clamp(32px,4vw,44px)] sm:grid-cols-2 lg:grid-cols-4">
-          {WHO_WE_ARE_POINTS.map((point, i) => (
+        {/* A ul, not an ol: the numerals are gone and these four are not a
+            sequence. Violet on white is 4.72:1, so it clears 4.5 at 15px bold
+            - it is carrying the accent the numerals used to. */}
+        <ul className="mt-[clamp(36px,5vw,56px)] grid list-none grid-cols-1 gap-x-[clamp(24px,3vw,40px)] gap-y-9 border-t border-hair pt-[clamp(32px,4vw,44px)] sm:grid-cols-2 lg:grid-cols-4">
+          {WHO_WE_ARE_POINTS.map((point) => (
             <li key={point.title} className="min-w-0">
-              <p className="text-[22px] leading-none font-bold tracking-[-0.02em] text-violet">
-                {String(i + 1).padStart(2, "0")}
-              </p>
-              <h3 className="mt-[14px] text-[15px] leading-[1.35] font-bold text-plum">
+              <h3 className="text-[15px] leading-[1.35] font-bold text-violet">
                 {point.title}
               </h3>
               <p className="mt-2.5 text-[13.5px] leading-[1.75] text-ink-3">
@@ -72,7 +71,7 @@ export function WhoWeAre() {
               </p>
             </li>
           ))}
-        </ol>
+        </ul>
       </div>
     </section>
   );
