@@ -103,6 +103,12 @@ integration pattern, which is the shortest path.
 
 ## Design decisions still open
 
+**17. Homepage Insights headline is ours.** "Notes from our desk." stands in,
+as with Services and FAQs, and the section renders nothing at all while there
+are no published posts. With one post it shows a single card capped at 520px
+rather than leaving two empty cells in a three-column grid; it will look
+thinner than intended until there are three posts.
+
 **15. FAQ headline is ours.** The copy supplies only the label "FAQs", so
 "Questions worth asking before you invest." stands in, as with Services.
 

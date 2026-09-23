@@ -7,6 +7,10 @@ import { Photo } from "./Photo";
  * The height is content-driven with a floor, not a fixed `aspect-ratio`, so
  * the copy cannot overflow the frame at narrow widths where the band is
  * barely 300px tall.
+ *
+ * Inset rather than full-bleed: it now sits between two white sections, and
+ * the gutter is what makes it read as a framed image rather than a band the
+ * page happens to change colour for.
  */
 export function QuoteBand() {
   return (

@@ -4,6 +4,7 @@ import { Faqs } from "@/components/Faqs";
 import { GetInTouch } from "@/components/GetInTouch";
 import { Hero } from "@/components/Hero";
 import { HowWeWork } from "@/components/HowWeWork";
+import { InsightsTiles } from "@/components/InsightsTiles";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { NavMarquee } from "@/components/NavMarquee";
 import { QuoteBand } from "@/components/QuoteBand";
@@ -20,17 +21,21 @@ export default function Home() {
     <ClientLoginProvider>
       <SiteHeader />
       <main>
+        {/* Client-specified order, Sept 2026. What We Do and Services move
+            up ahead of mindset and commitment, so the page says what
+            Percapita does before it says what Percapita believes. */}
         <Hero />
         <NavMarquee />
         <PositioningBand />
         <WhoWeAre />
         <SparkStory />
-        <Values />
-        <QuoteBand />
         <WhatWeDo />
         <Services />
+        <Values />
+        <QuoteBand />
         <Calculators />
         <HowWeWork />
+        <InsightsTiles />
         <GetInTouch />
         <Faqs />
         <LogoMarquee />
