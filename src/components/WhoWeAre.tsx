@@ -9,12 +9,6 @@ export function PositioningBand() {
             on plum, which fails at this size. */}
         <p className="eyebrow eyebrow-gap text-lilac">Who We Are</p>
         <p className="max-w-[900px] text-[clamp(16px,1.9vw,19px)] leading-[1.65] font-medium text-on-dark-4">
-          Percapita offers independent financial guidance with the
-          professionalism and standards you expect from experienced advisors. We
-          prioritize transparency, security, and personalized support to help
-          you navigate your financial journey responsibly.
-        </p>
-        <p className="mt-[18px] max-w-[900px] text-[clamp(16px,1.9vw,19px)] leading-[1.65] font-medium text-on-dark-4">
           We bring financial planning and investment advisory together to help
           you make smarter, more intentional money moves. From figuring out your
           next big goal to making your investments work harder, we connect the
@@ -22,7 +16,7 @@ export function PositioningBand() {
         </p>
         {/* The section-heading scale rather than a new size, and white rather
             than the muted body colour, so it lands as the band's payoff line
-            instead of a third paragraph. */}
+            rather than more body copy. */}
         <p className="mt-[clamp(26px,3.2vw,36px)] text-balance h2-display text-white">
           Your money deserves a game plan.
         </p>
