@@ -11,7 +11,11 @@ import { Photo } from "./Photo";
 export function QuoteBand() {
   return (
     <section className="shell pb-[clamp(56px,7vw,96px)]">
-      <div className="relative min-h-[clamp(300px,30vw,400px)] w-full overflow-hidden">
+      {/* items-center is on this box, not the text wrapper: the wrapper is
+          content-height, so justify-center inside it centred nothing. The
+          Photo and the two scrims are absolutely positioned, so flex here
+          does not touch them. */}
+      <div className="relative flex min-h-[clamp(300px,30vw,400px)] w-full items-center overflow-hidden">
         <Photo
           src={PHOTOS.quote.src}
           alt={PHOTOS.quote.alt}
@@ -34,7 +38,7 @@ export function QuoteBand() {
           className="pointer-events-none absolute inset-0 bg-[rgba(28,10,45,0.62)] sm:hidden"
         />
 
-        <div className="relative flex max-w-[600px] flex-col justify-center px-[clamp(20px,4vw,52px)] py-[clamp(34px,4.5vw,52px)]">
+        <div className="relative max-w-[600px] px-[clamp(20px,4vw,52px)] py-[clamp(34px,4.5vw,52px)]">
           <p className="text-[10.5px] font-bold tracking-[0.18em] uppercase text-lilac">
             Our Commitment
           </p>
