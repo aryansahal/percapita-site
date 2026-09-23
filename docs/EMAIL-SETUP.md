@@ -37,14 +37,14 @@ The form signs in to the mailbox to send. If two-factor authentication is on —
 and it should be — **the normal mailbox password will not work here.** Zoho
 rejects it with `535 Authentication Failed`.
 
-1. Sign in at <https://accounts.zoho.com> as `contact@percapita.in`.
+1. Sign in at <https://accounts.zoho.com> as `lead@percapita.in`.
 2. **Security → App Passwords → Generate New Password.**
 3. Name it `Percapita website form` so it can be revoked on its own later.
 4. Copy the password. Zoho shows it once.
 
-If `contact@percapita.in` does not exist yet, create it first in the Zoho Mail
-admin console (<https://mailadmin.zoho.com> → Users) — mail is already routed
-to Zoho, so nothing else needs changing.
+`lead@percapita.in` is the mailbox the site signs in as and where enquiries
+land. Note that the site *displays* `contact@percapita.in` to visitors, so both
+mailboxes need to be watched.
 
 > An app password is scoped to this one use and can be revoked without
 > touching the mailbox password. Do not put the mailbox password here.
@@ -136,9 +136,9 @@ nslookup -type=TXT zoho._domainkey.percapita.in
 
 ## 4. One cPanel trap
 
-The website host also runs a mail server. If cPanel holds a local mailbox for
-`contact@percapita.in`, the server delivers to **itself** instead of sending
-to Zoho, and those messages land in a cPanel mailbox nobody reads.
+The website host also runs a mail server. If cPanel holds local mailboxes for
+`lead@` or `contact@percapita.in`, the server delivers to **itself** instead of
+sending to Zoho, and those messages land in a cPanel mailbox nobody reads.
 
 In cPanel: **Email → Email Routing → percapita.in → Remote Mail Exchanger.**
 
