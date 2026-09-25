@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ClientLoginProvider } from "@/components/ClientLogin";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
+import { ChatLauncher } from "@/components/ChatLauncher";
 import { SiteHeader } from "@/components/SiteHeader";
 import { CONTACT } from "@/lib/content";
 import { POLICY_SECTIONS, POLICY_UPDATED } from "@/lib/policy";
@@ -134,7 +134,7 @@ export default function Policy() {
           </div>
         </section>
       </main>
-      <WhatsAppFab />
+      <ChatLauncher />
       <SiteFooter />
     </ClientLoginProvider>
   );

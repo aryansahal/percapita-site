@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClientLoginProvider } from "@/components/ClientLogin";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
+import { ChatLauncher } from "@/components/ChatLauncher";
 import { SiteHeader } from "@/components/SiteHeader";
 import { formatPostDate, publishedPosts } from "@/lib/insights";
 
@@ -83,7 +83,7 @@ export default function InsightsIndex() {
           </div>
         </section>
       </main>
-      <WhatsAppFab />
+      <ChatLauncher />
       <SiteFooter />
     </ClientLoginProvider>
   );

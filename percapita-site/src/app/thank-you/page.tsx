@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClientLoginProvider } from "@/components/ClientLogin";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
+import { ChatLauncher } from "@/components/ChatLauncher";
 import { SiteHeader } from "@/components/SiteHeader";
 import { CheckCircleIcon, MailIcon, WhatsAppIcon } from "@/components/icons";
 import { CONTACT } from "@/lib/content";
@@ -97,7 +97,7 @@ export default function ThankYou() {
           </div>
         </section>
       </main>
-      <WhatsAppFab />
+      <ChatLauncher />
       <SiteFooter />
     </ClientLoginProvider>
   );

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ClientLoginProvider } from "@/components/ClientLogin";
 import { MdxContent } from "@/components/MdxContent";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
+import { ChatLauncher } from "@/components/ChatLauncher";
 import { SiteHeader } from "@/components/SiteHeader";
 import { CONTACT } from "@/lib/content";
 import { formatPostDate, getPost, publishedPosts } from "@/lib/insights";
@@ -121,7 +121,7 @@ export default async function InsightPost({
           </div>
         </article>
       </main>
-      <WhatsAppFab />
+      <ChatLauncher />
       <SiteFooter />
       <script
         type="application/ld+json"

@@ -11,7 +11,7 @@ import { QuoteBand } from "@/components/QuoteBand";
 import { Services } from "@/components/Services";
 import { SparkStory } from "@/components/SparkStory";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
+import { ChatLauncher } from "@/components/ChatLauncher";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Values } from "@/components/Values";
 import { WhatWeDo } from "@/components/WhatWeDo";
@@ -41,7 +41,7 @@ export default function Home() {
         <Faqs />
         <LogoMarquee />
       </main>
-      <WhatsAppFab />
+      <ChatLauncher />
       <SiteFooter />
     </ClientLoginProvider>
   );
