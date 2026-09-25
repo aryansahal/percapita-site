@@ -89,7 +89,7 @@ export function structuredData() {
         url: SITE_URL,
         description: SITE_DESCRIPTION,
         logo: `${SITE_URL}/logos/percapita-mark.png`,
-        image: `${SITE_URL}/photos/commitment.jpg`,
+        image: `${SITE_URL}/photos/commitment-v2.jpg`,
         telephone: PHONE_E164,
         email: CONTACT.email,
         foundingDate: "2015",

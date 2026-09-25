@@ -387,7 +387,11 @@ export const PHOTOS = {
   quote: {
     // Client-supplied, Sept 2026. 1136x426 - exactly the desktop box, so it
     // has no headroom for high-DPI screens. See OPEN-ITEMS.md.
-    src: "/photos/commitment.jpg",
+    // Versioned filename on purpose. The optimizer caches by URL, so
+    // replacing the bytes under the same name served the previous photo
+    // from cache - locally and potentially on the CDN after deploy. A new
+    // name is the only cache bust that works everywhere.
+    src: "/photos/commitment-v2.jpg",
     alt: "Four Percapita colleagues around a meeting table reviewing a performance chart on a laptop, with a city skyline behind them",
   },
   journey: {
