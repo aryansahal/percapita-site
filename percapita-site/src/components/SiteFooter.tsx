@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { brochure } from "@/lib/brochure";
 import { MOBILE_APP } from "@/lib/clientLogin";
 import {
   CONTACT,
@@ -52,8 +51,6 @@ function StoreButton({
 }
 
 export function SiteFooter() {
-  const pdf = brochure();
-
   return (
     <footer className="bg-aubergine text-white">
       <div className="shell grid grid-cols-[repeat(auto-fit,minmax(min(100%,190px),1fr))] gap-[clamp(32px,4vw,48px)] pt-[clamp(48px,6vw,72px)] pb-10">
@@ -105,25 +102,6 @@ export function SiteFooter() {
                 </a>
               </li>
             ))}
-            {/* Only rendered when the PDF is actually on disk - see
-                lib/brochure.ts. The size is in the label because this is a
-                download, and people on mobile data should know before they
-                tap. */}
-            {pdf ? (
-              <li>
-                <a
-                  href={pdf.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={LINK_CLASS}
-                >
-                  Brochure{" "}
-                  <span className="text-on-dark-muted-2">
-                    (PDF, {pdf.size})
-                  </span>
-                </a>
-              </li>
-            ) : null}
           </ul>
         </div>
 

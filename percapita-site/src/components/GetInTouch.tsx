@@ -1,11 +1,8 @@
-import { brochure } from "@/lib/brochure";
 import { CONTACT, OFFICES } from "@/lib/content";
 import { ContactForm } from "./ContactForm";
 import { MailIcon, WhatsAppIcon } from "./icons";
 
 export function GetInTouch() {
-  const pdf = brochure();
-
   return (
     <section
       id="contact"
@@ -86,28 +83,7 @@ export function GetInTouch() {
             </div>
           </div>
 
-          <div className="min-w-0">
-            <ContactForm />
-
-            {/* Someone who has read the whole page but is not ready to hand
-                over their details currently has nowhere to go. */}
-            {pdf ? (
-              <p className="mt-5 text-[13px] leading-[1.7] text-on-dark-2">
-                Not ready to talk?{" "}
-                <a
-                  href={pdf.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-lilac underline decoration-white/25 underline-offset-[3px] transition-colors duration-150 hover:text-white"
-                >
-                  Read our brochure
-                </a>{" "}
-                <span className="text-on-dark-muted">
-                  (PDF, {pdf.size})
-                </span>
-              </p>
-            ) : null}
-          </div>
+          <ContactForm />
         </div>
       </div>
     </section>
