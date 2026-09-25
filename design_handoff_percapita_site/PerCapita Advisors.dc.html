@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin:0; background:#ffffff; font-family:'Plus Jakarta Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  @keyframes pc-marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  a { color:#4B2478; text-decoration:none; }
+  a:hover { color:#7B4CB8; }
+  input[type=range] { -webkit-appearance:none; appearance:none; width:100%; height:2px; background:#DCD1E8; border-radius:2px; outline:none; margin:14px 0 8px; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:#4B2478; cursor:pointer; }
+  input[type=range]::-moz-range-thumb { width:14px; height:14px; border:0; border-radius:50%; background:#4B2478; cursor:pointer; }
+</style>
+</helmet>
+
+<div style="background:#ffffff;color:#1D1B20">
+
+<header style="position:sticky;top:0;z-index:50;background:#ffffff;border-bottom:1px solid #EBE4F2">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,3vw,32px);height:78px;display:flex;flex-wrap:nowrap;align-items:center;gap:clamp(20px,3vw,40px)">
+    <img src="logos/percapita-mark.png" alt="Percapita" style="width:clamp(118px,15vw,168px);height:auto;flex:none;object-fit:contain" />
+    <div style="flex:1 1 auto;min-width:0"></div>
+    <nav style="display:flex;flex-wrap:nowrap;align-items:center;gap:clamp(18px,2.4vw,30px);flex:0 1 auto;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none;font-size:13.5px;font-weight:500;color:#463F4E">
+      <a href="#who-we-are" style="flex:none;color:#463F4E">Who We Are</a>
+      <a href="#what-we-do" style="flex:none;color:#463F4E">What We Do</a>
+      <a href="#services" style="flex:none;color:#463F4E">Services</a>
+      <a href="#calculators" style="flex:none;color:#463F4E">Calculators</a>
+      <a href="#contact" style="flex:none;color:#463F4E">Contact Us</a>
+    </nav>
+    <a href="#contact" style="flex:none;background:#4B2478;color:#ffffff;font-size:13px;font-weight:600;padding:12px 22px;border-radius:2px;white-space:nowrap" style-hover="background:#5E2F94;color:#ffffff">Client Login</a>
+  </div>
+</header>
+
+<section style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px)">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:clamp(36px,5vw,64px);align-items:stretch;padding:clamp(48px,6vw,76px) 0 clamp(48px,6vw,64px)">
+    <div style="min-width:0;display:flex;flex-direction:column;justify-content:center">
+      <div style="display:flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8B5CC7;margin-bottom:26px">
+        <span>Independent Financial Advisory · Since 2015</span>
+      </div>
+      <h1 style="margin:0;font-size:clamp(32px,5.2vw,52px);line-height:1.1;font-weight:700;letter-spacing:-0.032em;color:#2E1547;text-wrap:balance">Tailored Financial Planning &amp; <span style="color:#7B4CB8">Investment</span> Solutions.</h1>
+      <p style="margin:26px 0 0;max-width:470px;font-size:15.5px;line-height:1.75;color:#5C5465;text-wrap:pretty">We provide clear, research driven financial planning and advisory services, designed to help clients make informed decisions about their financial future. Our approach is collaborative, professional, and focused on long term value.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:34px">
+        <a href="#contact" style="background:#4B2478;color:#ffffff;font-size:13.5px;font-weight:600;padding:15px 26px;border-radius:2px" style-hover="background:#5E2F94;color:#ffffff">Get in Touch</a>
+        <a href="#what-we-do" style="border:1px solid #D8CCE5;color:#4B2478;font-size:13.5px;font-weight:600;padding:15px 26px;border-radius:2px" style-hover="border-color:#4B2478;color:#4B2478">What We Do</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:24px;margin-top:48px;padding-top:34px;border-top:1px solid #EBE4F2">
+        <div>
+          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:#2E1547">2015</div>
+          <div style="margin-top:6px;font-size:12px;font-weight:500;color:#7A7383">Independent Since</div>
+        </div>
+        <div>
+          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:#2E1547">16<span style="color:#8B5CC7">+</span></div>
+          <div style="margin-top:6px;font-size:12px;font-weight:500;color:#7A7383">Fund Houses Accessed</div>
+        </div>
+        <div>
+          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:#2E1547">One<span style="color:#8B5CC7"> fee</span></div>
+          <div style="margin-top:6px;font-size:12px;font-weight:500;color:#7A7383">Transparent Advisory Fee</div>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;min-width:0;aspect-ratio:4/5;max-height:640px;min-height:380px;align-self:center;width:100%">
+      <image-slot id="pc-hero" src="https://images.unsplash.com/photo-1742981365880-698cfb84492d?fm=jpg&amp;q=80&amp;w=1200&amp;h=1500&amp;auto=format&amp;fit=crop&amp;crop=faces" credit="Photo by Ratul Puri on Unsplash" credit-href="https://unsplash.com/@ratulpuri" shape="rect" placeholder="Drop the hero portrait"></image-slot>
+      <div style="position:absolute;left:24px;bottom:26px;max-width:290px;background:#F6F1FB;padding:18px 20px;pointer-events:none">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8B5CC7">AMFI Registered Mutual Fund Distributor</div>
+        <div style="margin-top:8px;font-size:13px;line-height:1.55;color:#332B3C">ARN 142346. Independent guidance with transparency, security, and personalised support.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<sc-if value="{{ showLogoStrip }}" hint-placeholder-val="{{ true }}">
+<div style="border-top:1px solid #EBE4F2;border-bottom:1px solid #EBE4F2;background:#ffffff;overflow:hidden">
+  <div style="max-width:1200px;margin:0 auto;padding:26px clamp(20px,4vw,32px) 10px;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9A93A4">Broad market access across leading fund houses</div>
+  <div style="position:relative;padding:14px 0 26px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
+    <div style="display:flex;align-items:center;gap:64px;width:max-content;animation:pc-marquee 48s linear infinite">
+      <img src="logos/8.png" alt="SBI Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/9.png" alt="Kotak Mahindra Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/14.png" alt="Nippon India Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/15.png" alt="PGIM India Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/16.png" alt="Bandhan Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/12.png" alt="Motilal Oswal Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/13.png" alt="PPFAS Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/11.png" alt="Aditya Birla Capital Mutual Funds" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/10.png" alt="Mirae Asset Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/4.png" alt="Canara Robeco Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/5.png" alt="HDFC Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/7.png" alt="Invesco Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/6.png" alt="ICICI Prudential Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/2.png" alt="Edelweiss Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/3.png" alt="Baroda BNP Paribas Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/1.png" alt="DSP Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/8.png" alt="SBI Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/9.png" alt="Kotak Mahindra Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/14.png" alt="Nippon India Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/15.png" alt="PGIM India Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/16.png" alt="Bandhan Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/12.png" alt="Motilal Oswal Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/13.png" alt="PPFAS Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/11.png" alt="Aditya Birla Capital Mutual Funds" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/10.png" alt="Mirae Asset Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/4.png" alt="Canara Robeco Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/5.png" alt="HDFC Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/7.png" alt="Invesco Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/6.png" alt="ICICI Prudential Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/2.png" alt="Edelweiss Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/3.png" alt="Baroda BNP Paribas Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+      <img src="logos/1.png" alt="DSP Mutual Fund" style="height:38px;width:auto;flex:none;object-fit:contain;opacity:.72;filter:saturate(.25)" />
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<section style="background:#2E1547;color:#ffffff">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(40px,5vw,60px) clamp(20px,4vw,32px)">
+    <p style="margin:0;max-width:900px;font-size:clamp(16px,1.9vw,19px);line-height:1.65;font-weight:500;color:#EFE7F7;text-wrap:pretty">Percapita offers independent financial guidance with the professionalism and standards you expect from experienced advisors. We prioritize transparency, security, and personalized support to help you navigate your financial journey responsibly.</p>
+  </div>
+</section>
+
+<section id="who-we-are" style="background:#ffffff">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:clamp(40px,5vw,72px);align-items:start">
+    <div style="min-width:0">
+      <div style="display:flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8B5CC7;margin-bottom:22px">
+        <span>Who We Are</span>
+      </div>
+      <h2 style="margin:0;font-size:clamp(25px,3.3vw,33px);line-height:1.24;font-weight:700;letter-spacing:-0.025em;color:#2E1547;text-wrap:balance">Helping clients plan, manage, and protect their finances with clarity and confidence.</h2>
+      <p style="margin:22px 0 0;font-size:14.5px;line-height:1.85;color:#5C5465;text-wrap:pretty">At Percapita, we aim to provide financial advisory services with a personal approach. Unlike large institutions where clients may feel overlooked, we focus on building lasting relationships grounded in transparency and tailored financial planning.</p>
+      <p style="margin:16px 0 0;font-size:14.5px;line-height:1.85;color:#5C5465;text-wrap:pretty">Our team consists of qualified professionals with decades of combined experience in financial planning and investment advisory. When you work with us, you benefit from collective expertise aligned with your goals. We are here to support informed financial decisions with integrity and care.</p>
+      <a href="#contact" style="display:inline-block;margin-top:32px;background:#4B2478;color:#ffffff;font-size:13px;font-weight:600;padding:14px 24px;border-radius:2px" style-hover="background:#5E2F94;color:#ffffff">Start a Conversation</a>
+    </div>
+    <div style="min-width:0">
+      <div style="background:#F6F1FB;padding:clamp(26px,3.5vw,34px) clamp(22px,3vw,36px)">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8B5CC7">Our Background</div>
+        <p style="margin:14px 0 0;font-size:14.5px;line-height:1.8;color:#463F4E;text-wrap:pretty">Since 2015, Percapita has provided independent financial advisory services for individuals and families. We design strategies that integrate financial planning and investment guidance, helping clients prepare for the future responsibly.</p>
+        <p style="margin:14px 0 0;font-size:14.5px;line-height:1.8;color:#463F4E;text-wrap:pretty">Our name, drawn from the Latin “per capita”, meaning for each person, reflects our belief that effective advice begins with understanding what matters most to you. Every plan we build is personalized to reflect your ambitions and priorities.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1px;background:#EBE4F2;margin-top:28px">
+        <div style="background:#ffffff;padding:26px 24px">
+          <div style="font-size:12.5px;font-weight:700;color:#2E1547">Integrity and Transparency</div>
+          <div style="margin-top:9px;font-size:13px;line-height:1.7;color:#6A6374">We build genuine relationships based on trust and clear communication.</div>
+        </div>
+        <div style="background:#ffffff;padding:26px 24px">
+          <div style="font-size:12.5px;font-weight:700;color:#2E1547">Professional Excellence</div>
+          <div style="margin-top:9px;font-size:13px;line-height:1.7;color:#6A6374">Our approach is methodical and focused, ensuring every detail is managed with care.</div>
+        </div>
+        <div style="background:#ffffff;padding:26px 24px">
+          <div style="font-size:12.5px;font-weight:700;color:#2E1547">Solution Oriented</div>
+          <div style="margin-top:9px;font-size:13px;line-height:1.7;color:#6A6374">We approach challenges with determination, offering guidance that supports better outcomes.</div>
+        </div>
+        <div style="background:#ffffff;padding:26px 24px">
+          <div style="font-size:12.5px;font-weight:700;color:#2E1547">Clear Fee Structure</div>
+          <div style="margin-top:9px;font-size:13px;line-height:1.7;color:#6A6374">One transparent advisory fee, with no initial setup fees and no hidden costs.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(56px,7vw,96px)">
+  <div style="position:relative;width:100%;aspect-ratio:16/6;min-height:300px">
+    <image-slot id="pc-quote" src="https://images.unsplash.com/photo-1714974528718-b3b52f91c334?fm=jpg&amp;q=80&amp;w=1800&amp;auto=format&amp;fit=crop" credit="Photo by Vitaly Gariev on Unsplash" credit-href="https://unsplash.com/@silverkblack" shape="rect" placeholder="Drop the advisory meeting photo"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,10,45,0.9) 0%,rgba(28,10,45,0.74) 42%,rgba(28,10,45,0.15) 100%);pointer-events:none"></div>
+    <div style="position:absolute;left:clamp(20px,4vw,52px);right:clamp(20px,4vw,52px);top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;max-width:580px;pointer-events:none">
+      <div style="font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C3A0E4;margin-bottom:16px">Our Commitment</div>
+      <p style="margin:0;font-size:clamp(16px,2.1vw,22px);line-height:1.5;font-weight:600;color:#ffffff;letter-spacing:-0.015em;text-wrap:pretty">“There are times when objective guidance is essential. That’s why we prioritise transparent, enduring relationships with our clients.”</p>
+    </div>
+  </div>
+</section>
+
+<section id="what-we-do" style="background:#1F0E33;color:#ffffff">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,4vw,32px)">
+    <div style="display:flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C3A0E4;margin-bottom:22px">
+      <span>What We Do</span>
+    </div>
+    <h2 style="margin:0;max-width:900px;font-size:clamp(27px,3.8vw,38px);line-height:1.2;font-weight:700;letter-spacing:-0.03em;text-wrap:balance">Unified financial planning and investment advisory.</h2>
+    <p style="margin:20px 0 0;max-width:620px;font-size:14.5px;line-height:1.8;color:#B9A9CB;text-wrap:pretty">We integrate financial planning and investment guidance into one service, designed to evolve with your goals and provide long term clarity. We continuously review and refine strategies, offering regular reporting and personal reviews to keep your plan aligned with your life.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(36px,5vw,64px);margin-top:64px">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C3A0E4;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.18)">Financial Planning Expertise</div>
+        <div style="display:flex;flex-direction:column;gap:15px;margin-top:22px;font-size:13.5px;line-height:1.65;color:#DCD2E8">
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Cash flow and liquidity planning</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Tax efficiency and asset structuring</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Capital gains and income tax guidance</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Retirement and pension planning</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Legacy and succession planning</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Diversification and portfolio alignment</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Risk assessment and contingency planning</span></div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C3A0E4;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.18)">Investment Advisory Strategy</div>
+        <div style="display:flex;flex-direction:column;gap:15px;margin-top:22px;font-size:13.5px;line-height:1.65;color:#DCD2E8">
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Portfolio design aligned with your risk profile and objectives</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Access to diverse investment opportunities</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Research driven recommendations</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Ongoing monitoring and rebalancing</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Tax efficient portfolio construction</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>ESG considerations with emphasis on governance</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;font-size:8px;color:#C3A0E4">◆</span><span>Diversification across asset classes and regions</span></div>
+        </div>
+      </div>
+    </div>
+    <p style="margin:56px 0 0;font-size:11px;line-height:1.85;color:#8B7CA0;max-width:1000px">Percapita provides advisory services only. We do not guarantee financial outcomes. All financial products are subject to the terms, conditions, and regulations of the issuing institutions. Clients are encouraged to review official documents carefully before making decisions.</p>
+  </div>
+</section>
+
+<section id="services" style="background:#F6F1FB">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(52px,6.5vw,88px) clamp(20px,4vw,32px)">
+    <div style="display:flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8B5CC7;margin-bottom:20px">
+      <span>Services</span>
+    </div>
+    <h2 style="margin:0;font-size:clamp(26px,3.6vw,36px);line-height:1.2;font-weight:700;letter-spacing:-0.03em;color:#2E1547">Investments, deposits, and protection.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1px;background:#E6DCF0;margin-top:44px">
+      <div style="background:#ffffff;padding:clamp(28px,3.5vw,36px) clamp(22px,3vw,32px)">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8B5CC7">Mutual Funds</div>
+        <p style="margin:16px 0 0;font-size:14px;line-height:1.8;color:#5C5465;text-wrap:pretty">In today’s economy, keeping money only in a savings account may not protect against inflation. Mutual funds provide a way to participate in financial markets with professional management, diversification, and transparency.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid #EBE4F2;font-size:13px;line-height:1.65;color:#463F4E">
+          <div><strong style="color:#2E1547">Professional Management.</strong> Managed by qualified fund managers.</div>
+          <div><strong style="color:#2E1547">Transparency and Regulation.</strong> Funds are regulated and audited, with clear reporting on performance and strategies.</div>
+          <div><strong style="color:#2E1547">Diversification.</strong> Access to a broad range of investments, reducing reliance on a single asset.</div>
+        </div>
+      </div>
+      <div style="background:#ffffff;padding:clamp(28px,3.5vw,36px) clamp(22px,3vw,32px)">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8B5CC7">Fixed Deposits</div>
+        <p style="margin:16px 0 0;font-size:14px;line-height:1.8;color:#5C5465;text-wrap:pretty">Fixed deposits remain a popular option for those who value stability and predictable returns. The interest rate, duration, and maturity amount are defined upfront, providing clarity for investors who prioritize capital preservation.</p>
+        <div style="margin-top:22px;padding-top:20px;border-top:1px solid #EBE4F2">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9A93A4;margin-bottom:12px">Where FDs Are Offered</div>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:13px;line-height:1.6;color:#463F4E">
+            <div style="display:flex;gap:10px;align-items:baseline"><span style="flex:none;font-size:8px;color:#8B5CC7">◆</span><span>Banks</span></div>
+            <div style="display:flex;gap:10px;align-items:baseline"><span style="flex:none;font-size:8px;color:#8B5CC7">◆</span><span>Financial institutions</span></div>
+            <div style="display:flex;gap:10px;align-items:baseline"><span style="flex:none;font-size:8px;color:#8B5CC7">◆</span><span>Housing finance companies</span></div>
+            <div style="display:flex;gap:10px;align-items:baseline"><span style="flex:none;font-size:8px;color:#8B5CC7">◆</span><span>Certain corporates offering deposit schemes</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="background:#ffffff;padding:clamp(28px,3.5vw,36px) clamp(22px,3vw,32px)">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8B5CC7">General Insurance</div>
+        <p style="margin:16px 0 0;font-size:14px;line-height:1.8;color:#5C5465;text-wrap:pretty">General insurance provides protection for assets such as vehicles, property, and health against unexpected financial risks. At Percapita, we help clients explore suitable insurance options to safeguard what matters most.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid #EBE4F2;font-size:13px;line-height:1.65;color:#463F4E">
+          <div><strong style="color:#2E1547">Transparency and Regulation.</strong> Policies are regulated, with defined terms and disclosures.</div>
+          <div><strong style="color:#2E1547">Suitability First.</strong> Cover is matched to the assets and risks that matter to you.</div>
+        </div>
+      </div>
+    </div>
+    <p style="margin:26px 0 0;font-size:11px;line-height:1.8;color:#8A8394;max-width:900px">When considering fixed deposits, it is important to review the credibility of the institution, check credit ratings, and understand regulatory oversight. While FDs provide stability, they are best viewed as part of a diversified financial plan that balances safety with long term goals.</p>
+  </div>
+</section>
+
+<section id="calculators" style="background:#ffffff">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(52px,6.5vw,88px) clamp(20px,4vw,32px)">
+    <div style="display:flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8B5CC7;margin-bottom:20px">
+      <span>Calculators</span>
+    </div>
+    <h2 style="margin:0;font-size:clamp(27px,3.8vw,38px);line-height:1.2;font-weight:700;letter-spacing:-0.03em;color:#2E1547">Run the numbers on your future.</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:16px 30px;margin-top:40px;border-bottom:1px solid #E6DCF0">
+      <sc-for list="{{ tabs }}" as="tab" hint-placeholder-count="4">
+        <button onClick="{{ tab.select }}" style="{{ tab.style }}">{{ tab.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(36px,5vw,56px);margin-top:44px;align-items:start">
+      <div style="min-width:0;display:flex;flex-direction:column;gap:30px">
+        <sc-for list="{{ inputs }}" as="f" hint-placeholder-count="3">
+          <div>
+            <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8A8394">{{ f.label }}</div>
+            <div style="margin-top:9px;font-size:23px;font-weight:700;letter-spacing:-0.02em;color:#2E1547">{{ f.display }}</div>
+            <input type="range" min="{{ f.min }}" max="{{ f.max }}" step="{{ f.step }}" value="{{ f.value }}" onChange="{{ f.onChange }}" />
+            <div style="display:flex;justify-content:space-between;gap:12px;white-space:nowrap;font-size:10.5px;color:#A39CAD">
+              <span>{{ f.minLabel }}</span><span>{{ f.maxLabel }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="min-width:0;background:#2E1547;color:#ffffff;padding:clamp(28px,3.5vw,36px) clamp(22px,3vw,34px) 30px">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#B9A9CB">{{ resultLabel }}</div>
+        <div style="margin-top:12px;font-size:clamp(32px,4.4vw,44px);font-weight:700;letter-spacing:-0.035em">{{ resultValue }}</div>
+        <div style="display:flex;flex-direction:column;gap:0;margin-top:26px">
+          <sc-for list="{{ resultRows }}" as="r" hint-placeholder-count="3">
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.14);font-size:13px">
+              <span style="color:#B9A9CB">{{ r.label }}</span><span style="font-weight:600">{{ r.value }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:20px 0 0;font-size:10.5px;line-height:1.7;color:#9585AB">{{ resultNote }}</p>
+        <a href="#contact" style="display:block;margin-top:24px;background:#C3A0E4;color:#2E1547;font-size:13px;font-weight:700;padding:15px 20px;text-align:center" style-hover="background:#D4B8EE;color:#2E1547">{{ resultCta }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="background:#ffffff">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(56px,7vw,96px)">
+    <div style="text-align:center">
+      <div style="display:inline-flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8B5CC7;margin-bottom:18px">
+        <span>How We Work</span>
+      </div>
+      <h2 style="margin:0;font-size:clamp(26px,3.6vw,36px);line-height:1.2;font-weight:700;letter-spacing:-0.03em;color:#2E1547">Our financial planning process.</h2>
+      <p style="margin:18px auto 0;max-width:640px;font-size:14.5px;line-height:1.8;color:#5C5465;text-wrap:pretty">Everything begins with understanding you. We take the time to explore your financial world, where you are today, what matters most, and where you want to go.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,215px),1fr));gap:1px;background:#EBE4F2;margin-top:56px">
+      <div style="background:#ffffff;padding:26px 24px 30px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.12em;color:#8B5CC7;padding-bottom:14px;border-bottom:1px solid #8B5CC7">Stage 01</div>
+        <div style="margin-top:20px;font-size:16px;font-weight:700;color:#2E1547">Discovery Meeting</div>
+        <div style="margin-top:10px;font-size:13.5px;line-height:1.72;color:#63596F">An introduction to the planning process and its long term value.</div>
+      </div>
+      <div style="background:#ffffff;padding:26px 24px 30px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.12em;color:#8B5CC7;padding-bottom:14px;border-bottom:1px solid #8B5CC7">Stage 02</div>
+        <div style="margin-top:20px;font-size:16px;font-weight:700;color:#2E1547">Understanding Your Goals</div>
+        <div style="margin-top:10px;font-size:13.5px;line-height:1.72;color:#63596F">We take time to understand your personal and financial goals.</div>
+      </div>
+      <div style="background:#ffffff;padding:26px 24px 30px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.12em;color:#8B5CC7;padding-bottom:14px;border-bottom:1px solid #8B5CC7">Stage 03</div>
+        <div style="margin-top:20px;font-size:16px;font-weight:700;color:#2E1547">Initial Discussion</div>
+        <div style="margin-top:10px;font-size:13.5px;line-height:1.72;color:#63596F">How Percapita can support your journey, and whether we are the right fit.</div>
+      </div>
+      <div style="background:#ffffff;padding:26px 24px 30px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.12em;color:#8B5CC7;padding-bottom:14px;border-bottom:1px solid #8B5CC7">Stage 04</div>
+        <div style="margin-top:20px;font-size:16px;font-weight:700;color:#2E1547">Strategy and Review</div>
+        <div style="margin-top:10px;font-size:13.5px;line-height:1.72;color:#63596F">Strategy development and ongoing review as circumstances and markets evolve.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:0;margin-top:72px">
+      <div style="position:relative;min-width:0;aspect-ratio:4/3;height:100%;min-height:320px">
+        <image-slot id="pc-journey" src="https://images.unsplash.com/photo-1647510284152-473953f84acc?fm=jpg&amp;q=80&amp;w=1200&amp;auto=format&amp;fit=crop" credit="Photo by Sortter on Unsplash" credit-href="https://unsplash.com/@sortter" shape="rect" placeholder="Drop the client meeting photo"></image-slot>
+      </div>
+      <div style="min-width:0;background:#F6F1FB;padding:clamp(34px,4.5vw,56px) clamp(26px,4vw,52px);display:flex;flex-direction:column;justify-content:center">
+        <div style="display:flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8B5CC7;margin-bottom:22px">
+          <span>Your Initial Consultation</span>
+        </div>
+        <p style="margin:0;font-size:15px;line-height:1.85;color:#463F4E;text-wrap:pretty">At Percapita, relationships begin with alignment and trust. We offer a no obligation initial consultation, an opportunity to understand your needs and determine whether our approach is the right fit for you.</p>
+        <p style="margin:18px 0 0;font-size:15px;line-height:1.85;color:#463F4E;text-wrap:pretty">We operate on a single, transparent advisory fee that covers our integrated financial planning and investment guidance. Our pricing is designed to be fair, straightforward, and focused on long term value.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="position:relative;background:#1F0E33;color:#ffffff;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(1100px 460px at 80% 6%,rgba(139,92,199,0.45),transparent 70%),linear-gradient(180deg,#331B50 0%,#1B0C2C 100%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(56px,7vw,92px) clamp(20px,4vw,32px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(40px,5vw,64px);align-items:start">
+      <div style="min-width:0">
+        <div style="display:flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C3A0E4;margin-bottom:22px">
+          <span>Get in Touch</span>
+        </div>
+        <h2 style="margin:0;font-size:clamp(27px,3.8vw,38px);line-height:1.18;font-weight:700;letter-spacing:-0.03em;text-wrap:balance">Start with a no obligation conversation.</h2>
+        <p style="margin:20px 0 0;max-width:480px;font-size:14.5px;line-height:1.8;color:#BCACCE;text-wrap:pretty">For a conversation with one of our advisors to explore how Percapita can support your financial planning needs. We usually respond within one working day.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px;margin-top:36px">
+          <a href="https://wa.me/919920666628" style="display:flex;align-items:center;gap:14px;background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.42);padding:18px 20px;color:#ffffff" style-hover="background:rgba(37,211,102,0.2);color:#ffffff">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366" style="flex:none"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.86.5 3.6 1.38 5.1L2 22l5.2-1.53a9.8 9.8 0 0 0 4.84 1.27h.01c5.43 0 9.84-4.4 9.84-9.84 0-2.63-1.02-5.1-2.88-6.96A9.77 9.77 0 0 0 12.04 2Zm0 17.9h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.1.91.83-3.02-.2-.31a8.15 8.15 0 0 1-1.25-4.32c0-4.5 3.68-8.17 8.2-8.17a8.15 8.15 0 0 1 8.18 8.18c0 4.51-3.67 8.05-8.18 8.05Zm4.49-6.1c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.55.12-.17.25-.64.8-.78.97-.14.16-.29.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.15-.25-.02-.39.1-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.09-.17.05-.31-.02-.43-.06-.13-.55-1.34-.76-1.83-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.85.84-.85 2.04s.87 2.37.99 2.53c.12.17 1.71 2.62 4.15 3.67.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.47-.28Z"></path></svg>
+            <span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9C8CB2">WhatsApp</span><span style="font-size:15px;font-weight:700">9920 6666 28</span></span>
+          </a>
+          <a href="mailto:contact@percapita.in" style="display:flex;align-items:center;gap:14px;background:rgba(195,160,228,0.12);border:1px solid rgba(195,160,228,0.42);padding:18px 20px;color:#ffffff" style-hover="background:rgba(195,160,228,0.2);color:#ffffff">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C3A0E4" stroke-width="1.7" style="flex:none"><rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect><path d="M3 6l9 6 9-6"></path></svg>
+            <span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9C8CB2">Email</span><span style="font-size:15px;font-weight:700">contact@percapita.in</span></span>
+          </a>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:clamp(24px,4vw,36px);margin-top:44px;padding-top:34px;border-top:1px solid rgba(255,255,255,0.14)">
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9C8CB2">Mumbai</div>
+            <div style="margin-top:9px;font-size:14px;line-height:1.7;color:#F1EBF7">75, Regal, Rustomjee Adarsh<br />Malad West, Mumbai 400064</div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9C8CB2">Pune</div>
+            <div style="margin-top:9px;font-size:14px;line-height:1.7;color:#F1EBF7">C 01, Wing A, 7th Floor, City Vista<br />Kharadi, Pune 411014 <span style="color:#9C8CB2">(by appointment)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="min-width:0;background:#ffffff;color:#2E1547;padding:clamp(26px,3.5vw,38px) clamp(22px,3vw,36px)">
+        <sc-if value="{{ formSent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:40px 0">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B4CB8" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"></circle><path d="m8 12.3 2.6 2.6L16 9.5"></path></svg>
+            <div style="font-size:20px;font-weight:700;letter-spacing:-0.02em">Thank you, {{ sentName }}.</div>
+            <p style="margin:0;font-size:14px;line-height:1.75;color:#5C5465">Your enquiry has reached us. An advisor will be in touch within one working day. For anything urgent, WhatsApp 9920 6666 28.</p>
+            <button onClick="{{ resetForm }}" style="margin-top:6px;background:none;border:1px solid #DCD1E8;border-radius:2px;font-family:inherit;font-size:12.5px;font-weight:600;color:#4B2478;padding:11px 18px;cursor:pointer">Send another enquiry</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ formOpen }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="font-size:19px;font-weight:700;letter-spacing:-0.02em">Request a consultation</div>
+            <p style="margin:8px 0 26px;font-size:13px;line-height:1.7;color:#6A6374">Tell us a little about what you need. There is no cost and no obligation.</p>
+            <div style="display:flex;flex-direction:column;gap:18px">
+              <div>
+                <label style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8A8394;margin-bottom:7px;display:block">Full Name</label>
+                <input type="text" value="{{ fName }}" onChange="{{ onName }}" placeholder="Your name" style="width:100%;box-sizing:border-box;font-family:inherit;font-size:14px;color:#2E1547;background:#ffffff;border:1px solid #DCD1E8;border-radius:2px;padding:13px 14px;outline:none" style-focus="border-color:#7B4CB8" />
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px">
+                <div>
+                  <label style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8A8394;margin-bottom:7px;display:block">Email</label>
+                  <input type="email" value="{{ fEmail }}" onChange="{{ onEmail }}" placeholder="you@example.com" style="width:100%;box-sizing:border-box;font-family:inherit;font-size:14px;color:#2E1547;background:#ffffff;border:1px solid #DCD1E8;border-radius:2px;padding:13px 14px;outline:none" style-focus="border-color:#7B4CB8" />
+                </div>
+                <div>
+                  <label style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8A8394;margin-bottom:7px;display:block">Phone</label>
+                  <input type="tel" value="{{ fPhone }}" onChange="{{ onPhone }}" placeholder="+91" style="width:100%;box-sizing:border-box;font-family:inherit;font-size:14px;color:#2E1547;background:#ffffff;border:1px solid #DCD1E8;border-radius:2px;padding:13px 14px;outline:none" style-focus="border-color:#7B4CB8" />
+                </div>
+              </div>
+              <div>
+                <label style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8A8394;margin-bottom:7px;display:block">What can we help with</label>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <sc-for list="{{ topics }}" as="t" hint-placeholder-count="5">
+                    <button onClick="{{ t.select }}" style="{{ t.style }}">{{ t.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <div>
+                <label style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8A8394;margin-bottom:7px;display:block">Message <span style="text-transform:none;letter-spacing:0;font-weight:500;color:#A39CAD">(optional)</span></label>
+                <textarea rows="3" value="{{ fMessage }}" onChange="{{ onMessage }}" placeholder="Anything you would like us to know before we speak" style="width:100%;box-sizing:border-box;font-family:inherit;font-size:14px;color:#2E1547;background:#ffffff;border:1px solid #DCD1E8;border-radius:2px;padding:13px 14px;outline:none;resize:vertical;line-height:1.6" style-focus="border-color:#7B4CB8"></textarea>
+              </div>
+              <button onClick="{{ submitForm }}" style="{{ submitStyle }}">{{ submitLabel }}</button>
+              <p style="margin:0;font-size:11px;line-height:1.7;color:#8A8394">By submitting, you agree to be contacted about your enquiry. Percapita provides advisory services only and does not guarantee financial outcomes.</p>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#160823;color:#ffffff">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(48px,6vw,72px) clamp(20px,4vw,32px) 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:clamp(32px,4vw,48px)">
+    <div>
+      <img src="logos/percapita-mark.png" alt="Percapita" style="width:186px;height:auto;object-fit:contain;background:#ffffff;padding:14px 18px" />
+      <p style="margin:18px 0 0;max-width:280px;font-size:13px;line-height:1.75;color:#9287A0;text-wrap:pretty">Savings. Redefined. Independent financial advisory for individuals and families, focused on long term goals and responsible decision making.</p>
+      <div style="margin-top:20px;font-size:12px;line-height:1.7;color:#9287A0">
+        <div style="color:#D8CFE2;font-weight:700">ARN 142346</div>
+        <div>Initial Date : 20/01/2015</div>
+        <div>Valid till : 01/04/2027</div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9287A0;margin-bottom:18px">Services</div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:13.5px">
+        <a href="#services" style="color:#D8CFE2">Mutual Funds</a>
+        <a href="#services" style="color:#D8CFE2">Fixed Deposits</a>
+        <a href="#services" style="color:#D8CFE2">General Insurance</a>
+        <a href="#what-we-do" style="color:#D8CFE2">Financial Planning</a>
+        <a href="#what-we-do" style="color:#D8CFE2">Investment Advisory</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9287A0;margin-bottom:18px">Company</div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:13.5px">
+        <a href="#who-we-are" style="color:#D8CFE2">Who We Are</a>
+        <a href="#calculators" style="color:#D8CFE2">Calculator</a>
+        <a href="#contact" style="color:#D8CFE2">Policy</a>
+        <a href="#contact" style="color:#D8CFE2">Contact Us</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9287A0;margin-bottom:18px">Get In Touch</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a href="mailto:contact@percapita.in" style="display:flex;align-items:center;gap:10px;color:#D8CFE2;font-size:13.5px" style-hover="color:#C3A0E4">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="flex:none"><rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect><path d="M3 6l9 6 9-6"></path></svg>
+          <span>contact@percapita.in</span>
+        </a>
+        <a href="https://wa.me/919920666628" style="display:flex;align-items:center;gap:10px;color:#D8CFE2;font-size:13.5px" style-hover="color:#C3A0E4">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex:none"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.86.5 3.6 1.38 5.1L2 22l5.2-1.53a9.8 9.8 0 0 0 4.84 1.27h.01c5.43 0 9.84-4.4 9.84-9.84 0-2.63-1.02-5.1-2.88-6.96A9.77 9.77 0 0 0 12.04 2Zm0 17.9h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.1.91.83-3.02-.2-.31a8.15 8.15 0 0 1-1.25-4.32c0-4.5 3.68-8.17 8.2-8.17a8.15 8.15 0 0 1 8.18 8.18c0 4.51-3.67 8.05-8.18 8.05Zm4.49-6.1c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.55.12-.17.25-.64.8-.78.97-.14.16-.29.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.15-.25-.02-.39.1-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.09-.17.05-.31-.02-.43-.06-.13-.55-1.34-.76-1.83-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.85.84-.85 2.04s.87 2.37.99 2.53c.12.17 1.71 2.62 4.15 3.67.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.47-.28Z"></path></svg>
+          <span>9920 6666 28</span>
+        </a>
+        <a href="#contact" style="display:flex;align-items:center;gap:10px;color:#D8CFE2;font-size:13.5px" style-hover="color:#C3A0E4">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="flex:none"><circle cx="12" cy="8" r="3.5"></circle><path d="M4.5 20c0-3.6 3.2-5.5 7.5-5.5s7.5 1.9 7.5 5.5"></path></svg>
+          <span>Client Login</span>
+        </a>
+      </div>
+      <div style="margin-top:26px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9287A0;margin-bottom:12px">Mobile App</div>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <a href="#contact" style="display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,0.22);padding:8px 14px;border-radius:6px;color:#ffffff" style-hover="border-color:#C3A0E4;color:#ffffff">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex:none"><path d="M16.37 12.62c-.02-2.13 1.74-3.15 1.82-3.2-1-1.45-2.54-1.65-3.09-1.67-1.31-.13-2.56.77-3.23.77-.66 0-1.69-.75-2.78-.73-1.43.02-2.75.83-3.48 2.1-1.48 2.57-.38 6.37 1.06 8.45.71 1.02 1.55 2.16 2.65 2.12 1.07-.04 1.47-.69 2.76-.69 1.29 0 1.65.69 2.78.67 1.15-.02 1.87-1.03 2.57-2.05.81-1.18 1.15-2.32 1.16-2.38-.03-.01-2.22-.85-2.24-3.39ZM14.3 6.06c.58-.71.98-1.7.87-2.68-.84.03-1.86.56-2.46 1.27-.54.62-1.01 1.62-.89 2.58.94.07 1.9-.47 2.48-1.17Z"></path></svg>
+            <span style="display:flex;flex-direction:column;line-height:1.15"><span style="font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:#9287A0">Download on the</span><span style="font-size:13px;font-weight:700">App Store</span></span>
+          </a>
+          <a href="#contact" style="display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,0.22);padding:8px 14px;border-radius:6px;color:#ffffff" style-hover="border-color:#C3A0E4;color:#ffffff">
+            <svg width="17" height="17" viewBox="0 0 24 24" style="flex:none"><path d="M3.6 2.4 13.9 12 3.6 21.6c-.3-.22-.5-.6-.5-1.1V3.5c0-.5.2-.88.5-1.1Z" fill="#C3A0E4"></path><path d="m16.2 9.6 2.9 1.66c.8.46.8 1.62 0 2.08l-2.9 1.66L13.9 12l2.3-2.4Z" fill="#E8D8F5"></path><path d="M4.6 2.05 16.2 9.6 13.9 12 4.1 2.2c.15-.1.33-.15.5-.15Z" fill="#B48BD9"></path><path d="M4.6 21.95 16.2 14.4 13.9 12 4.1 21.8c.15.1.33.15.5.15Z" fill="#8B5CC7"></path></svg>
+            <span style="display:flex;flex-direction:column;line-height:1.15"><span style="font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:#9287A0">Get it on</span><span style="font-size:13px;font-weight:700">Google Play</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <sc-if value="{{ showDisclosure }}" hint-placeholder-val="{{ true }}">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 34px">
+    <div style="padding-top:30px;border-top:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
+      <p style="margin:0;font-size:11.5px;line-height:1.85;color:#8E8399;text-wrap:pretty"><span style="color:#C4B8D2;font-weight:600">Disclaimer :</span> Investments in Mutual Funds are subject to market risks. Please read all scheme-related documents carefully before investing. Mutual Fund schemes do not assure or guarantee returns, and past performance may or may not be sustained in the future. There is no certainty that the investment objective of any suggested scheme will be achieved. Investors are advised to review exit loads, total expense ratios (TER), and other applicable costs before making any investment decisions.</p>
+      <p style="margin:0;font-size:11.5px;line-height:1.85;color:#8E8399;text-wrap:pretty">Percapita deals in <strong style="color:#D8CFE2;font-weight:700">Regular Plans only</strong> for Mutual Fund schemes and earns a trailing commission on client investments. Disclosure of commission earnings is provided to clients at the time of investment. Check your Securities /MF/ Bonds in the consolidated account statement issued by NSDL/CDSL every month.</p>
+    </div>
+  </div>
+  </sc-if>
+  <div style="border-top:1px solid rgba(255,255,255,0.1)">
+    <div style="max-width:1200px;margin:0 auto;padding:20px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:11px;color:#7E7389">
+      <span>Copyright © Percapita Services. All rights reserved.</span>
+      <span>AMFI Registered Mutual Fund Distributor · ARN 142346</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showLogoStrip&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;},&quot;showDisclosure&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;},&quot;defaultCalculator&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;SIP Returns&quot;,&quot;Wealth Goal&quot;,&quot;Tax Savings (80C)&quot;,&quot;Retirement Corpus&quot;],&quot;default&quot;:&quot;SIP Returns&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Calculators&quot;}}">
+class Component extends DCLogic {
+  state = {
+    form: { name: '', email: '', phone: '', topic: 'Financial Planning', message: '' },
+    sent: null,
+    tab: null,
+    sip: { amount: 25000, rate: 12, years: 15 },
+    goal: { target: 10000000, rate: 12, years: 10 },
+    tax: { income: 1800000, invested: 150000 },
+    ret: { age: 36, retireAge: 60, expense: 150000 }
+  };
+
+  get tab() { return this.state.tab || this.props.defaultCalculator || 'SIP Returns'; }
+
+  set(group, key, v) {
+    this.setState(s => ({ [group]: Object.assign({}, s[group], { [key]: v }) }));
+  }
+
+  inr(n) {
+    n = Math.round(n);
+    if (n >= 1e7) return '₹' + (n / 1e7).toFixed(2) + ' Cr';
+    if (n >= 1e5) return '₹' + (n / 1e5).toFixed(2) + ' L';
+    return '₹' + n.toLocaleString('en-IN');
+  }
+  plain(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
+
+  field(label, value, display, min, max, step, minLabel, maxLabel, onChange) {
+    return { label, value, display, min, max, step, minLabel, maxLabel, onChange };
+  }
+
+  renderVals() {
+    const tab = this.tab;
+    const names = ['SIP Returns', 'Wealth Goal', 'Tax Savings (80C)', 'Retirement Corpus'];
+    const tabs = names.map(label => ({
+      label,
+      select: () => this.setState({ tab: label }),
+      style: 'background:none;border:0;cursor:pointer;font-family:inherit;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:0 0 16px;margin-bottom:-1px;white-space:nowrap;'
+        + (tab === label
+          ? 'color:#2E1547;border-bottom:2px solid #4B2478;'
+          : 'color:#9A93A4;border-bottom:2px solid transparent;')
+    }));
+
+    let inputs = [], resultLabel = '', resultValue = '', resultRows = [], resultNote = '', resultCta = '';
+
+    if (tab === 'SIP Returns') {
+      const { amount, rate, years } = this.state.sip;
+      const i = rate / 1200, n = years * 12;
+      const fv = amount * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
+      const invested = amount * n;
+      inputs = [
+        this.field('Monthly SIP Amount', amount, this.plain(amount), 1000, 500000, 1000, '₹1,000', '₹5,00,000', e => this.set('sip', 'amount', +e.target.value)),
+        this.field('Expected Annual Return', rate, rate.toFixed(1) + '%', 4, 20, 0.5, '4%', '20%', e => this.set('sip', 'rate', +e.target.value)),
+        this.field('Investment Tenure', years, years + ' Years', 1, 40, 1, '1 Year', '40 Years', e => this.set('sip', 'years', +e.target.value))
+      ];
+      resultLabel = 'Total Corpus at Maturity';
+      resultValue = this.inr(fv);
+      resultRows = [
+        { label: 'Amount Invested', value: this.inr(invested) },
+        { label: 'Estimated Returns', value: this.inr(fv - invested) },
+        { label: 'Wealth Multiple', value: (fv / invested).toFixed(1) + '×' }
+      ];
+      resultNote = 'Illustrative only. Returns are assumed constant and are not guaranteed. Actual mutual fund returns vary with market conditions.';
+      resultCta = 'Talk to an advisor about SIP planning';
+    } else if (tab === 'Wealth Goal') {
+      const { target, rate, years } = this.state.goal;
+      const i = rate / 1200, n = years * 12;
+      const sip = target / (((Math.pow(1 + i, n) - 1) / i) * (1 + i));
+      const lump = target / Math.pow(1 + rate / 100, years);
+      inputs = [
+        this.field('Target Corpus', target, this.inr(target), 500000, 250000000, 500000, '₹5 L', '₹25 Cr', e => this.set('goal', 'target', +e.target.value)),
+        this.field('Expected Annual Return', rate, rate.toFixed(1) + '%', 4, 20, 0.5, '4%', '20%', e => this.set('goal', 'rate', +e.target.value)),
+        this.field('Years to Goal', years, years + ' Years', 1, 40, 1, '1 Year', '40 Years', e => this.set('goal', 'years', +e.target.value))
+      ];
+      resultLabel = 'Monthly SIP Required';
+      resultValue = this.plain(sip);
+      resultRows = [
+        { label: 'Target Corpus', value: this.inr(target) },
+        { label: 'Total Invested', value: this.inr(sip * n) },
+        { label: 'Lump Sum Alternative', value: this.inr(lump) }
+      ];
+      resultNote = 'Assumes a constant rate of return and uninterrupted monthly contributions. Review your goal annually with your advisor.';
+      resultCta = 'Plan this goal with an advisor';
+    } else if (tab === 'Tax Savings (80C)') {
+      const { income, invested } = this.state.tax;
+      const eligible = Math.min(invested, 150000);
+      const slab = income > 1500000 ? 0.30 : income > 1200000 ? 0.20 : income > 900000 ? 0.15 : income > 600000 ? 0.10 : income > 300000 ? 0.05 : 0;
+      const saved = eligible * slab * 1.04;
+      inputs = [
+        this.field('Annual Taxable Income', income, this.plain(income), 300000, 10000000, 50000, '₹3 L', '₹1 Cr', e => this.set('tax', 'income', +e.target.value)),
+        this.field('80C Investment This Year', invested, this.plain(invested), 0, 150000, 5000, '₹0', '₹1.5 L', e => this.set('tax', 'invested', +e.target.value))
+      ];
+      resultLabel = 'Estimated Tax Saved';
+      resultValue = this.plain(saved);
+      resultRows = [
+        { label: 'Eligible 80C Deduction', value: this.plain(eligible) },
+        { label: 'Marginal Slab Rate', value: (slab * 100).toFixed(0) + '%' },
+        { label: 'Unused 80C Headroom', value: this.plain(150000 - eligible) }
+      ];
+      resultNote = 'Old regime illustration including 4% cess, excluding surcharge. Section 80C is capped at ₹1.5 L. Not tax advice. Consult a qualified professional.';
+      resultCta = 'Review your tax structure with us';
+    } else {
+      const { age, retireAge, expense } = this.state.ret;
+      const yrs = Math.max(retireAge - age, 1);
+      const infl = 0.06, postReturn = 0.08, retirementYears = 20, preReturn = 0.12;
+      const futureMonthly = expense * Math.pow(1 + infl, yrs);
+      const real = (1 + postReturn) / (1 + infl) - 1;
+      const corpus = futureMonthly * 12 * (1 - Math.pow(1 + real, -retirementYears)) / real;
+      const i = preReturn / 12, n = yrs * 12;
+      const sip = corpus / (((Math.pow(1 + i, n) - 1) / i) * (1 + i));
+      inputs = [
+        this.field('Current Age', age, age + ' Years', 22, 60, 1, '22', '60', e => this.set('ret', 'age', +e.target.value)),
+        this.field('Planned Retirement Age', retireAge, retireAge + ' Years', 45, 75, 1, '45', '75', e => this.set('ret', 'retireAge', +e.target.value)),
+        this.field('Monthly Expenses Today', expense, this.inr(expense) + ' / mo', 20000, 1000000, 5000, '₹20,000', '₹10 L', e => this.set('ret', 'expense', +e.target.value))
+      ];
+      resultLabel = 'Retirement Corpus Required';
+      resultValue = this.inr(corpus);
+      resultRows = [
+        { label: 'Years to Retirement', value: yrs + ' Years' },
+        { label: 'Inflation Adjusted Monthly Spend', value: this.inr(futureMonthly) + ' /mo' },
+        { label: 'Monthly SIP Needed Today', value: this.plain(sip) }
+      ];
+      resultNote = 'Assumes 6% inflation, 8% post retirement return, 12% pre retirement return and a 20 year retirement. Illustrative only.';
+      resultCta = 'Build your retirement plan with us';
+    }
+
+    const f = this.state.form;
+    const setF = (k, v) => this.setState(st => ({ form: Object.assign({}, st.form, { [k]: v }) }));
+    const topicNames = ['Financial Planning', 'Investment Advisory', 'Mutual Funds', 'Retirement', 'Insurance'];
+    const topics = topicNames.map(label => ({
+      label,
+      select: () => setF('topic', label),
+      style: 'font-family:inherit;font-size:12px;font-weight:600;padding:9px 14px;border-radius:999px;cursor:pointer;'
+        + (f.topic === label
+          ? 'background:#4B2478;border:1px solid #4B2478;color:#ffffff;'
+          : 'background:#ffffff;border:1px solid #DCD1E8;color:#5C5465;')
+    }));
+    const valid = f.name.trim().length > 1 && /\S+@\S+\.\S+/.test(f.email);
+
+    return {
+      tabs, inputs, resultLabel, resultValue, resultRows, resultNote, resultCta,
+      formSent: !!this.state.sent,
+      formOpen: !this.state.sent,
+      sentName: this.state.sent || '',
+      fName: f.name, fEmail: f.email, fPhone: f.phone, fMessage: f.message,
+      onName: e => setF('name', e.target.value),
+      onEmail: e => setF('email', e.target.value),
+      onPhone: e => setF('phone', e.target.value),
+      onMessage: e => setF('message', e.target.value),
+      topics,
+      submitLabel: valid ? 'Request a Consultation' : 'Add your name and email',
+      submitStyle: 'font-family:inherit;font-size:13.5px;font-weight:700;padding:16px 22px;border:0;border-radius:2px;'
+        + (valid ? 'background:#4B2478;color:#ffffff;cursor:pointer;' : 'background:#EFE8F6;color:#A39CAD;cursor:not-allowed;'),
+      submitForm: () => { if (valid) this.setState({ sent: f.name.trim().split(' ')[0] }); },
+      resetForm: () => this.setState({ sent: null, form: { name: '', email: '', phone: '', topic: 'Financial Planning', message: '' } }),
+      showLogoStrip: this.props.showLogoStrip ?? true,
+      showDisclosure: this.props.showDisclosure ?? true
+    };
+  }
+}
+
+</script>
+</body>
+</html>
