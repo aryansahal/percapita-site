@@ -335,7 +335,7 @@ export const FAQ_DISCLAIMER =
 export const OFFICES = [
   {
     city: "Mumbai",
-    lines: ["75, Regal, Rustomjee Adarsh", "Malad West, Mumbai 400064"],
+    lines: ["A 2602 Evershine Crown, Thakur Village", "Kandivali East, Mumbai 400101"],
     note: null,
   },
   {

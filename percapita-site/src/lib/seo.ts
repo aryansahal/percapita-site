@@ -46,7 +46,7 @@ const PHONE_E164 = "+919920666628";
  *
  * - **Local presence.** Each office is its own `FinancialService` node with a
  *   full postal address, linked from the parent as a department. That is what
- *   lets Percapita surface for "financial advisor in Malad" or "mutual fund
+ *   lets Percapita surface for "financial advisor in Kandivali" or "mutual fund
  *   distributor Kharadi" rather than only for its own name.
  * - **Answerable facts.** The FAQ block is emitted as a real `FAQPage`, which
  *   is what both rich results and generative answer engines read to quote a
@@ -73,7 +73,7 @@ export function structuredData() {
       streetAddress: office.lines.join(", "),
       addressLocality: office.city,
       addressRegion: "Maharashtra",
-      postalCode: i === 0 ? "400064" : "411014",
+      postalCode: i === 0 ? "400101" : "411014",
       addressCountry: "IN",
     },
   }));
@@ -106,7 +106,7 @@ export function structuredData() {
           streetAddress: OFFICES[0].lines.join(", "),
           addressLocality: "Mumbai",
           addressRegion: "Maharashtra",
-          postalCode: "400064",
+          postalCode: "400101",
           addressCountry: "IN",
         },
         areaServed: { "@type": "Country", name: "India" },

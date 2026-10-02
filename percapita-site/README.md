@@ -278,7 +278,7 @@ engines the real pages are elsewhere.
   identifier, an offer catalogue built from `SERVICES`, and `knowsAbout`;
 - **one node per office**, each with a full postal address, linked from the
   parent as a department. This is the local-search half: it is what lets the
-  site rank for "financial advisor in Malad" rather than only for its own name;
+  site rank for "financial advisor in Kandivali" rather than only for its own name;
 - a `FAQPage` built from `FAQS`. Worth keeping accurate - it is what both rich
   results and generative answer engines quote from, and the fee and commission
   answers are the ones people actually search.
