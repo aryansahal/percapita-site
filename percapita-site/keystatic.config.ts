@@ -1,3 +1,4 @@
+import { createElement } from "react";
 import { config, fields, collection } from "@keystatic/core";
 
 /**
@@ -25,7 +26,19 @@ export default config({
           branchPrefix: "insights/",
         },
   ui: {
-    brand: { name: "Percapita Insights" },
+    brand: {
+      name: "Percapita Insights",
+      // The site's app icon (src/app/icon.png). Accent colours are remapped in
+      // src/app/keystatic/keystatic.css.
+      mark: () =>
+        createElement("img", {
+          src: "/icon.png",
+          alt: "",
+          width: 24,
+          height: 24,
+          style: { borderRadius: 4 },
+        }),
+    },
   },
   collections: {
     insights: collection({
@@ -34,7 +47,7 @@ export default config({
       path: "content/insights/*",
       format: { contentField: "body" },
       entryLayout: "content",
-      columns: ["title", "date"],
+      columns: ["title", "topic", "date", "draft"],
       schema: {
         title: fields.slug({
           name: { label: "Title", validation: { isRequired: true } },

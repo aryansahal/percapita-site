@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import KeystaticApp from "./keystatic";
+import "./keystatic.css";
 
 export const metadata: Metadata = {
   title: "Insights editor",
