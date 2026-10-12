@@ -48,7 +48,7 @@ function readPost(file: string): Post | null {
     title: String(data.title),
     summary: String(data.summary ?? ""),
     date: new Date(data.date).toISOString(),
-    author: String(data.author ?? "Percapita Advisors"),
+    author: String(data.author || "Percapita Advisors"),
     topic: data.topic ? String(data.topic) : undefined,
     readingMinutes: Number(data.readingMinutes) || Math.max(1, Math.round(words / 200)),
     draft: Boolean(data.draft),
