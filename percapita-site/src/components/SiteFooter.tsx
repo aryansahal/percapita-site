@@ -77,7 +77,6 @@ export function SiteFooter() {
             <p>Initial Date : 20/01/2015</p>
             <p>Valid till : 01/04/2027</p>
             <p className="mt-3 font-bold text-on-dark-link">{CONTACT.arn2}</p>
-            <p>EUIN : {CONTACT.euin2}</p>
             <p>Initial Date : 30/09/2026</p>
             <p>Valid till : 22/09/2029</p>
           </div>
