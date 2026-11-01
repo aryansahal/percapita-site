@@ -1,0 +1,68 @@
+/*
+ * Percapita purple in place of Keystatic's indigo accent.
+ *
+ * Keystatic's UI derives every accent (primary buttons, focus rings, selected
+ * rows, links) from one 11-step indigo scale, so remapping that scale rebrands
+ * it without touching component styles. The class is doubled to outrank the
+ * scheme rules Keystatic injects at runtime. Step 9 is the button fill, 10 its
+ * hover, 11 accent text, 1-8 tints and borders.
+ */
+.kui-scheme--light.kui-scheme--light {
+  --kui-color-scale-indigo1: #fdfcfe;
+  --kui-color-scale-indigo2: #fbf8fe;
+  --kui-color-scale-indigo3: #f6f1fb;
+  --kui-color-scale-indigo4: #efe6f8;
+  --kui-color-scale-indigo5: #e8d8f5;
+  --kui-color-scale-indigo6: #dcc8ef;
+  --kui-color-scale-indigo7: #c9ade6;
+  --kui-color-scale-indigo8: #b48bd9;
+  --kui-color-scale-indigo9: #4b2478;
+  --kui-color-scale-indigo10: #5e2f94;
+  --kui-color-scale-indigo11: #4b2478;
+}
+
+.kui-scheme--dark.kui-scheme--dark {
+  --kui-color-scale-indigo1: #150d1d;
+  --kui-color-scale-indigo2: #1b1226;
+  --kui-color-scale-indigo3: #251832;
+  --kui-color-scale-indigo4: #2e1d40;
+  --kui-color-scale-indigo5: #36224c;
+  --kui-color-scale-indigo6: #422a5c;
+  --kui-color-scale-indigo7: #533572;
+  --kui-color-scale-indigo8: #6a449a;
+  --kui-color-scale-indigo9: #7b4cb8;
+  --kui-color-scale-indigo10: #8b5cc7;
+  --kui-color-scale-indigo11: #c3a0e4;
+}
+
+@media (prefers-color-scheme: dark) {
+  .kui-scheme--auto.kui-scheme--auto {
+    --kui-color-scale-indigo1: #150d1d;
+    --kui-color-scale-indigo2: #1b1226;
+    --kui-color-scale-indigo3: #251832;
+    --kui-color-scale-indigo4: #2e1d40;
+    --kui-color-scale-indigo5: #36224c;
+    --kui-color-scale-indigo6: #422a5c;
+    --kui-color-scale-indigo7: #533572;
+    --kui-color-scale-indigo8: #6a449a;
+    --kui-color-scale-indigo9: #7b4cb8;
+    --kui-color-scale-indigo10: #8b5cc7;
+    --kui-color-scale-indigo11: #c3a0e4;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .kui-scheme--auto.kui-scheme--auto {
+    --kui-color-scale-indigo1: #fdfcfe;
+    --kui-color-scale-indigo2: #fbf8fe;
+    --kui-color-scale-indigo3: #f6f1fb;
+    --kui-color-scale-indigo4: #efe6f8;
+    --kui-color-scale-indigo5: #e8d8f5;
+    --kui-color-scale-indigo6: #dcc8ef;
+    --kui-color-scale-indigo7: #c9ade6;
+    --kui-color-scale-indigo8: #b48bd9;
+    --kui-color-scale-indigo9: #4b2478;
+    --kui-color-scale-indigo10: #5e2f94;
+    --kui-color-scale-indigo11: #4b2478;
+  }
+}
