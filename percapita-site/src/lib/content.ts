@@ -13,6 +13,9 @@ export const CONTACT = {
   email: "contact@percapita.in",
   emailHref: "mailto:contact@percapita.in",
   arn: "ARN 142346",
+  /** Second registration, shown in the footer under the first. */
+  arn2: "ARN 371346",
+  euin2: "E711468",
 } as const;
 
 export const NAV_LINKS = [
