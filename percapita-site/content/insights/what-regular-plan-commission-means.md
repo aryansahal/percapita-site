@@ -1,12 +1,12 @@
 ---
-title: "What a Regular Plan commission actually costs you"
-summary: "Direct plans look cheaper on paper. Here is where the difference goes, and the question worth asking your distributor."
-date: "2026-09-23"
-author: "Percapita Advisors"
-topic: "Fees"
+title: What a Regular Plan commission actually costs you
+summary: >-
+  Direct plans look cheaper on paper. Here is where the difference goes, and the
+  question worth asking your distributor.
+date: 2026-09-23
+author: Percapita Advisors
 draft: false
 ---
-
 Every mutual fund scheme comes in two plans. A **Direct plan**, bought
 straight from the fund house, and a **Regular plan**, bought through a
 distributor. Same portfolio, same fund manager, same holdings. The difference
@@ -30,9 +30,9 @@ lower"* but *"does the guidance change my decisions enough to cover it"*.
 
 That depends on things worth being honest about:
 
-- whether you would rebalance on your own, and actually do it
-- whether you would hold through a drawdown without selling
-- whether the scheme you would have picked alone is the one that suits your
+* whether you would rebalance on your own, and actually do it
+* whether you would hold through a drawdown without selling
+* whether the scheme you would have picked alone is the one that suits your
   goal, horizon and risk profile
 
 > If the answer to all three is yes, a Direct plan may genuinely suit you
