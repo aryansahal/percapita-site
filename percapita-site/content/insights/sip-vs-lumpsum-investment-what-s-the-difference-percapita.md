@@ -5,7 +5,7 @@ summary: >-
   differences, and what to consider before investing.
 date: 2026-11-03
 author: Percapita
-draft: true
+draft: false
 ---
 **SIP vs Lumpsum: What’s the Difference?**
 
